@@ -48,6 +48,7 @@
     <Compile Include="回溯-八皇后问题.cs" />
     <Compile Include="回溯-单位分数.cs" />
     <Compile Include="回溯-轮转调度.cs" />
+    <Compile Include="欧氏距离-聚类.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
