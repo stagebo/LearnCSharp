@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+        #heart1 {
+            width: 75px;
+            height: 50px;
+            background-color: red;
+            border-bottom-right-radius: 25px;
+            border-top-right-radius: 25px;
+            transform:rotate(-45deg);
+            position:absolute;
+            left:100px;
+            top:100px;
+          
+        }
+        #heart2 {
+            width: 75px;
+            height: 50px;
+            background-color: red;
+            border-bottom-right-radius: 25px;
+            border-top-right-radius: 25px;
+            transform:rotate(-135deg);
+            position:absolute;
+            left:83px;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="heart1"></div>
+    <br />
+    <div id="heart2"></div>
+</body>
+</html>
+<script>
+    function ref() {
+        window.location.href = "http://localhost:1929/heart.html";
+    }
+    setInterval("ref()", 2000);
+</script>

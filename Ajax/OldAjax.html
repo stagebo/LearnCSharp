@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<!---
+    XMLHttpRequest对象：
+        1，如何创建该对象
+            高版本直接new XMLHttpRequest（）即可，低版本ie用new ActiveXObject（‘Microsoft.XMLHTTP’）
+        2，如何请求后台服务器资源
+        3，请求的结果如何处理
+        4，
+    
+    -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Scripts/jquery-1.8.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#linkofa").click(function () {
+                var xmlhttp = new XMLHttpRequest();//直接抛弃低版本ie
+
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                        $("#persumeofyu").html(xmlhttp.responseText);
+                }
+
+                xmlhttp.open('GET', '/Home/PersumeOfYu', true)
+
+                xmlhttp.send();
+
+            });
+
+        });
+        
+
+    </script>
+    <style>
+        .divimg {
+           margin:auto;
+           width:50%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="divimg">
+        <p><img src="../../Images/yuguoli.png" id="imgofyu" /></p>
+        <p><a href="#" id="linkofa">加载简介</a></p>
+    </div>
+    <div id="persumeofyu" class="divimg"></div>
+</body>
+</html>

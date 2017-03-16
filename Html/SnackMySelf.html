@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>MySnake</title>
+    <script type="text/javascript" src="JQuery/jquery-1.8.2.js"></script>
+    <style type="text/css">
+        .control_p {
+            margin:auto;
+            width:10%;
+        }
+        .panel {
+            margin:auto;
+            width:50%;
+        }
+
+        
+        .snack {
+        
+        }
+        .usnack {
+        
+        }
+    </style>
+    <script type="text/javascript">
+        var Dir = function () {
+            this.UP = 38;
+        }
+        function control() {
+            this.init = function () {
+                window.alert("123"); 
+            }
+        }
+
+        $(document).ready(function () {
+            $("#start_btn").click(function () {
+                
+                alert(this);
+            });
+        });
+
+       
+    </script>
+</head>
+<body>
+    <div class="panel"></div>
+    <div class="control_p">
+        <select>
+            <option value="10">10*10</option>
+            <option value="20">20*20</option>
+            <option value="30">30*30</option>
+        </select>
+        <select>
+            <option value="slow">慢</option>
+            <option value="com">中</option>
+            <option value="quick">快</option>
+        </select>
+        <input type="button" id="start_btn" value="开始" />
+    </div>
+</body>
+</html>

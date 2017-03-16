@@ -1,0 +1,603 @@
+﻿
+#shell {
+    width: 400px;
+    height: 800px;
+    float: left;
+    background-color: black;
+    border-radius: 30px;
+    border: 4px solid #fca5b8;
+    color: #ffffff;
+}
+
+#margintop {
+    width: 100%;
+    height: 50px;
+}
+
+#screen {
+    width: 400px;
+    height: 700px;
+    
+}
+
+#marginbot {
+    width: 100%;
+    height: 50px;
+}
+
+#main-left {
+    width: 8px;
+    height: 100%;
+    float: left;
+}
+
+#main {
+    width: 384px;
+    height: 100%;
+    float: left;
+    background-color:#e37f89;
+}
+
+#main_right {
+    width: 8px;
+    height: 100%;
+    float: left;
+}
+
+#top-left {
+    margin-left: 8px;
+    width: 128px;
+    height: 20px;
+    float: left;
+    border-top-left-radius: 30px;
+    background-color: black;
+}
+
+#mi {
+}
+
+#mi-icon {
+    width: 10px;
+    height: 15px;
+    float: left;
+    background-color: #8d8c8c;
+    border-top-right-radius: 5px;
+    border-top: 5px solid #8d8c8c;
+    border-left: 5px solid #8d8c8c;
+    border-right: 5px solid #8d8c8c;
+}
+
+#mi-icon-cont {
+    width: 10px;
+    height: 15px;
+    border-top-right-radius: 5px;
+    background-color: black;
+}
+
+#mi-icon-cont-top {
+    width: 10px;
+    height: 3px;
+    border-top-right-radius: 5px;
+    background-color: black;
+}
+
+#mini-icon-cont-bot {
+    width: 4px;
+    height: 12px;
+    background-color: #8d8c8c;
+    margin-left: 3px;
+}
+
+#mini-i {
+    width: 4px;
+    height: 20px;
+    float: left;
+    margin-left: 3px;
+    background-color: #8d8c8c;
+}
+
+#top-mid {
+    width: 128px;
+    height: 50px;
+    float: left;
+}
+
+#top-mid-item {
+    width: 90px;
+    height: 10px;
+    margin-top: 20px;
+    margin-left: 19px;
+}
+
+#top-mid-item1 {
+    width: 75px;
+    height: 10px;
+    float: left;
+    border-radius: 5px;
+    background-color: #424243;
+}
+
+#top-mid-item1-line {
+    width: 65px;
+    height: 3px;
+    background-color: black;
+    border-radius: 1px;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+
+#top-mid-item2 {
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    float: left;
+    border-radius: 5px;
+    background-color: #4b4b4e;
+}
+
+#top-mid-item2-center {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: black;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+#top-right {
+    width: 128px;
+    height: 50px;
+    float: left;
+}
+
+/*以下是屏幕主体*/
+/*状态栏*/
+#state {
+    width: 100%;
+    height: 20px;
+}
+/*电量显示*/
+#elec-text {
+    width: 20px;
+    height: 10px;
+    margin-top: 6px;
+    margin-right: 5px;
+    font-size: 11px;
+    float: right;
+}
+
+#elec {
+    float: right;
+    width: 30px;
+    height: 10px;
+    margin-top: 6px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #f8e6ea;
+}
+
+#elec-white {
+    width: 10px;
+    height: 10px;
+    float: left;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: #da6478;
+    font-size: 8px;
+    text-align: center center;
+}
+
+#elec-full {
+    width: 20px;
+    height: 10px;
+    float: right;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    background-color: #f8e6ea;
+}
+/*移动信号显示*/
+#signal {
+    width: 20px;
+    height: 10px;
+    margin-top: 6px;
+    float: right;
+    margin-right: 5px;
+    transform: rotate(180deg);
+}
+
+#signal-1 {
+    width: 3px;
+    height: 2px;
+    float: left;
+    margin-left: 2px;
+    background-color: #f8e6ea;
+}
+
+#signal-2 {
+    width: 3px;
+    height: 5px;
+    float: left;
+    margin-left: 2px;
+    background-color: #f8e6ea;
+}
+
+#signal-3 {
+    width: 3px;
+    height: 7px;
+    float: left;
+    margin-left: 2px;
+    background-color: #f8e6ea;
+}
+
+#signal-4 {
+    width: 3px;
+    height: 10px;
+    float: left;
+    margin-left: 2px;
+    background-color: #f8e6ea;
+}
+/*wifi信号显示*/
+#wifi-signal {
+    width: 20px;
+    height: 20px;
+    float: right;
+    border-radius: 10px;
+    margin-top: 6px;
+    margin-right: 5px;
+    background-color: #ffffff;
+}
+
+#wifi-1 {
+    width: 16px;
+    height: 16px;
+    margin-left: 2px;
+    margin-top: 2px;
+    float: left;
+    border-radius: 8px;
+    background-color: #e37f89;
+}
+
+#wifi-2 {
+    width: 12px;
+    height: 12px;
+    float: left;
+    margin-left: 2px;
+    margin-top: 2px;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+#wifi-3 {
+    width: 8px;
+    height: 8px;
+    float: left;
+    margin-left: 2px;
+    margin-top: 2px;
+    border-radius: 4px;
+    background-color: #e37f89;
+}
+
+#wifi-4 {
+    width: 4px;
+    height: 4px;
+    float: left;
+    margin-left: 2px;
+    margin-top: 2px;
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+
+#wifi-mask {
+    width: 20px;
+    height: 20px;
+    background-color: #e37f89;
+    position: absolute;
+    left: 284px;
+    top: 75px;
+    transform: rotate(45deg);
+}
+
+#wifi-mask2 {
+    width: 10px;
+    height: 20px;
+    background-color: #e37f89;
+    position: absolute;
+    left: 302px;
+    top: 72px;
+    transform: rotate(45deg);
+}
+/*时间显示*/
+#time-cont {
+    width: 384px;
+    height: 150px;
+    margin-left: 20px;
+}
+
+#time {
+    width: 384px;
+    height: 140px;
+    color: #ffffff;
+}
+
+#hour {
+    font-size: 120px;
+    width: 120px;
+    float: left;
+}
+
+#min {
+    width: 100px;
+    height: 60px;
+    float: left;
+    padding-top: 10px;
+    font-size: 60px;
+}
+
+#date {
+    text-align: left;
+    width: 200px;
+    float: left;
+    color: #ffffff;
+}
+/*中部图标*/
+#icon-frame {
+    margin-top: 150px;
+    width: 384px;
+    height: 270px;
+}
+
+#icon-frame-row1 {
+    width: 384px;
+    height: 90px;
+}
+
+#icon-frame-row1-column1 {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#item-photo {
+    width: 60px;
+    height: 60px;
+    margin-left: 34px;
+    margin-top: 15px;
+    float: left;
+    background-color: #fdfdfd;
+    border-radius: 5px;
+}
+
+#item-photo-cir {
+    width: 30px;
+    height: 30px;
+    float: left;
+    background-color: #555555;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#item-photo-cir-1 {
+    width: 18px;
+    height: 18px;
+    margin-top: 6px;
+    margin-left: 6px;
+    border-radius: 9px;
+    float: left;
+    background-color: #999999;
+}
+
+#item-photo-cir-1-2 {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-top: 1px;
+    margin-left: 1px;
+    border-radius: 8px;
+    background-color: #444444;
+}
+
+#item-photo-cir-1-2-3 {
+    width: 4px;
+    height: 4px;
+    margin-left: 6px;
+    margin-top: 6px;
+    border-radius: 2px;
+    background-color: #67ea66;
+}
+
+#item-photo-name {
+    position: absolute;
+    left: 70px;
+    top: 463px;
+    font-size: 11px;
+}
+
+#icon-frame-row1-column2 {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#icom-chrome {
+}
+
+#icon-frame-row1-column3 {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#icon-frame-row2 {
+    width: 384px;
+    height: 90px;
+}
+
+#icon-frame-row2-column1 {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#icon-frame-row2-column2 {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#icon-frame-row2-column3 {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#icon-frame-row3 {
+    width: 384px;
+    height: 90px;
+}
+
+#icon-frame-row3-column1 {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#icon-frame-row3-column2 {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#icon-frame-row3-column3 {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#frame-page {
+    width: 384px;
+    height: 20px;
+}
+
+#frame-page-item {
+    width: 60px;
+    height: 20px;
+    margin-left: 162px;
+    padding-top: 5px;
+}
+
+#frame-page-item1 {
+    width: 10px;
+    height: 10px;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#frame-page-item2 {
+    width: 10px;
+    height: 10px;
+    float: left;
+    background-color: #f1bbc0;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#icon-menu {
+    width: 384px;
+    height: 90px;
+}
+
+#icon-menu-left {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#icon-dialog {
+    width: 60px;
+    height: 60px;
+    margin-left: 34px;
+    margin-top: 15px;
+    float: left;
+    background-color: #ff226e;
+    border-radius: 5px;
+}
+
+#icon-dialog-name {
+    position: absolute;
+    left: 70px;
+    top: 749px;
+    font-size: 11px;
+}
+
+#icon-menu-mid {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+#icon-menu-left {
+    width: 128px;
+    height: 90px;
+    float: left;
+}
+
+/*底部三个按钮*/
+#bot-left {
+    width: 133px;
+    height: 50px;
+    float: left;
+}
+
+
+#show-btn {
+    width: 10px;
+    height: 6px;
+    background-color: black;
+    margin-left: 61px;
+    margin-top: 20px;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+#show-btn-mid {
+    width: 10px;
+    height: 2px;
+    background-color: #ffffff;
+    margin-top: 2px;
+}
+
+#bot-mid {
+    width: 133px;
+    height: 50px;
+    float: left;
+}
+
+#home-btn {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 3px;
+    border: 2px solid #ffffff;
+    margin-top: 20px;
+    margin-left: 61px;
+}
+
+#bot-right {
+    width: 133px;
+    height: 50px;
+    float: left;
+}
+
+#return-btn {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    margin-top: 20px;
+    margin-left: 61px;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(45deg);
+}

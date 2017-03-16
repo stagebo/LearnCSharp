@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>相对位置和绝对位置的套用</title>
+    <script src="JQuery/jquery-1.8.2.min.js"></script>
+    <style>
+        #div-par {
+            position:relative;
+            margin-left:100px;
+            margin-top:100px;
+            width:100px;
+            height:62px;
+            background-color:#234567;
+        }
+        #div-child {
+            position:absolute;
+            left:10px;
+            top:10px;
+            width:50px;
+            height:31px;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div>父级元素为相对定位，子级元素为绝对定位，更加方便灵活的处理方式</div>
+    <div id="div-par">
+        <div id="div-child"></div>
+    </div>
+</body>
+</html>

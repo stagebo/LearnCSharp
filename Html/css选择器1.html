@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        <!--定义选择器-- > 
+         
+        h1 {
+            color: red;
+            
+        }
+        <!--定义分组选择器-->
+        h1, h2, h3, h4, h5, h6 {
+            background-color: gray;
+            text-align:center;
+            width:auto;
+        }
+        <!--定义某一个标签的属性-->
+            h1 strong {
+               font-style:italic;
+               font-size:20px;
+            }
+         <!--id选择器用‘#’来定义-- > 
+        #sharp {
+                background-color:blue;
+                color:yellow;
+        }
+        <!--选择器的继承-->
+        body {
+            text-align:center;
+        }
+        #sidebar p {
+        font-style:italic;
+        margin-top:5px;     
+        }
+        <!--类选择器-->
+        .stagebo {
+            text-align:center;
+            background-color:green;
+            margin-left:400px;
+
+        
+        }
+        <!--属性选择器-->
+        [title] {
+            color:red;
+        }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="外部样式表.css"/>
+ </head>
+<body>
+    <h1>这是简单选择器！</h1>
+    <h2>选择器的分组</h2>
+    <h3 id="sharp">id选择器</h3>
+    <p class="stagebo">类选择器</p>
+    <input type="text" class="sss" value="外部选择器"/>
+</body>
+</html>

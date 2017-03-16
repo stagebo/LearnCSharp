@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="JQuery/jquery-1.8.2.js"></script>
+
+    <script type="text/javascript">        
+        $(function () {
+            $("#submit").click(function () {
+
+                var count;
+                if ($("div.star-on")) {
+                    count = $("div.star-on").length;
+                } else {
+                    coutn = 0;
+                }
+                alert(count);
+            });
+            $("div#star_item_div").mouseenter(function () {
+                $(this).addClass("star-on").removeClass("star-off");
+                $(this).nextAll().addClass("star-off").removeClass("star-on");
+                $(this).prevAll().addClass("star-on").removeClass("star-off");
+                if ($("div.star-on")) {
+                    count = $("div.star-on").length;
+                } else {
+                    count = 0;
+                }
+                $("#result").html("评分结果：" + count);
+            }).mouseleave(function () {
+                console.log($(this).prevAll());
+                if ($(this).prevAll().length == "0") {
+                    console.log("长度为零");
+                    //$(this).addClass("star-off").removeClass("star-on");
+                }
+
+                var count;
+                if ($("div.star-on")) {
+                    count = $("div.star-on").length;
+                } else {
+                    count = 0;
+                }
+                $("#result").html("评分结果：" + count);
+            });
+        });
+    </script>
+    <style type="text/css">
+        .star-off {
+            background-image: url('Plugins/raty-2.5.2/lib/img/star-off.png');
+            background-repeat: no-repeat;
+            float: left;
+            width: 20px;
+            height: 20px;
+        }
+
+        .star-on {
+            background-image: url('Plugins/raty-2.5.2/lib/img/star-on.png');
+            background-repeat: no-repeat;
+            float: left;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body style="margin-left:35%;margin-top:15%;">
+    <div style="float:left;">评价：</div>
+    <div id="star" style="float:left;">
+        <div id="star_item_div" class="star-off"></div>
+        <div id="star_item_div" class="star-off"></div>
+        <div id="star_item_div" class="star-off"></div>
+        <div id="star_item_div" class="star-off"></div>     
+        <div id="star_item_div" class="star-off"></div>
+        <div id="star_item_div" class="star-off"></div>
+        <div id="star_item_div" class="star-off"></div>
+    </div>
+    <div id="result" style="float:left;width:100px;background-color:#e6e7e8;"></div>
+    <input type="button" value="提交" id="submit" />
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .css-turn-0 {
+            -moz-transform: matrix(1,0,0,1,0,0);
+            -o-transform: matrix(1,0,0,1,0,0);
+            -webkit-transform: matrix(1,0,0,1,0,0);
+            transform: matrix(1,0,0,1,0,0);
+            -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0, M22=1, SizingMethod='auto expand')";
+        }
+
+        .css-turn-270 {
+            -moz-transform: matrix(0,-1,1,0,0,0);
+            -o-transform: matrix(0,-1,1,0,0,0);
+            -webkit-transform: matrix(0,-1,1,0,0,0);
+            transform: matrix(0,-1,1,0,0,0);
+            -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=1, M21=-1, M22=0, SizingMethod='auto expand')";
+        }
+
+        .css-turn-180 {
+            -moz-transform: matrix(-1,0,0,-1,0,0);
+            -o-transform: matrix(-1,0,0,-1,0,0);
+            -webkit-transform: matrix(-1,0,0,-1,0,0);
+            transform: matrix(-1,0,0,-1,0,0);
+            -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=0, M21=0, M22=-1, SizingMethod='auto expand')";
+        }
+
+        .css-turn-90 {
+            -moz-transform: matrix(0,1,-1,0,0,0);
+            -o-transform: matrix(0,1,-1,0,0,0);
+            -webkit-transform: matrix(0,1,-1,0,0,0);
+            transform: matrix(0,1,-1,0,0,0);
+            -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=-1, M21=1, M22=0, SizingMethod='auto expand')";
+        }
+    </style>
+    <script language=javascript>
+    var curIndex = 0;
+    //时间间隔 单位毫秒
+    var timeInterval = 2000;
+    var arr = new Array();
+    arr[0] = "1.jpg";
+    arr[1] = "2.jpg";
+    arr[2] = "3.jpg";
+    arr[3] = "4.jpg";
+    arr[4] = "5.jpg";
+    setInterval(changeImg, timeInterval);//每隔timeInterval时间，执行一次changeImg事件
+    function changeImg() {
+        var obj = document.getElementById("showpic");
+        if (curIndex == arr.length - 1) {
+            curIndex = 0;
+        }
+        else {
+            curIndex += 1;
+        }
+        obj.src = "image/" + arr[curIndex];
+    }
+    </script>
+
+
+    
+</head>
+<body>
+   <img src="image/1.jpg" id="showpic"  width="500" height="300"/>
+</body>
+</html>

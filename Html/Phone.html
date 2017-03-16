@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <script src="JQuery/jquery-1.8.2.js"></script>
+    <link href="style/Phone.css" rel="stylesheet" />
+</head>
+<body>
+    <!--框架开始-->
+    <div id="shell">
+        <!--顶部空白-包含摄像头，耳麦-->
+        <div id="margintop">
+            <div id="top-left">
+                <br />
+                <!--logo‘mi’绘制-->
+                <div id="mi">
+                    <div id="mi-icon">
+                        <div id="mi-icon-cont">
+                            <div id="mi-icon-cont-top"></div>
+                            <div id="mini-icon-cont-bot"></div>
+                        </div>
+                    </div>
+                    <div id="mini-i"></div>
+                </div>
+            </div>
+            <!--顶部中间区域耳机和摄像头-->
+            <div id="top-mid">
+                <div id="top-mid-item">
+                    <div id="top-mid-item1">
+                        <div id="top-mid-item1-line"></div>
+                    </div>
+                    <div id="top-mid-item2">
+                        <div id="top-mid-item2-center"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="top-right"></div>
+        </div>
+        <!--屏幕start-->
+        <div id="screen">
+            <div id="main-left"></div>
+
+            <div id="main">
+                <!--状态栏-->
+                <div id="state">
+                    <!--电量显示-->
+                    <div id="elec-text">67%</div>
+                    <div id="elec">
+                        <div id="elec-white"></div>
+                        <div id="elec-full"></div>
+                    </div>
+                    <!--移动信号显示-->
+                    <div id="signal">
+                        <div id="signal-4"></div>
+                        <div id="signal-3"></div>
+                        <div id="signal-2"></div>
+                        <div id="signal-1"></div>
+                    </div>
+                    <div id="wifi">
+                        <!--wifi信号显示-->
+                        <div id="wifi-signal">
+                            <div id="wifi-1">
+                                <div id="wifi-2">
+                                    <div id="wifi-3">
+                                        <div id="wifi-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="wifi-mask"></div>
+                        <div id="wifi-mask2"></div>
+                    </div>
+
+                </div>
+                <!--时间日期显示-->
+                <div id="time-cont">
+                    <div id="time">
+                        <div id="hour"></div>
+                        <div id="min"></div>
+                        <br />
+                    </div>
+                    <div id="date"></div>
+                </div>
+                <!--图标框架-中央大屏幕主要图标区域-->
+                <div id="icon-frame">
+                    <div id="icon-frame-row1">
+                        <div id="icon-frame-row1-column1">
+                            <div id="item-photo">
+                                <div id="item-photo-cir">
+                                    <div id="item-photo-cir-1">
+                                        <div id="item-photo-cir-1-2">
+                                            <div id="item-photo-cir-1-2-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="item-photo-name">相机</div>
+                        </div>
+                        <div id="icon-frame-row1-column2">
+                            <div id="icom-chrome"></div>
+                        </div>
+                        <div id="icon-frame-row1-column3"></div>
+                    </div>
+                    <div id="icon-frame-row2">
+                        <div id="icon-frame-row2-column1"></div>
+                        <div id="icon-frame-row2-column2"></div>
+                        <div id="icon-frame-row1-column3"></div>
+                    </div>
+                    <div id="icon-frame-row3">
+                        <div id="icon-frame-row3-column1"></div>
+                        <div id="icon-frame-row3-column2"></div>
+                        <div id="icon-frame-row3-column3"></div>
+                    </div>
+                </div>
+                <div id="frame-page">
+                    <div id="frame-page-item">
+                        <div id="frame-page-item2"></div>
+                        <div id="frame-page-item1"></div>
+                        <div id="frame-page-item2"></div>
+                    </div>
+                </div>
+                <!--菜单栏图标区域-->
+                <div id="icon-menu">
+                    <div id="icon-menu-left">
+                        <div id="icon-dialog">
+                            <div></div>
+
+                        </div>
+                        <div id="icon-dialog-name">拨号</div>
+                    </div>
+                    <div id="icon-menu-mid"></div>
+                    <div id="icon-menu-right"></div>
+                </div>
+            </div>
+            <!--右侧黑色边框-->
+            <div id="main-right"></div>
+        </div>
+        <!--底部黑框区域，包含三个按钮-->
+        <div id="marginbot">
+            <!--属性键-->
+            <div id="bot-left">
+                <div id="show-btn">
+                    <div id="show-btn-mid"></div>
+                </div>
+            </div>
+            <!--HOME键-->
+            <div id="bot-mid">
+                <div id="home-btn"></div>
+            </div>
+            <!--返回键-->
+            <div id="bot-right">
+                <div id="return-btn"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div style="float:right;">
+        <img src="http://img1.3chy.com/201510/goods_img/1775_P_1444674756923.png" />
+    </div>
+    <script type="text/javascript">
+        function refresh() {
+            window.location.href = "http://localhost:1929/Phone.html?u=" + Math.random();
+
+        }
+        //setInterval("refresh()", 2000);
+        function refreshTime() {
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var s = d.getSeconds();
+            var week = new Array("123", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日");
+
+            $("#hour").html(h);
+            $("#min").html(":" + m + ":" + s);
+            $("#date").html(d.getMonth() + 1 + "月" + d.getDate() + "日" + week[d.getDay()]);
+        }
+        setInterval("refreshTime()", 1000);
+    </script>
+</body>
+</html>

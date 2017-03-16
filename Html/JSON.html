@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JSON练习</title>
+    <script src="JQuery/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+    var jSONObject = {
+        "name": "王海鹏",
+        "age": "23",
+        "addr": "天津大学",
+        "phone": "13102005555"
+    };
+   
+    $(document).ready(function () {
+        $("#jname").html(jSONObject.name);
+        $("#jage").html(jSONObject.age);
+        $("#jaddress").html(jSONObject.addr);
+        $("#jphone").html(jSONObject.phone);
+    });
+    
+
+    </script>
+   <style>
+       body {
+        margin:auto;
+        width:20%;
+        margin-top:10px;
+       }
+   </style>
+</head>
+<body>
+    <h1>JSON练习</h1>
+    Name:<span id="jname"></span><br />
+    Age:<span id="jage"></span><br />
+    Address:<span id="jaddress"></span><br />
+    Phone:<span id="jphone"></span><br />
+
+   
+
+</body>
+</html>

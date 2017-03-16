@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+        .stagebo {
+            background-color:gray;
+            text-align:center;
+            width:500px;
+            height:300px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="stagebo">
+        <span style="width:2000px;height:150px;background-color:green;" id="st"></span>
+        <input type="button" id="sub" value="tijiao" onclick="method()"/>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    function method(){
+        var s = document.getElementById(sub).innerHTML;
+        window.alert(s);
+    }
+
+</script>

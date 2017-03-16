@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SC = System.Console;
+/*
+ * dotnet一般指.Net Framework 框架，是一种平台，一种框架
+ * c#是一种编程语言，可以开发基于.net平台的应用程序
+ * 
+ * 
+ * .net 可以开发：
+ *          桌面应用程序  winform
+ *          Internet应用程序  ASP.NET
+ *          手机开发  wp8
+ *          
+ * Internet的开发模式
+ *      C/S模式
+ *      B/S模式
+ *      
+ * 
+ * 
+ */
+namespace dotnet与csharp
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            检验字符串括号封闭性.Run();
+        }
+    }
+}
