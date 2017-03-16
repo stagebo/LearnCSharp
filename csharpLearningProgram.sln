@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "算法", "算法\算法.csproj", "{A60D1855-23BC-4DE8-81F5-1ABAD452065B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseTest", "DatabaseTest\DatabaseTest.csproj", "{A35370A3-8175-405B-B41F-1679B4F308DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,16 @@ Global
 		{A60D1855-23BC-4DE8-81F5-1ABAD452065B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A60D1855-23BC-4DE8-81F5-1ABAD452065B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A60D1855-23BC-4DE8-81F5-1ABAD452065B}.Release|Win32.ActiveCfg = Release|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A35370A3-8175-405B-B41F-1679B4F308DA}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
