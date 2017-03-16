@@ -11,7 +11,7 @@ namespace 算法
         int capaticy;
         int[][] arr;
         /// <summary>
-        /// 输入：
+        /// 输入：      
         ///     int[2][] arr 数组第一行表示金子重量，第二行表示金子价值
         ///     int capacity 表示背包容量
         /// 输入：
