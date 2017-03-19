@@ -28,7 +28,7 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            new Lambda表达式().Run();
+            new 读入Excel().Run();
             Console.ReadKey();
         }
     }
