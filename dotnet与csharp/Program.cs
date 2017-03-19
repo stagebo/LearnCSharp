@@ -28,7 +28,8 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            检验字符串括号封闭性.Run();
+            new Lambda表达式().Run();
+            Console.ReadKey();
         }
     }
 }
