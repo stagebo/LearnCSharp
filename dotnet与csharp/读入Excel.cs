@@ -19,7 +19,15 @@ namespace dotnet与csharp
         {
             string fileName = "../../停电计划.xlsx";
             List<string> columnTitleNameList = new List<string>();
-            FileStream fs = new FileStream(fileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite);
+            FileStream fs = null;
+            try
+            {
+                fs = new FileStream(fileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite);
+            }
+            catch
+            {
+                return;
+            }
             IWorkbook workbook = new XSSFWorkbook(fs);
             /* 验证sheet表 */
             if (workbook.NumberOfSheets == 0)
@@ -60,7 +68,6 @@ namespace dotnet与csharp
 
             /* 读取数据内容行 */
             IRow row;
-            ICell cell;
             for (int i = 1; i < deviceNumberOfRows; i++)
             {
                 TDJH t = new TDJH();
@@ -84,7 +91,7 @@ namespace dotnet与csharp
             try
             {
                 fs.Close();
-                System.IO.File.Delete(filePath);
+                 File.Delete(filePath);
             }
             catch (Exception ex)
             {
