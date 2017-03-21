@@ -28,7 +28,7 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            new 读入Excel().Run();
+            new ExcelExport().Run();
             Console.ReadKey();
         }
     }
