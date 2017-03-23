@@ -78,6 +78,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="停电计划.xlsx" />
+    <None Include="复杂Excel解析.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Office">
