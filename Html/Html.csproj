@@ -60,6 +60,7 @@
     <Content Include="clock.html" />
     <Content Include="heart.html" />
     <Content Include="json检测.html" />
+    <Content Include="JS\Script.Fun.js" />
     <Content Include="Phone.html" />
     <Content Include="Plugins\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="Plugins\Bootstrap\css\bootstrap-theme.min.css" />
@@ -3368,7 +3369,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="12321\" />
     <Folder Include="Plugins\MiniUI\themes\gray\images\layout\" />
     <Folder Include="Plugins\MiniUI\themes\gray\images\panel\" />
     <Folder Include="Plugins\MiniUI\themes\gray\images\splitter\" />
