@@ -70,6 +70,7 @@
     <Compile Include="类的修饰符.cs" />
     <Compile Include="索引.cs" />
     <Compile Include="结构.cs" />
+    <Compile Include="解析复杂Excel.cs" />
     <Compile Include="读入Excel.cs" />
     <Compile Include="重载操作符.cs" />
     <Compile Include="静态方法和静态变量的引用.cs" />
