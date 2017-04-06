@@ -34,6 +34,7 @@ namespace dotnet与csharp
             }
             catch (Exception e)
             {
+                throw new Exception(e.Message);
                 return;
             }
             IWorkbook book = new XSSFWorkbook(fs);
