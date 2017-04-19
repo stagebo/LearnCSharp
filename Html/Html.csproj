@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="clickme.html" />
     <Content Include="clock.html" />
     <Content Include="heart.html" />
     <Content Include="json检测.html" />
