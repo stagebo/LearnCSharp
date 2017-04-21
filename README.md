@@ -1,2 +1,4 @@
 # LearnCSharp
-some code fo thinkin   #记录c#学习过程
+记录学习过程
+包含c#、.NET MVC、html、js、jquery以及算法等
+
