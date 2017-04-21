@@ -37,7 +37,14 @@
         var line = $("<div></div>").addClass("position-absolute").attr('style', style);
         obj.append(line);
     }
-
+    /**
+     * function               绘制圆形
+     * params       ox        int 圆心位置x坐标
+     * params       oy        int 圆心位置y坐标
+     * params       radius    int 圆半径
+     * params       lineColor string 圆线条颜色
+     * params       fullColor string 圆内部填充颜色
+     */
     $.fn.drawCircle = function (options) {
         var opts = {
             "ox": 10,
