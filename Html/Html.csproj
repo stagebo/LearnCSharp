@@ -62,6 +62,8 @@
     <Content Include="heart.html" />
     <Content Include="json检测.html" />
     <Content Include="JS\Function.js" />
+    <Content Include="JS\PaintingWidget.css" />
+    <Content Include="JS\PaintingWidget.js" />
     <Content Include="Phone.html" />
     <Content Include="Plugins\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="Plugins\Bootstrap\css\bootstrap-theme.min.css" />
@@ -3152,6 +3154,9 @@
     <Content Include="Plugins\slimScroll\jquery.slimscroll.min.js" />
     <Content Include="Plugins\slimScroll\prettify.css" />
     <Content Include="Plugins\slimScroll\prettify.js" />
+    <Content Include="Plugins\JQueryPager\jquery.min.js" />
+    <Content Include="Plugins\JQueryPager\jquery.page.css" />
+    <Content Include="Plugins\JQueryPager\jquery.page.js" />
     <Content Include="Plugins\umeditor\dialogs\emotion\emotion.css" />
     <Content Include="Plugins\umeditor\dialogs\emotion\emotion.js" />
     <Content Include="Plugins\umeditor\dialogs\emotion\images\0.gif" />

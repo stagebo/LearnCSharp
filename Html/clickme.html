@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="JQuery/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#divs").mouseenter(function () {
+                var x = Math.ceil(Math.random() * 800);
+                var y = Math.ceil(Math.random() * 400);
+                var str = 'margin-left:' + x + 'px;margin-top:' + y + 'px;';
+                $(this).attr('style', str);
+            });
+            $("#divs").click(function () {
+                alert('1233');
+            });
+        });
+        
+    </script>
+    <style type="text/css">
+        div.btn {
+            background-color: red;
+            width: 100px;
+            height: 62px;
+        }
+    </style>
+</head>
+<body>
+    <div id="divs" class="btn">点击</div>
+</body>
+</html>
