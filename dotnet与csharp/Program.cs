@@ -28,7 +28,7 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            new 解析复杂Excel().Run();
+            验证码图片请求.Run();
             Console.ReadKey();
         }
     }

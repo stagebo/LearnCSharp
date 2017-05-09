@@ -10,6 +10,7 @@ namespace dotnet与csharp
     {
         public static void Run()
         {
+         
             Node root = getList(9, 5, 6, 7, 2, 8, 1, 4, 3);
             while (true)
             {

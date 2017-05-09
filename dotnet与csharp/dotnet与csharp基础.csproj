@@ -74,6 +74,7 @@
     <Compile Include="读入Excel.cs" />
     <Compile Include="重载操作符.cs" />
     <Compile Include="静态方法和静态变量的引用.cs" />
+    <Compile Include="验证码图片请求.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
