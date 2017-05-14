@@ -17,8 +17,8 @@ namespace dotnet与csharp
         public static void Run()
         {
             for (int i = 0; i < 2000; i++)
-            {
-                
+            {                
+                /*{"hash1":444,"hash2":444,"url":"/site/captcha?v=5917c920f409b"}*/
                 string info = GetInfo("http://202.113.4.11:8800/site/captcha?refresh=1");
                 string fileName = "D:\\VS\\测试图片\\" + Guid.NewGuid();
                 string r = info.Split(':')[3].Replace("\"", "").Replace("}", "");
