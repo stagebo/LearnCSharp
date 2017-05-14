@@ -28,7 +28,7 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            验证码图片请求.Run();
+            阶乘结果后面的零.Run();
             Console.ReadKey();
         }
     }
