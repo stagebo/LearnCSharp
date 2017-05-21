@@ -3269,6 +3269,7 @@
     <Content Include="Razor.cshtml" />
     <Content Include="style\Phone.css" />
     <Content Include="taplap.html" />
+    <Content Include="YouRemainLife.html" />
     <Content Include="画三角形.html" />
     <Content Include="相对位置和绝对位置.html" />
     <Content Include="Plugins\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
