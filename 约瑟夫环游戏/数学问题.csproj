@@ -64,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="二叉树.cs" />
     <Compile Include="多叉树.cs" />
+    <Compile Include="快速排序.cs" />
     <Compile Include="特征值法求数列通项公式验证.cs" />
     <Compile Include="约瑟夫环.cs" />
     <Compile Include="递归.cs" />
