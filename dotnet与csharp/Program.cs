@@ -28,7 +28,8 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            dotnet与csharp.PartyClass.ReflectTest.Run();
+            new Lambda表达式().Run();
+            //dotnet与csharp.PartyClass.ReflectTest.Run();
             Console.ReadKey();
         }
     }

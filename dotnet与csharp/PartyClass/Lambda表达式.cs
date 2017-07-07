@@ -8,6 +8,7 @@ namespace dotnet与csharp
 {
     class Lambda表达式
     {
+        public delegate void Del(int i);
         public void Run()
         {
             string[] nameList = { "一","二","三","四","五","六","七"};
@@ -26,7 +27,10 @@ namespace dotnet与csharp
             {
                 Console.WriteLine("姓名：{0}，年龄：{1}",p.name,p.age);
             }
-            IEnumerable<Person> l2 = l.Where<Person>(p=>p.age>25);
+            /*lambda表达式*/
+            IEnumerable<Person> l2 = l.Where<Person>(p=>p.age>25&p.name.StartsWith("张"));
+            
+            
             Console.WriteLine("筛选名单："+l2.Count<Person>().ToString());
             foreach (Person p in l2)
             {
