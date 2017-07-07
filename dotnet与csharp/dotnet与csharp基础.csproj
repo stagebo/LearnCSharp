@@ -56,26 +56,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExcelExport.cs" />
-    <Compile Include="Lambda表达式.cs" />
+    <Compile Include="Entity\Person.cs" />
+    <Compile Include="PartyClass\ExcelExport.cs" />
+    <Compile Include="PartyClass\Lambda表达式.cs" />
+    <Compile Include="PartyClass\ReflectTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="事件.cs" />
-    <Compile Include="属性_访问器.cs" />
-    <Compile Include="总结.cs" />
-    <Compile Include="数据类型分析.cs" />
-    <Compile Include="方法.cs" />
-    <Compile Include="检验字符串括号封闭性.cs" />
-    <Compile Include="特殊关键字.cs" />
-    <Compile Include="类的修饰符.cs" />
-    <Compile Include="索引.cs" />
-    <Compile Include="结构.cs" />
-    <Compile Include="解析复杂Excel.cs" />
-    <Compile Include="读入Excel.cs" />
-    <Compile Include="重载操作符.cs" />
-    <Compile Include="阶乘结果后面的零.cs" />
-    <Compile Include="静态方法和静态变量的引用.cs" />
-    <Compile Include="验证码图片请求.cs" />
+    <Compile Include="PartyClass\事件.cs" />
+    <Compile Include="PartyClass\属性_访问器.cs" />
+    <Compile Include="PartyClass\总结.cs" />
+    <Compile Include="PartyClass\数据类型分析.cs" />
+    <Compile Include="PartyClass\方法.cs" />
+    <Compile Include="PartyClass\检验字符串括号封闭性.cs" />
+    <Compile Include="PartyClass\特殊关键字.cs" />
+    <Compile Include="PartyClass\类的修饰符.cs" />
+    <Compile Include="PartyClass\索引.cs" />
+    <Compile Include="PartyClass\结构.cs" />
+    <Compile Include="PartyClass\解析复杂Excel.cs" />
+    <Compile Include="PartyClass\读入Excel.cs" />
+    <Compile Include="PartyClass\重载操作符.cs" />
+    <Compile Include="PartyClass\阶乘结果后面的零.cs" />
+    <Compile Include="PartyClass\静态方法和静态变量的引用.cs" />
+    <Compile Include="PartyClass\验证码图片请求.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

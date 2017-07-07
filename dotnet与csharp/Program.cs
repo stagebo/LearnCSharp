@@ -28,7 +28,7 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            阶乘结果后面的零.Run();
+            dotnet与csharp.PartyClass.ReflectTest.Run();
             Console.ReadKey();
         }
     }
