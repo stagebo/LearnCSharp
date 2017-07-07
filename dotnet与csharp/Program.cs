@@ -28,9 +28,15 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            new Lambda表达式().Run();
+            C c = new C();
+            B b = (B)c;
+            A a = (A)c;
+            //new Lambda表达式().Run();
             //dotnet与csharp.PartyClass.ReflectTest.Run();
             Console.ReadKey();
         }
     }
+    interface A { }
+    class B { }
+    class C :B,A{ }
 }

@@ -29,8 +29,8 @@ namespace dotnet与csharp
             }
             /*lambda表达式*/
             IEnumerable<Person> l2 = l.Where<Person>(p=>p.age>25&p.name.StartsWith("张"));
-            
-            
+
+            Console.WriteLine("筛选规则：p=>p.age>25&p.name.StartsWith(\"张\")");
             Console.WriteLine("筛选名单："+l2.Count<Person>().ToString());
             foreach (Person p in l2)
             {
