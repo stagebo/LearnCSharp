@@ -33,19 +33,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Lib\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="NPOI">
-      <HintPath>C:\Users\1\Desktop\Lib\NPOILib\NPOI.dll</HintPath>
+      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OOXML">
-      <HintPath>C:\Users\1\Desktop\Lib\NPOILib\NPOI.OOXML.dll</HintPath>
+      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\NPOI.OOXML.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>C:\Users\1\Desktop\Lib\NPOILib\NPOI.OpenXml4Net.dll</HintPath>
+      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\NPOI.OpenXml4Net.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>C:\Users\1\Desktop\Lib\NPOILib\NPOI.OpenXmlFormats.dll</HintPath>
+      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,10 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\Person.cs" />
     <Compile Include="PartyClass\ExcelExport.cs" />
     <Compile Include="PartyClass\Lambda表达式.cs" />
-    <Compile Include="PartyClass\ReflectTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PartyClass\事件.cs" />
@@ -103,6 +101,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entity\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
