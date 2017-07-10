@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>YouRemainLife</title>
+    <link href="Plugins/MiniUI/themes/default/miniui.css" rel="stylesheet" />
+    <script src="JQuery/jquery-1.8.2.min.js"></script>
+    <script src="Plugins/MiniUI/miniui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            function init() {
+                var date = new Date();
+                var bir = new Date('1994-3-23');
+                var y = date.getYear(), m = date.getMonth();
+                console.log('now:' + y + '年' + m);
+                var yy = bir.getYear(), mm = bir.getMonth();
+                console.log('bir:' + yy + 'nian' + mm);
+                var sum = 12 * (y - yy) + m - mm;
+                var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>'];
+                var index = 1;
+                for (var j = 0; j < 30; j++) {
+                    var row = ' <div class="clear">';
+                    for (var i = 0; i < 30; i++) {
+                        var item = index < sum ? items[0] : items[1];
+                        row += item;
+                        index++;
+                    }
+                    row += '</div>';
+                    $('div#life_container').append(row);
+                }
+
+            }
+            init();
+        });
+
+        function changed() {
+            $('div#life_container').html('');
+            var date = new Date();
+            var bir = mini.get('date_picker').getValue();
+            var y = date.getYear(), m = date.getMonth();
+            console.log('now:' + y + '年' + m);
+            var yy = bir.getYear(), mm = bir.getMonth();
+            console.log('bir:' + yy + 'nian' + mm);
+            var sum = 12 * (y - yy) + m - mm;
+            var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>'];
+            var index = 1;
+            for (var j = 0; j < 30; j++) {
+                var row = ' <div class="clear">';
+                for (var i = 0; i < 30; i++) {
+                    var item = index < sum ? items[0] : items[1];
+                    row += item;
+                    index++;
+                }
+                row += '</div>';
+                $('div#life_container').append(row);
+            }
+        }
+    </script>
+    <style type="text/css">
+        div.life-item_f {
+            float: left;
+            background-color: green;
+            width: 15px;
+            height: 15px;
+            margin: 2px 0 0 2px;
+        }
+
+        div.life-item_p {
+            float: left;
+            background-color: gray;
+            width: 15px;
+            height: 15px;
+            margin: 2px 0 0 2px;
+        }
+
+        div.clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="mini-datepicker" id="date_picker" value="1994-3-23" onvaluechanged="changed"></div>
+        <div class="life-container" id="life_container">
+            <!--<div>
+                <div class="life-item"></div>
+                <div class="life-item"></div>
+                <div class="life-item"></div>
+            </div>
+            <div class="clear">
+                <div class="life-item"></div>
+                <div class="life-item"></div>
+                <div class="life-item"></div>
+            </div>-->
+        </div>
+    </div>
+</body>
+</html>

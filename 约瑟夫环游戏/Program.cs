@@ -11,7 +11,8 @@ namespace 数学问题
 
         static void Main(string[] args)
         {
-            多叉树.Run();
+            new 快速排序().Run();
+            Console.ReadKey();
         }
     }
     

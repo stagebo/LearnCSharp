@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>我的人生 | Stagebo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="我的人生">
+    <meta property="og:url" content="http://stagebo.github.io/2017/05/21/我的人生/index.html">
+    <meta property="og:site_name" content="Stagebo">
+    <meta property="og:updated_time" content="2017-05-20T23:53:19.231Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="我的人生">
+
+    <link rel="alternate" href="/atom.xml" title="Stagebo" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <!--jquery lib-->
+    <script src="../../../../Plugins/JQuery/jquery-1.8.2.min.js"></script>
+    <!--miniui css&js lib-->
+    <link href="../../../../Plugins/MiniUI/themes/default/miniui.css" rel="stylesheet" />
+    <script src="../../../../Plugins/MiniUI/miniui.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            function init() {
+                var date = new Date();
+                var bir = new Date('1994-3-23');
+                var y = date.getYear(), m = date.getMonth();
+                console.log('now:' + y + '年' + m);
+                var yy = bir.getYear(), mm = bir.getMonth();
+                console.log('bir:' + yy + 'nian' + mm);
+                var sum = 12 * (y - yy) + m - mm;
+                var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>'];
+                var index = 1;
+                for (var j = 0; j < 30; j++) {
+                    var row = ' <div class="clear">';
+                    for (var i = 0; i < 30; i++) {
+                        var item = index < sum ? items[0] : items[1];
+                        row += item;
+                        index++;
+                    }
+                    row += '</div>';
+                    $('div#life_container').append(row);
+                }
+
+            }
+            init();
+        });
+
+        function changed() {
+            $('div#life_container').html('');
+            var date = new Date();
+            var bir = mini.get('date_picker').getValue();
+            var y = date.getYear(), m = date.getMonth();
+            console.log('now:' + y + '年' + m);
+            var yy = bir.getYear(), mm = bir.getMonth();
+            console.log('bir:' + yy + 'nian' + mm);
+            var sum = 12 * (y - yy) + m - mm;
+            var items = [' <div class="life-item_p"></div>', ' <div class="life-item_f"></div>'];
+            var index = 1;
+            for (var j = 0; j < 30; j++) {
+                var row = ' <div class="clear">';
+                for (var i = 0; i < 30; i++) {
+                    var item = index < sum ? items[0] : items[1];
+                    row += item;
+                    index++;
+                }
+                row += '</div>';
+                $('div#life_container').append(row);
+            }
+        }
+
+    </script>
+    <style type="text/css">
+        div.life-item_f {
+            float: left;
+            background-color: green;
+            width: 15px;
+            height: 15px;
+            margin: 2px 0 0 2px;
+        }
+
+        div.life-item_p {
+            float: left;
+            background-color: gray;
+            width: 15px;
+            height: 15px;
+            margin: 2px 0 0 2px;
+        }
+
+        div.clear {
+            clear: both;
+        }
+        div#life_container {
+            margin-left:160px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+                <div id="banner"></div>
+                <div id="header-outer" class="outer">
+                    <div id="header-title" class="inner">
+                        <h1 id="logo-wrap">
+                            <a href="/" id="logo">Stagebo</a>
+                        </h1>
+
+                    </div>
+                    <div id="header-inner" class="inner">
+                        <nav id="main-nav">
+                            <a id="main-nav-toggle" class="nav-icon"></a>
+
+                            <a class="main-nav-link" href="/">Home</a>
+
+                            <a class="main-nav-link" href="/archives">Archives</a>
+
+                        </nav>
+                        <nav id="sub-nav">
+
+                            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+
+                            <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+                        </nav>
+                        <div id="search-form-wrap">
+                            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://stagebo.github.io"></form>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="outer">
+                <section id="main">
+                    <article id="post-我的人生" class="article article-type-post" itemscope itemprop="blogPost">
+                        <div class="article-meta">
+                            <a href="/2017/05/21/我的人生/" class="article-date">
+                                <time datetime="2017-05-20T23:53:19.000Z" itemprop="datePublished">2017-05-21</time>
+                            </a>
+
+                        </div>
+                        <div class="article-inner">
+
+
+                            <header class="article-header">
+
+
+                                <h1 class="article-title" itemprop="name">
+                                    我的人生
+                                </h1>
+
+                            </header>
+
+                            <div class="article-entry" itemprop="articleBody" style="font-size:14px;">
+                                <p>
+                                    有一个令人吃惊的事实：人生只有900个月，这对于大部分人来说是一样的，在一张A4纸上画个30X30的表格，
+                                    过去一个月就打个勾，你会发现，生命过得太快了。之前有想过针对这个概念设计一个手机应用，输入你的
+                                    出生日期，系统会自动计算你的生命已走过了多少个月，还有多少月是需要好好珍惜的，每天可以通过应用中
+                                    的笔记、录音、照相功能来记录生活的点点滴滴。应用的背景画面是一个人站在茫茫的天地间，远处是一些枯树。
+                                    一句话提示人们：Your time is limited, so don`t waste it living someone else`s life.　
+                                </p>
+                                <p style="float:right;">------------摘自知乎
+                                <a href="https://zhuanlan.zhihu.com/p/19734535">《人生短短900月》</a>
+                                </p>
+                                <p>
+                                    于是我做了这么一件事情，在下面日历选择框中选择你的出生日期，下面绘图展示你已经度过的岁月在这900月中的比重！
+                                </p>
+                                <p>
+                                    大家且行且珍惜~
+                                </p>
+                                <div>
+                                    选择出生日期：<div class="mini-datepicker" id="date_picker" value="1994-3-23" onvaluechanged="changed"></div>
+                                    <div class="life-container" id="life_container">
+                                        <!--<div>
+                                            <div class="life-item"></div>
+                                            <div class="life-item"></div>
+                                            <div class="life-item"></div>
+                                        </div>
+                                        <div class="clear">
+                                            <div class="life-item"></div>
+                                            <div class="life-item"></div>
+                                            <div class="life-item"></div>
+                                        </div>-->
+                                    </div>
+                                    <p style=" margin-left:160px;">灰色表示已经逝去的岁月，绿色表示即将到来的时光~谢谢品尝！</p>
+                                </div>
+
+                            </div>
+                            <footer class="article-footer">
+                                <a data-url="http://stagebo.github.io/2017/05/21/我的人生/" data-id="cj2xxjkgt0000007t4ys5zfs1" class="article-share-link">Partager</a>
+
+
+                            </footer>
+                        </div>
+
+
+                        <nav id="article-nav">
+
+
+                            <a href="/2017/05/19/welcome-to-my-blog/" id="article-nav-older" class="article-nav-link-wrap">
+                                <strong class="article-nav-caption">Ancien</strong>
+                                <div class="article-nav-title">welcome_to_my_blog</div>
+                            </a>
+
+                        </nav>
+
+                    </article>
+                </section>
+
+                <aside id="sidebar">
+
+
+
+
+
+
+
+
+                    <div class="widget-wrap">
+                        <h3 class="widget-title">Archives</h3>
+                        <div class="widget">
+                            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="widget-wrap">
+                        <h3 class="widget-title">Articles récents</h3>
+                        <div class="widget">
+                            <ul>
+
+                                <li>
+                                    <a href="/2017/05/21/我的人生/">我的人生</a>
+                                </li>
+
+                                <li>
+                                    <a href="/2017/05/19/welcome-to-my-blog/">welcome_to_my_blog</a>
+                                </li>
+
+                                <li>
+                                    <a href="/2017/05/19/stagebo/">stagebo</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </aside>
+
+            </div>
+            <footer id="footer">
+
+                <div class="outer">
+                    <div id="footer-info" class="inner">
+                        &copy; 2017 Stagebo<br>
+                        Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <nav id="mobile-nav">
+
+            <a href="/" class="mobile-nav-link">Home</a>
+
+            <a href="/archives" class="mobile-nav-link">Archives</a>
+
+        </nav>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+        <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+        <script src="/js/script.js"></script>
+    </div>
+</body>
+</html>

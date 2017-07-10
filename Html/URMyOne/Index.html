@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>you are my one,you are my all</title>
+    <script src="../JQuery/jquery-1.8.2.min.js"></script>
+    <script src="data.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            if (jQuery === undefined) {
+                alert('未加载jQuery插件！')
+            }
+            if (loadText() == false) {
+                alert('加载数据源失败');
+            }
+        });
+        function loadText() {
+           
+            var data = yqy_wyb_storys;
+            //alert(data[0]["text"])
+            //alert(JSON.stringify(data));
+            for (var i = 0; i < data.length; i++) {
+                var d = data[i];
+                //alert();
+                var item = $("<p></p>");
+                item.html(d["text"]);
+                
+                $('#text_container').append(item);
+            }
+        }
+
+    </script>
+    <style type="text/css">
+        div.text-container {
+            width:600px;
+            margin-left:300px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="text_container" class="text-container">
+
+    </div>
+</body>
+</html>
