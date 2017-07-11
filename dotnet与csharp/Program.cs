@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SC = System.Console;
+using System.Data;
+using System.Data.SqlClient;
+using System.Xml;
+using dotnet与csharp.PartyClass;
 /*
  * dotnet一般指.Net Framework 框架，是一种平台，一种框架
  * c#是一种编程语言，可以开发基于.net平台的应用程序
@@ -28,15 +32,12 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            C c = new C();
-            B b = (B)c;
-            A a = (A)c;
-            //new Lambda表达式().Run();
-            //dotnet与csharp.PartyClass.ReflectTest.Run();
+            DatabaseConn.Run();
             Console.ReadKey();
         }
+
+
+
     }
-    interface A { }
-    class B { }
-    class C :B,A{ }
+
 }

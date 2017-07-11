@@ -59,8 +59,10 @@
     <Compile Include="Entity\Person.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="PartyClass\DatabaseConn.cs" />
     <Compile Include="PartyClass\ExcelExport.cs" />
     <Compile Include="PartyClass\Lambda表达式.cs" />
+    <Compile Include="PartyClass\LoadConfig.cs" />
     <Compile Include="PartyClass\ReflectTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
