@@ -12,7 +12,7 @@ namespace dotnet与csharp.Entity
         public int age;
         public int gender;
 
-        public string ToString() {
+        public override string ToString() {
             StringBuilder re = new StringBuilder();
             re.Append("[")
                 .Append(name).Append(",")
