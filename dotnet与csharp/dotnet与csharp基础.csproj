@@ -56,7 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\Person.cs">
+    <Compile Include="Entity\Person1.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="PartyClass\DatabaseConn.cs" />
@@ -64,6 +64,7 @@
     <Compile Include="PartyClass\Lambda表达式.cs" />
     <Compile Include="PartyClass\LoadConfig.cs" />
     <Compile Include="PartyClass\ReflectTest.cs" />
+    <Compile Include="PartyClass\ReflectTest1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PartyClass\事件.cs" />
