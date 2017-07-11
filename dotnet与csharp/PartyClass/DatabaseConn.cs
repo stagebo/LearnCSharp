@@ -10,7 +10,8 @@ namespace dotnet与csharp.PartyClass
 {
     class DatabaseConn
     {
-        public static void Run() {
+        public static void Run()
+        {
             //先打开两个类库文件
             SqlConnection con = new SqlConnection();
 
@@ -38,11 +39,21 @@ namespace dotnet与csharp.PartyClass
             adapter.Fill(dataSet, "userinfo"); //将数据获取后装载到dataSet中，当作一张表存储在内存中                
 
             DataTable dt = dataSet.Tables[0];
+            int index = 1;
             foreach (DataRow drow in dt.Rows)
             {
-                Console.WriteLine(drow["id"] + "-" + drow["name"] + "-" + drow["age"] + "");
+                Console.WriteLine(index++ + ":" + drow["id"] + "-" + drow["name"] + "-" + drow["age"] + "");
             }
-
+            //for (int i = 500; i < 100000; i++)
+            //{
+            //    Random r = new Random();
+            //    int age = r.Next(60);
+            //    char[] str = "abcdefghijklmnopqrstuvwxyz".ToArray();
+            //    string name = "" + str[r.Next(str.Length)] + str[r.Next(str.Length)] + str[r.Next(str.Length)];
+            //    string sql = "INSERT INTO [User] ([ID] ,[name] ,[age]) VALUES ("+i+",'"+name+"',"+age+")";
+            //    adapter.SelectCommand= new SqlCommand(sql, con);
+            //    adapter.Fill(dataSet,"insert");
+            //}
             con.Close();//关闭数据库
         }
     }

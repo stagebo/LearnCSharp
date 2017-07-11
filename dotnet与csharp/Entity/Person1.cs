@@ -10,7 +10,7 @@ namespace dotnet与csharp.Entity
     {
         public string name;
         public int age;
-        public int gender;
+        public int gender; 
 
         public override string ToString() {
             StringBuilder re = new StringBuilder();
