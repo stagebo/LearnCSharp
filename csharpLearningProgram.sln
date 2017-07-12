@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "算法", "算法\算法.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonFunction", "CommonFunction\CommonFunction.csproj", "{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordManager", "PasswordManager\PasswordManager.csproj", "{AD1765BC-D334-4805-A869-4E03422E45F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,16 @@ Global
 		{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}.Release|Win32.ActiveCfg = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
