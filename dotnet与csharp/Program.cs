@@ -9,6 +9,8 @@ using System.Data.SqlClient;
 using System.Xml;
 using BaseCSharp.PartyClass;
 using System.Threading;
+using System.Windows.Forms;
+using dotnet与csharp;
 /*
  * dotnet一般指.Net Framework 框架，是一种平台，一种框架
  * c#是一种编程语言，可以开发基于.net平台的应用程序
@@ -33,16 +35,7 @@ namespace BaseCSharp
 
         static void Main(string[] args)
         {
-            Thread th = new Thread(new ThreadStart(f));
-            th.Start();
-            while (true)
-                CommonFunction.Utils.StringUtils.Test();
-            Console.ReadKey();
-        }
-        static void f()
-        {
-            while (true)
-                Console.WriteLine("123123");
+            ShowData.Run();
         }
 
 

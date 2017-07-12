@@ -1,19 +1,35 @@
-﻿using dotnet与csharp;
+﻿using BaseCSharp.PartyClass;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BaseCSharp.PartyClass
+namespace dotnet与csharp
 {
-    class DatabaseConn
+    public partial class ShowData : Form
     {
+        public ShowData()
+        {
+            InitializeComponent();
+        }
         public static void Run()
         {
+            
+
+            Form f = new ShowData();
+           // f.Show();
+            Application.Run(f);
+        }
+        private void ShowData_Load(object sender, EventArgs e)
+        {
+
             //先打开两个类库文件
             SqlConnection con = new SqlConnection();
 
@@ -37,17 +53,15 @@ namespace BaseCSharp.PartyClass
 
             DataSet dataSet = new DataSet();
             SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = new SqlCommand("select top 100 * from [user]", con); //绑定的sql命令
+            adapter.SelectCommand = new SqlCommand("select top 1000 * from [user] order by id", con); //绑定的sql命令
             adapter.Fill(dataSet, "userinfo"); //将数据获取后装载到dataSet中，当作一张表存储在内存中                
-            
-            DataTable dt = dataSet.Tables[0];
-            Form f = new ShowData();
-            f.Show();
-            
+
+            DataTable dt = dataSet.Tables["userinfo"];
+            data_grid.DataSource=dt;
             int index = 1;
             foreach (DataRow drow in dt.Rows)
             {
-                Console.WriteLine(index++ + ":" + drow["id"] + "-" + drow["name"] + "-" + drow["age"] + "");
+                //Console.WriteLine(index++ + ":" + drow["id"] + "-" + drow["name"] + "-" + drow["age"] + "");
             }
             //for (int i = 500; i < 100000; i++)
             //{
@@ -62,4 +76,32 @@ namespace BaseCSharp.PartyClass
             con.Close();//关闭数据库
         }
     }
+    #region  数据库表脚本文件
+    //USE [TDQS_DWFX]
+    //GO
+
+    ///****** Object:  Table [dbo].[User]    Script Date: 2017/7/12 16:08:19 ******/
+    ///******                          Author:wyb                            ******/
+    //SET ANSI_NULLS ON
+    //GO
+
+    //SET QUOTED_IDENTIFIER ON
+    //GO
+
+    //SET ANSI_PADDING ON
+    //GO
+
+    //CREATE TABLE [dbo].[User](
+    //    [ID] [int] NOT NULL,
+    //    [name] [varchar](50) NULL,
+    //    [age] [int] NULL
+    //) ON [PRIMARY]
+
+    //GO
+
+    //SET ANSI_PADDING OFF
+    //GO
+
+
+    #endregion
 }
