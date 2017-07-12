@@ -32,7 +32,7 @@ namespace dotnet与csharp
 
         static void Main(string[] args)
         {
-            DatabaseConn.Run();
+            CommonFunction.Utils.StringUtils.Test();
             Console.ReadKey();
         }
 

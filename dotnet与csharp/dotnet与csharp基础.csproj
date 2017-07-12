@@ -11,6 +11,7 @@
     <AssemblyName>dotnet与csharp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>d4a895d8</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,12 +61,14 @@
     <Compile Include="Entity\Person1.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="PartyClass\AttributeTest.cs" />
     <Compile Include="PartyClass\DatabaseConn.cs" />
     <Compile Include="PartyClass\ExcelExport.cs" />
     <Compile Include="PartyClass\Lambda表达式.cs" />
     <Compile Include="PartyClass\LoadConfig.cs" />
     <Compile Include="PartyClass\ReflectTest.cs" />
     <Compile Include="PartyClass\ReflectTest1.cs" />
+    <Compile Include="PartyClass\新特性.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PartyClass\事件.cs" />
@@ -108,6 +112,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonFunction\CommonFunction.csproj">
+      <Project>{3dd0f55a-1f3c-477e-a90b-a44d6cc2dce7}</Project>
+      <Name>CommonFunction</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
