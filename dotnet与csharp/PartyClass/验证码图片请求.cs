@@ -10,7 +10,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 
-namespace dotnet与csharp
+namespace BaseCSharp
 {
     class 验证码图片请求
     {

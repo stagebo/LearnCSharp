@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotnet与csharp
+namespace BaseCSharp
 {
     /*
  * 1···c#代码的工作流程：c#代码--->CIL(Common Intermediate Language)-->本机代码

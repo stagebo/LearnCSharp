@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotnet与csharp.PartyClass
+namespace BaseCSharp.PartyClass
 {
     class 新特性
     {

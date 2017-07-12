@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet与csharp基础", "dotnet与csharp\dotnet与csharp基础.csproj", "{E475F893-7215-478D-BC34-C600151B90D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseCSharp", "dotnet与csharp\BaseCSharp.csproj", "{E475F893-7215-478D-BC34-C600151B90D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{2F7C3E1B-1EA0-4641-9B8D-534256833A26}"
 EndProject

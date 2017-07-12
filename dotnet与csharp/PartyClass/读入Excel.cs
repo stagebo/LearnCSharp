@@ -10,7 +10,7 @@ using System.Reflection;
 using System.IO;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
-namespace dotnet与csharp
+namespace BaseCSharp
 {
     class 读入Excel
     {

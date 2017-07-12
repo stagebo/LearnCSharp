@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotnet与csharp.PartyClass
+namespace BaseCSharp.PartyClass
 {
     /// <summary>
     /// 反射测试类2017.7.7
@@ -13,7 +13,7 @@ namespace dotnet与csharp.PartyClass
     {
         public static void Run()
         {
-            dotnet与csharp.Entity.Person1 p = Reflect("Person") as dotnet与csharp.Entity.Person1;
+            BaseCSharp.Entity.Person1 p = Reflect("Person") as BaseCSharp.Entity.Person1;
             if (p == null)
             { 
                 Console.WriteLine("反射异常13222~");
@@ -28,12 +28,12 @@ namespace dotnet与csharp.PartyClass
         }
         public static object Reflect(string classname)
         {
-            Type type = Type.GetType("dotnet与csharp.Entity." + classname);
+            Type type = Type.GetType("BaseCSharp.Entity." + classname);
             if (type == null)
             {
                 return null;
             }
-            object obj = type.Assembly.CreateInstance("dotnet与csharp.Entity." + classname);
+            object obj = type.Assembly.CreateInstance("BaseCSharp.Entity." + classname);
             return obj;
         }
     }

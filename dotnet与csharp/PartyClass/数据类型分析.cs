@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotnet与csharp
+namespace BaseCSharp
 {
     class 数据类型分析
     {

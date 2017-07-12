@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace dotnet与csharp.PartyClass
+namespace BaseCSharp.PartyClass
 {
     class LoadConfig
     {

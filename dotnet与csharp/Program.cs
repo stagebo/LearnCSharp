@@ -7,7 +7,8 @@ using SC = System.Console;
 using System.Data;
 using System.Data.SqlClient;
 using System.Xml;
-using dotnet与csharp.PartyClass;
+using BaseCSharp.PartyClass;
+using System.Threading;
 /*
  * dotnet一般指.Net Framework 框架，是一种平台，一种框架
  * c#是一种编程语言，可以开发基于.net平台的应用程序
@@ -25,15 +26,23 @@ using dotnet与csharp.PartyClass;
  * 
  * 
  */
-namespace dotnet与csharp
+namespace BaseCSharp
 {
     class Program
     {
 
         static void Main(string[] args)
         {
-            CommonFunction.Utils.StringUtils.Test();
+            Thread th = new Thread(new ThreadStart(f));
+            th.Start();
+            while (true)
+                CommonFunction.Utils.StringUtils.Test();
             Console.ReadKey();
+        }
+        static void f()
+        {
+            while (true)
+                Console.WriteLine("123123");
         }
 
 
