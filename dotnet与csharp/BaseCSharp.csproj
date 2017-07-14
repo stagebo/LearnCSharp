@@ -7,11 +7,12 @@
     <ProjectGuid>{E475F893-7215-478D-BC34-C600151B90D0}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>dotnet与csharp</RootNamespace>
-    <AssemblyName>dotnet与csharp</AssemblyName>
+    <RootNamespace>BaseCSharp</RootNamespace>
+    <AssemblyName>BaseCSharp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>d4a895d8</NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>发布\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="PartyClass\AttributeTest.cs" />
     <Compile Include="PartyClass\DatabaseConn.cs" />
+    <Compile Include="Utils\DBUtils.cs" />
     <Compile Include="PartyClass\ExcelExport.cs" />
     <Compile Include="PartyClass\Lambda表达式.cs" />
     <Compile Include="PartyClass\LoadConfig.cs" />
