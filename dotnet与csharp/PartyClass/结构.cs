@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace dotnet与csharp
 {
-    class 结构
+    partial class Program
+    {
+       
+
+    }
+   protected internal partial class 结构
     {
         /*
          * 什么是结构：结构是程序员定义的数据类型，类似于类，他又自己的数据成员和函数成员。但是和类有本质区别
@@ -25,10 +30,11 @@ namespace dotnet与csharp
          * 最后：预定义简单类型实际上在c#中被定义为结构
          * 和类一样，可以用partial声明结构。
          *  
-         */ 
-       
+         */
+
     }
-    struct c {
+    struct c
+    {
         //int x;
     }
 }

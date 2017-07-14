@@ -23,14 +23,12 @@ using SC = System.Console;
  */
 namespace dotnet与csharp
 {
-    class Program
+   partial class Program
     {
 
         static void Main(string[] args)
         {
-            C c = new C();
-            B b = (B)c;
-            A a = (A)c;
+            Console.WriteLine("11111111111111"); 
             //new Lambda表达式().Run();
             //dotnet与csharp.PartyClass.ReflectTest.Run();
             Console.ReadKey();
@@ -38,5 +36,5 @@ namespace dotnet与csharp
     }
     interface A { }
     class B { }
-    class C :B,A{ }
+    class C : B, A { }
 }
