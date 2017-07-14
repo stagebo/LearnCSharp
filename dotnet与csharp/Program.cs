@@ -11,6 +11,7 @@ using BaseCSharp.PartyClass;
 using System.Threading;
 using System.Windows.Forms;
 using dotnet与csharp;
+using dotnet与csharp.PartyClass;
 /*
  * dotnet一般指.Net Framework 框架，是一种平台，一种框架
  * c#是一种编程语言，可以开发基于.net平台的应用程序
@@ -32,14 +33,10 @@ namespace BaseCSharp
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-            ShowData.Run();
+            ThreadTest.Run();
+            Console.ReadKey();
         }
-
-
-
     }
-
 }

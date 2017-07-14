@@ -85,6 +85,7 @@
     <Compile Include="PartyClass\LoadConfig.cs" />
     <Compile Include="PartyClass\ReflectTest.cs" />
     <Compile Include="PartyClass\ReflectTest1.cs" />
+    <Compile Include="PartyClass\ThreadTest.cs" />
     <Compile Include="PartyClass\新特性.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
