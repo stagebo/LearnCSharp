@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet与csharp基础", "dotnet与csharp\dotnet与csharp基础.csproj", "{E475F893-7215-478D-BC34-C600151B90D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseCSharp", "dotnet与csharp\BaseCSharp.csproj", "{E475F893-7215-478D-BC34-C600151B90D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{2F7C3E1B-1EA0-4641-9B8D-534256833A26}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "算法", "算法\算法.csproj", "{A60D1855-23BC-4DE8-81F5-1ABAD452065B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonFunction", "CommonFunction\CommonFunction.csproj", "{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordManager", "PasswordManager\PasswordManager.csproj", "{AD1765BC-D334-4805-A869-4E03422E45F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,16 @@ Global
 		{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}.Release|Win32.ActiveCfg = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

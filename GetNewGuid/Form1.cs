@@ -28,5 +28,11 @@ namespace GetNewGuid
             Clipboard.SetDataObject(textBox1.Text.ToString());
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form f = new Form1();
+            f.Show();
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotnet与csharp
+namespace BaseCSharp
 {
     partial class Program
     {
@@ -30,8 +30,8 @@ namespace dotnet与csharp
          * 最后：预定义简单类型实际上在c#中被定义为结构
          * 和类一样，可以用partial声明结构。
          *  
-         */
-
+         */ 
+       
     }
     struct c
     {

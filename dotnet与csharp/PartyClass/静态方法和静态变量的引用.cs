@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotnet与csharp
+namespace BaseCSharp
 {
     public class 静态方法和静态变量的引用
     {
