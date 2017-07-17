@@ -35,10 +35,7 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("11111111111111"); 
-            //new Lambda表达式().Run();
-            //dotnet与csharp.PartyClass.ReflectTest.Run();
-            ThreadTest.Run();
+           NewCSharp.Run();
             Console.ReadKey();
         }
     }

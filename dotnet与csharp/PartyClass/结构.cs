@@ -11,7 +11,7 @@ namespace BaseCSharp
        
 
     }
-   protected internal partial class 结构
+    partial class 结构
     {
         /*
          * 什么是结构：结构是程序员定义的数据类型，类似于类，他又自己的数据成员和函数成员。但是和类有本质区别

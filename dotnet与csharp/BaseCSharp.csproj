@@ -49,20 +49,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="NPOI">
-      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\NPOI.dll</HintPath>
+      <HintPath>..\Lib\NPOILib\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OOXML">
-      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\NPOI.OOXML.dll</HintPath>
+      <HintPath>..\Lib\NPOILib\NPOI.OOXML.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\NPOI.OpenXml4Net.dll</HintPath>
+      <HintPath>..\Lib\NPOILib\NPOI.OpenXml4Net.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>..\..\..\..\vs workplace\dotnet与csharp\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+      <HintPath>..\Lib\NPOILib\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -80,6 +77,7 @@
     </Compile>
     <Compile Include="PartyClass\AttributeTest.cs" />
     <Compile Include="PartyClass\DatabaseConn.cs" />
+    <Compile Include="PartyClass\NewCSharp.cs" />
     <Compile Include="Utils\DBUtils.cs" />
     <Compile Include="PartyClass\ExcelExport.cs" />
     <Compile Include="PartyClass\Lambda表达式.cs" />
@@ -119,15 +117,6 @@
     <None Include="File\复杂Excel解析.xlsx" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="Office">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>99</VersionMajor>
-      <VersionMinor>1</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>
