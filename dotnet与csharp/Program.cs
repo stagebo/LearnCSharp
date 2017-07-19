@@ -35,7 +35,7 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-           NewCSharp.Run();
+            new DatabaseWithMultiThread().Run();
             Console.ReadKey();
         }
     }
