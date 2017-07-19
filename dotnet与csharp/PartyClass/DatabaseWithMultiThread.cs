@@ -94,7 +94,9 @@ namespace BaseCSharp.PartyClass
             Console.WriteLine(string.Format("单线程处理共耗时：{0}ms.", sw.ElapsedMilliseconds));
 
         }
-
+        /// <summary>
+        /// 多线程测试方法，此处不能用for循环带入变量来建立线程，容易导致并发问题以至下标越界*********
+        /// </summary>
         public void RunMultiThread()
         {
             Thread th1 = new Thread(new ThreadStart(() =>
