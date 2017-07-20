@@ -35,33 +35,7 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            string[] sqlList = {
-                    "SELECT sp_update_xlxd_tokx_011)",
-                    "SELECT sp_update_xlxd_tokx_012",
-                    "SELECT sp_update_xlxd_tokx_02"
-                };
-            new Thread(new ThreadStart(() =>
-            {
-                sqlList[0] += 123;
-            })).Start();
-            new Thread(new ThreadStart(() =>
-            {
-                sqlList[1] += 123;
-            })).Start();
-            new Thread(new ThreadStart(() =>
-            {
-                sqlList[2] += 123;
-            })).Start();
-            int k = 1;
-            for (int i = 0; i < sqlList.Length; i++)
-            {
-                new Thread(new ThreadStart(() =>
-                {
-                    sqlList[i] += "abc";
-                    k++;
-                })).Start();
-            }
-            new DatabaseWithMultiThread().Run();
+            DatabaseConn.Run();
             Console.ReadKey();
         }
     }

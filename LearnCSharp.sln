@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseCSharp", "dotnet与csharp\BaseCSharp.csproj", "{E475F893-7215-478D-BC34-C600151B90D0}"
 EndProject
@@ -9,17 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Html", "Html\Html.csproj", "{B3B30E42-712B-49D4-B0F2-88C12BB90FE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnsafePointer", "UnsafePointer\UnsafePointer.csproj", "{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "数学问题", "约瑟夫环游戏\数学问题.csproj", "{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetNewGuid", "GetNewGuid\GetNewGuid.csproj", "{6FBA32C2-07C2-4028-A0A0-6128DD718811}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "算法", "算法\算法.csproj", "{A60D1855-23BC-4DE8-81F5-1ABAD452065B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonFunction", "CommonFunction\CommonFunction.csproj", "{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordManager", "PasswordManager\PasswordManager.csproj", "{AD1765BC-D334-4805-A869-4E03422E45F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,26 +55,6 @@ Global
 		{B3B30E42-712B-49D4-B0F2-88C12BB90FE1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B3B30E42-712B-49D4-B0F2-88C12BB90FE1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B3B30E42-712B-49D4-B0F2-88C12BB90FE1}.Release|Win32.ActiveCfg = Release|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{2840F1D3-241B-47CF-9CE3-A196BC6DD77D}.Release|Win32.ActiveCfg = Release|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{0FE9B63C-422C-4190-8A4C-0E2F5A50DC75}.Release|Win32.ActiveCfg = Release|Any CPU
 		{6FBA32C2-07C2-4028-A0A0-6128DD718811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6FBA32C2-07C2-4028-A0A0-6128DD718811}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FBA32C2-07C2-4028-A0A0-6128DD718811}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -111,16 +85,6 @@ Global
 		{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3DD0F55A-1F3C-477E-A90B-A44D6CC2DCE7}.Release|Win32.ActiveCfg = Release|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{AD1765BC-D334-4805-A869-4E03422E45F9}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

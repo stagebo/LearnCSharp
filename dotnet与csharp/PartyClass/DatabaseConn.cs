@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace BaseCSharp.PartyClass
 {
@@ -20,6 +21,16 @@ namespace BaseCSharp.PartyClass
             // con.ConnectionString = "server=505-03;database=ttt;user=sa;pwd=123";
             con.ConnectionString = LoadConfig.GetConnStrings();
             con.Open();
+
+            SqlTransaction tran = con.BeginTransaction();
+            new Thread(new ThreadStart(()=> {
+                tran.Commit();
+            })).Start();
+            //tran.Dispose();
+
+            SqlTransaction tran1 = con.BeginTransaction();
+
+            bool flag = tran.Equals(tran1);
 
             /*
             SqlDataAdapter 对象。 用于填充DataSet （数据集）。
