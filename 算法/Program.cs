@@ -10,7 +10,7 @@ namespace 算法
     {
         static void Main(string[] args)
         {
-            new 回溯_全排列().Run("a,a,a,d,e");
+            new 动态规划_01背包().Run();
             Console.ReadKey();
         }
     }
