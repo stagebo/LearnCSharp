@@ -1,4 +1,5 @@
 # LearnCSharp
-记录学习过程
-包含c#、.NET MVC、html、js、jquery以及算法等
+## 一、记录c#的学习过程
+  1、实验基础语法。
+  2、实验算法。
 
