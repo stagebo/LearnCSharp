@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BaseCSharp.PartyClass
 {
     /// <summary>
-    /// LinqTest
+    /// LinqTest,lufeng style~
     /// 2017年7月21日14:30:42
     /// </summary>
     class LinqTest
@@ -16,12 +16,13 @@ namespace BaseCSharp.PartyClass
         {
             List<User> l = new List<User>();
             for (int i = 10; i < 30; i++)
-                l.Add(new User() { id = i, name = "user_"+i,pwd=i+"abc",address="null" });
-            printList(l);
-            var t = from u in l where u.id%2==0&&u.name.StartsWith("user_2") orderby u.pwd descending select u;
-            printList(t);
+                l.Add(new User() { id = i, name = "user_" + i, pwd = i + "abc", address = "null" });
+            l.print<User>();
+            var t = from u in l where u.id % 2 == 0 && u.name.StartsWith("user_2") orderby u.pwd descending select u;
+            t.print<User>();
         }
-        private static void printList(IEnumerable<User> u) {
+        private static void printList(IEnumerable<User> u)
+        {
             Console.WriteLine($"***********{u}-Start****************");
             foreach (User uu in u)
                 Console.WriteLine(uu.ToString());
@@ -33,7 +34,8 @@ namespace BaseCSharp.PartyClass
             public string name;
             public string pwd;
             public string address;
-            public string ToString() {
+            public override string ToString()
+            {
                 return $"[id:{id},name:{name},pwd:{pwd},address:{address}";
             }
         }

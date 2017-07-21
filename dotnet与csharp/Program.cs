@@ -35,6 +35,7 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
+            "123".print();
             LinqTest.Run();
             Console.ReadKey();
         }
