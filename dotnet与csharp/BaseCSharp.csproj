@@ -77,6 +77,7 @@
     </Compile>
     <Compile Include="PartyClass\AttributeTest.cs" />
     <Compile Include="PartyClass\DatabaseConn.cs" />
+    <Compile Include="PartyClass\DatabaseSpeedTest.cs" />
     <Compile Include="PartyClass\DatabaseWithMultiThread.cs" />
     <Compile Include="PartyClass\ExtendMethod.cs" />
     <Compile Include="PartyClass\LinqTest.cs" />

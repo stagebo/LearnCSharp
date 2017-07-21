@@ -37,7 +37,7 @@ namespace BaseCSharp
         {
             
             "123".print();
-            LinqTest.Run();
+            new DatabaseSpeedTest().Run();
             Console.ReadKey();
         }
     }
