@@ -78,6 +78,7 @@
     <Compile Include="PartyClass\AttributeTest.cs" />
     <Compile Include="PartyClass\DatabaseConn.cs" />
     <Compile Include="PartyClass\DatabaseWithMultiThread.cs" />
+    <Compile Include="PartyClass\LinqTest.cs" />
     <Compile Include="PartyClass\NewCSharp.cs" />
     <Compile Include="Utils\DBUtils.cs" />
     <Compile Include="PartyClass\ExcelExport.cs" />

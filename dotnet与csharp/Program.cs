@@ -35,7 +35,7 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            DatabaseConn.Run();
+            LinqTest.Run();
             Console.ReadKey();
         }
     }
