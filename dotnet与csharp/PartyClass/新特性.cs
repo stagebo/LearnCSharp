@@ -15,7 +15,7 @@ namespace BaseCSharp.PartyClass
             string info = string.Format("my name is {0},i am {1} years old.",name,age);
             Console.WriteLine(info);
 
-           //string info1=$"my name is {name},i am {age} years old.";
+           string info1=$"my name is {name},i am {age} years old.";
             //Console.WriteLine(info1);
             NewAttributeTest newAT=new NewAttributeTest();
             //string str=newAT?.id;
