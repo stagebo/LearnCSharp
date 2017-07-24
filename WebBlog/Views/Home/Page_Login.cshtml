@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>登录</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#register_button_input").click(function () {
+                window.location.href = "/Home/Register";
+            });
+            $("#login_button_input").click(function () {
+                var uid = $("#user_name_input").val();
+                var pwd = $("#user_pwd_input").val();
+                if (uid == "" || pwd == "") {
+                    alert("用户名和密码不能为空！");
+                    return;
+                }
+                $.ajax({
+                    type:'post',
+                    url: '/Home/Validate',
+                    data: { 'uid': uid, 'pwd': pwd },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data["result"] == 1) {
+                            window.location.href = "/MessageBoard/Index";
+                        } else {
+                            alert("用户名或密码错误~");
+                            return;
+                        }
+                    }, error: function () {
+                        alert("连接服务器失败~");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        用户名：<input type="text" id="user_name_input" /><br />
+        密码：<input type="password" id="user_pwd_input" /><br />
+        <input type="button" id="register_button_input" value="注册" style="float:left" />
+        <input type="button" id="login_button_input" value="登录" style="float:left;margin-left:10px;" />
+    </div>
+</body>
+</html>

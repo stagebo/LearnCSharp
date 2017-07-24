@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Page_MessageBoard";
+}
+@*jquery引入*@
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="~/scripts/kindeditor/themes/default/default.css" rel="stylesheet" />
+<link href="~/scripts/kindeditor/plugins/code/prettify.css" rel="stylesheet" />
+<script src="~/scripts/kindeditor/kindeditor-all.js"></script>
+<script src="~/scripts/kindeditor/lang/zh-CN.js"></script>
+<script src="~/scripts/kindeditor/plugins/code/prettify.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        refreshTable();
+        $("#common_submit").click(function () {
+            var nickName = $("#input_id_input").val();
+            var content = $("#input_content_input").val();
+            var data = { "nickName": nickName, "content": content }
+            $.ajax({
+                type: 'post',
+                url: '/MessageBoard/SubmitMessage',
+                data: { "nickName": nickName, "content": content },
+                dataType: 'json',
+                success: function (data) {
+                    alert("submit success!");
+                    refreshTable();
+                },
+                error: function () {
+                    alert("submit error!");
+                    refreshTable();
+                }
+            });
+        });
+    });
+    function refreshTable() {
+        $.ajax({
+            type: 'post',
+            url: '/MessageBoard/SearchCommonList',
+            data: {},
+            dataType: 'json',
+            success: function (data) {
+                data = data["data"];
+                $("#main_containor_div").html("");
+                var containt = $("#main_containor_div");
+                for (var i = 0; i < data.length; i++) {
+                    var d = data[i];
+                    containt.append("<br />");
+                    containt.append("<div style=\"color:red;float:left;\">" + d["f_writer_name"] + ":</div>" + d["f_content"] +
+                     "<br/><div style=\"color:blue;\"> " + d["f_common_date"] + "</div>");
+                }
+
+            },
+            error: function () {
+                alert("search error!");
+            }
+        });
+
+    }
+</script>
+<div id="text_area_div">
+    <br />
+    <div id="input_id_div">
+        请输入昵称：<input id="input_id_input" type="text" /><br />
+        请输入内容：<input id="input_content_input" type="text" /><br />
+        <input type="button" id="common_submit" value="提交" />
+
+    </div>
+
+    <div id="main_containor_div">
+        123
+    </div>
+
+</div>
+
+
