@@ -7,14 +7,28 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using DatabaseUtils.Database;
+using WebBlog.Filter;
 
 namespace WebBlog.Controllers.MessageBoard
 {
     public class MessageBoardController : Controller
     {
+        [Resource("123")]
         // GET: /MessageBoard/Index
         public ActionResult Index()
         {
+            
+            string refUrl = Request.UrlReferrer?.ToString();
+            try
+            {
+                if (refUrl==null||!string.IsNullOrWhiteSpace(refUrl))
+                {
+                    return View("Page_Error_Login");
+                }
+            }
+            
+            catch (Exception e) { }
+
             return View("Page_MessageBoard");
         }
         public ActionResult SubmitMessage()

@@ -362,9 +362,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Common\CommonController.cs" />
     <Compile Include="Controllers\MessageBoard\HomeController.cs" />
     <Compile Include="Controllers\MessageBoard\MessageBoardController.cs" />
     <Compile Include="Filter\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Filter\ResourceAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -385,6 +387,7 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Page_Login.cshtml" />
     <Content Include="Views\Home\Page_Register.cshtml" />
+    <Content Include="Views\Shared\Page_Error_Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -395,6 +398,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonFunction\CommonFunction.csproj">
