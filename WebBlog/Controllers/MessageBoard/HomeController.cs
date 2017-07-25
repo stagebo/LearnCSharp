@@ -109,6 +109,15 @@ namespace WebBlog.Controllers.MessageBoard
             Session["uid"] = "";
             return View("Page_Login");
         }
+        /// <summary>
+        /// /Home/GetUserName
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult GetUserName() {
+            string uid = $"{{\"uid\":\"{Session["uid"]}\"}}";
+            return Content(uid); ;
+            
+        }
     }
 }
 

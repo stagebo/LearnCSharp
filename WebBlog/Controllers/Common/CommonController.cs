@@ -25,15 +25,22 @@ namespace WebBlog.Controllers.Common
         /// /Common/ErrorException
         /// </summary>
         /// <returns></returns>
-        public ActionResult ErrorException() {
+        public ActionResult ErrorException()
+        {
             return View("Page_Error_Exception");
         }
         /// <summary>
         /// /Common/GetHtmlEditor
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetHtmlEditor() {
+        public ActionResult GetHtmlEditor()
+        {
             return View("Part_Html_Editor");
+        }
+
+        public ActionResult GetVCodeImage()
+        {
+            return null;
         }
     }
 }

@@ -6,21 +6,22 @@
     <title>@ViewBag.Title - 我的留言簿</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="../Scripts/modernizr-2.6.2.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
-
-        });
-        function unLogin() {
             $.ajax({
                 type: 'post',
-                url: '',
+                url: '/Home/GetUserName',
                 data: {},
                 dataType: 'json',
-                success: function(){},
-                error: function(){}
+                success: function (data) {
+                    $("#user_name_a").html(data["uid"]);
+                },
+                error: function () { }
             });
-        }
+        });
+        
     </script>
 </head>
 <body>
@@ -39,7 +40,11 @@
                 </ul>
             </div>
             <div style="float:right;margin-top:15px;">
-               <a href="/Home/UnLogin">退出登录</a>
+                <a href="/Home/UnLogin">退出登录</a>
+            </div>
+
+            <div style="float:right;margin-top:15px;margin-right:15px;color:red;">
+                欢迎您，<a id="user_name_a"></a>
             </div>
             </div>
         </div>

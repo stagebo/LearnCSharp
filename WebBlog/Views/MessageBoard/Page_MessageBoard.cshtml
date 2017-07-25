@@ -15,18 +15,17 @@
         refreshTable();
         $("#common_submit").click(function () {
             $HtmlEditor.sync();
-            var nickName = $("#input_id_input").val();
             var content = $("#common_input_text_area").val();
             if (content == "") {
                 alert("请输入留言内容！");
                 return;
             }
             content = encodeURIComponent(content);
-            var data = { "nickName": nickName, "content": content }
+            var data = {  "content": content }
             $.ajax({
                 type: 'post',
                 url: '/MessageBoard/SubmitMessage',
-                data: { "nickName": nickName, "content": content },
+                data: {  "content": content },
                 dataType: 'json',
                 success: function (data) {
                     refreshTable();
@@ -46,7 +45,7 @@
             dataType: 'json',
             success: function (data) {
                 data = $CommonFunction.decodeObject(data);
-                console.log(JSON.stringify(data));
+                //console.log(JSON.stringify(data));
                 data = data["data"];
                 $("#main_containor_div").html("");
                 var containt = $("#main_containor_div");
@@ -92,10 +91,11 @@
 <div id="text_area_div">
     <br />
     <div id="input_id_div">
-        请输入昵称：<input id="input_id_input" type="text" /><br />
+        <br />
         请输入内容：
         @Html.Partial("~/Views/Shared/Part_Html_Editor.cshtml")
         <input type="button" id="common_submit" value="提交" />
+        <a onclick="refreshTable()">刷新</a>
 
     </div>
 
