@@ -21,5 +21,12 @@ namespace WebBlog.Controllers.Common
         {
             return View("Page_Error_Login");
         }
+        /// <summary>
+        /// /Common/ErrorException
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ErrorException() {
+            return View("Page_Error_Exception");
+        }
     }
 }

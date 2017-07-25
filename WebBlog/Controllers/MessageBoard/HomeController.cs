@@ -90,6 +90,7 @@ namespace WebBlog.Controllers.MessageBoard
             {
                 if (Convert.ToInt32(com.ExecuteScalar()) > 0)
                 {
+                    Session.Add("uid",uid);
                     DBUtils.DisposeConnection(conn);
                     return Content(successString);
                 }

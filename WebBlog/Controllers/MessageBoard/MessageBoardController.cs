@@ -13,7 +13,7 @@ namespace WebBlog.Controllers.MessageBoard
 {
     public class MessageBoardController : Controller
     {
-        [Resource("123")]
+        [Right]
         // GET: /MessageBoard/Index
         public ActionResult Index()
         {
@@ -31,6 +31,17 @@ namespace WebBlog.Controllers.MessageBoard
 
             return View("Page_MessageBoard");
         }
+        [GlobalHandleError]
+        public ActionResult Exception() {
+            int x = int.Parse("adfd");
+
+            return null;
+        }
+        /// <summary>
+        /// POST /MessageBoard/SubmitMessage 提交留言信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
         public ActionResult SubmitMessage()
         {
             string message = Request.Form["content"];

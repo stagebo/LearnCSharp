@@ -366,7 +366,9 @@
     <Compile Include="Controllers\MessageBoard\HomeController.cs" />
     <Compile Include="Controllers\MessageBoard\MessageBoardController.cs" />
     <Compile Include="Filter\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Filter\GlobalHandleError.cs" />
     <Compile Include="Filter\ResourceAttribute.cs" />
+    <Compile Include="Filter\RightAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -388,6 +390,7 @@
     <Content Include="Views\Home\Page_Login.cshtml" />
     <Content Include="Views\Home\Page_Register.cshtml" />
     <Content Include="Views\Shared\Page_Error_Login.cshtml" />
+    <Content Include="Views\Shared\Page_Error_Exception.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
