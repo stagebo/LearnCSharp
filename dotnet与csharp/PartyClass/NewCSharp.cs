@@ -34,6 +34,8 @@ namespace BaseCSharp.PartyClass
             WriteLine(nameof(NewCSharp));//获取类名
 
             
+
+            
         }
         /// <summary>
         /// 简单加法实现~

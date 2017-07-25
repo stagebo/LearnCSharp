@@ -11,28 +11,17 @@ using WebBlog.Filter;
 
 namespace WebBlog.Controllers.MessageBoard
 {
+    [Right]
     public class MessageBoardController : Controller
     {
-        [Right]
         // GET: /MessageBoard/Index
         public ActionResult Index()
         {
-            
-            string refUrl = Request.UrlReferrer?.ToString();
-            try
-            {
-                if (refUrl==null||!string.IsNullOrWhiteSpace(refUrl))
-                {
-                    return View("Page_Error_Login");
-                }
-            }
-            
-            catch (Exception e) { }
-
             return View("Page_MessageBoard");
         }
         [GlobalHandleError]
-        public ActionResult Exception() {
+        public ActionResult Exception()
+        {
             int x = int.Parse("adfd");
 
             return null;
@@ -41,13 +30,17 @@ namespace WebBlog.Controllers.MessageBoard
         /// POST /MessageBoard/SubmitMessage 提交留言信息
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
+        [ValidateInput(false)]
         public ActionResult SubmitMessage()
         {
-            string message = Request.Form["content"];
-            message = string.IsNullOrWhiteSpace(message) ? "空" : message;
-            string nickName = string.IsNullOrWhiteSpace(Request.Form["nickName"]) ? "游客" : Request.Form["nickName"];
-            string sql = $@"
+            try
+            {
+                string message = Request.Form["content"];
+                message = Server.UrlDecode(message);
+                message = string.IsNullOrWhiteSpace(message) ? "空" : message;
+                string nickName = string.IsNullOrWhiteSpace(Request.Form["nickName"]) ? "游客" : Request.Form["nickName"];
+                nickName = Session["uid"].ToString();
+                string sql = $@"
                     INSERT INTO [dbo].[t_message]
                            ([f_message_id] ,[f_writer_id],[f_writer_name] ,[f_common_date]
                            ,[f_parent_message_id] ,[f_message_type],[f_message_exist]
@@ -57,19 +50,24 @@ namespace WebBlog.Controllers.MessageBoard
                            ,'' ,'' ,'1'
                            ,'{message}')
                     ";
-            SqlConnection conn = DBUtils.GetConnection();
-            SqlCommand com = new SqlCommand();
+                SqlConnection conn = DBUtils.GetConnection();
+                SqlCommand com = new SqlCommand();
 
-            com.Connection = conn;
-            com.CommandType = CommandType.Text;
-            com.CommandText = sql.ToString();
+                com.Connection = conn;
+                com.CommandType = CommandType.Text;
+                com.CommandText = sql.ToString();
 
-            int result = com.ExecuteNonQuery();
-            DBUtils.DisposeConnection(conn);
+                int result = com.ExecuteNonQuery();
+                DBUtils.DisposeConnection(conn);
 
-            if (result == 1)
+                if (result == 1)
+                {
+                    return Content("{\"result\":1}");
+                }
+            }
+            catch (Exception e)
             {
-                return Content("{\"result\":1}");
+
             }
             return Content("{\"result\":0}");
         }
@@ -93,25 +91,72 @@ namespace WebBlog.Controllers.MessageBoard
             }
             DataTable dt = dataSet.Tables[0];
 
-            var result= new StringBuilder();
+            var result = new StringBuilder();
             result.Append("{\"result\":1,");
             result.Append("\"data\":[");
             bool start = true;
-            foreach(DataRow r in dt.Rows) {
-                result.Append(start?"":",");
+            foreach (DataRow r in dt.Rows)
+            {
+                result.Append(start ? "" : ",");
                 start = false;
                 result.Append("{");
                 bool start2 = true;
-                foreach (DataColumn dc in dt.Columns) {
+                foreach (DataColumn dc in dt.Columns)
+                {
                     result.Append(start2 ? "" : ",");
                     start2 = false;
-                    result.Append($"\"{dc.ColumnName}\":\"{r[dc.ColumnName]}\"");
+                    result.Append($"\"{dc.ColumnName}\":\"{Uri.EscapeUriString(r[dc.ColumnName].ToString())}\"");
                 }
 
                 result.Append("}");
             }
             result.Append("]}");
             return Content(result.ToString());
+        }
+        /// <summary>
+        /// POST /MessageBoard/DeleteSingleCommon
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult DeleteSingleCommon()
+        {
+            try
+            {
+                string id = Request.Form["f_id"];
+                if (string.IsNullOrWhiteSpace(id))
+                {
+                    string err = "{\"result\":\"0\",\"state\":\"0\"}";
+                    return Content(err);
+                }
+                string sql = $"select top 1 [f_writer_name] from [dbo].[t_message] where f_message_id='{id}' ";
+                SqlConnection conn = DBUtils.GetConnection();
+                SqlCommand com = new SqlCommand();
+
+                com.Connection = conn;
+                com.CommandType = CommandType.Text;
+                com.CommandText = sql.ToString();
+
+                string data_uid = com.ExecuteScalar()?.ToString();
+                if (data_uid!=null&&!Session["uid"].Equals(data_uid))
+                {
+                    string err = "{\"result\":\"0\",\"state\":\"1\"}";
+                    return Content(err);
+                }
+                sql = $"delete from [dbo].[t_message] where f_message_id='{id}' ";
+                com.CommandType = CommandType.Text;
+                com.CommandText = sql.ToString();
+
+                int result = com.ExecuteNonQuery();
+                if (result == -1)
+                {
+                    string err = "{\"result\":\"0\",\"state\":\"2\"}";
+                    return Content(err);
+                }
+                com.Dispose();
+                DBUtils.DisposeConnection(conn);
+            }
+            catch (Exception e) { }
+            string suc = "{\"result\":\"1\"}";
+            return Content(suc);
         }
     }
 }

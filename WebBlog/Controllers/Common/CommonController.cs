@@ -28,5 +28,12 @@ namespace WebBlog.Controllers.Common
         public ActionResult ErrorException() {
             return View("Page_Error_Exception");
         }
+        /// <summary>
+        /// /Common/GetHtmlEditor
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult GetHtmlEditor() {
+            return View("Part_Html_Editor");
+        }
     }
 }

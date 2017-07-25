@@ -9,12 +9,19 @@
 <script src="~/scripts/kindeditor/lang/zh-CN.js"></script>
 <script src="~/scripts/kindeditor/plugins/code/prettify.js"></script>
 
+<script src="~/scripts/Common/CommonFunction.js"></script>
 <script type="text/javascript">
     $(function () {
         refreshTable();
         $("#common_submit").click(function () {
+            $HtmlEditor.sync();
             var nickName = $("#input_id_input").val();
-            var content = $("#input_content_input").val();
+            var content = $("#common_input_text_area").val();
+            if (content == "") {
+                alert("请输入留言内容！");
+                return;
+            }
+            content = encodeURIComponent(content);
             var data = { "nickName": nickName, "content": content }
             $.ajax({
                 type: 'post',
@@ -22,12 +29,11 @@
                 data: { "nickName": nickName, "content": content },
                 dataType: 'json',
                 success: function (data) {
-                    alert("submit success!");
                     refreshTable();
                 },
                 error: function () {
-                    alert("submit error!");
                     refreshTable();
+                    alert("submit error!");
                 }
             });
         });
@@ -39,14 +45,16 @@
             data: {},
             dataType: 'json',
             success: function (data) {
+                data = $CommonFunction.decodeObject(data);
+                console.log(JSON.stringify(data));
                 data = data["data"];
                 $("#main_containor_div").html("");
                 var containt = $("#main_containor_div");
                 for (var i = 0; i < data.length; i++) {
                     var d = data[i];
                     containt.append("<br />");
-                    containt.append("<div style=\"color:red;float:left;\">" + d["f_writer_name"] + ":</div>" + d["f_content"] +
-                     "<br/><div style=\"color:blue;\"> " + d["f_common_date"] + "</div>");
+                    containt.append("<div style=\"color:red;float:left;\">" + d["f_writer_name"] + ":</div><br><div>  <pre class=\"best-text mb-10\">" + d["f_content"] +
+                     "</pre></div><div style=\"color:blue;float:right;\"> " + d["f_common_date"] + "</div><a style=\"float:right;margin-right:10px;\" onclick=\"deleteCommon('" + d["f_message_id"] + "')\">删除</a>");
                 }
 
             },
@@ -56,12 +64,37 @@
         });
 
     }
+
+    function deleteCommon(f_id) {
+        console.log("delete id:"+f_id);
+        $.ajax({
+            type: 'post',
+            url: '/MessageBoard/DeleteSingleCommon',
+            data: { 'f_id': f_id },
+            dataType: 'json',
+            success: function (data) {
+                data = $CommonFunction.decodeObject(data);
+                if (data["result"] == 0) {
+                    if (data["state"]&&data["state"] == '1') {
+                        alert("对不起，您无权删除！");
+                    }
+                } else {
+                    refreshTable();
+                }
+            },
+            error: function () {
+                alert("删除失败");
+            }
+        });
+    }
 </script>
+<a onclick="deleteCommon()"></a>
 <div id="text_area_div">
     <br />
     <div id="input_id_div">
         请输入昵称：<input id="input_id_input" type="text" /><br />
-        请输入内容：<input id="input_content_input" type="text" /><br />
+        请输入内容：
+        @Html.Partial("~/Views/Shared/Part_Html_Editor.cshtml")
         <input type="button" id="common_submit" value="提交" />
 
     </div>
@@ -71,5 +104,10 @@
     </div>
 
 </div>
+<style type="text/css">
+    #main_containor_div {
+        width:800px;
+    }
+</style>
 
 

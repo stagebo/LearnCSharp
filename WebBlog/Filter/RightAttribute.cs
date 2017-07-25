@@ -8,36 +8,31 @@ namespace WebBlog.Filter
 {
     public class RightAttribute: ActionFilterAttribute
     {
-        public string Name { set; get; } = "123123123123s";
 
         //action执行之前先执行此方法  
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);
-
-            HttpContext.Current.Response.Write("<br />OnOnActionExecuting:" + Name);
-        }
-
-        //action执行之后先执行此方法  
-        public override void OnActionExecuted(ActionExecutedContext filterContext)
-        {
-            base.OnActionExecuted(filterContext);
-            HttpContext.Current.Response.Write("<br />onActionExecuted:" + Name);
-        }
-        //actionresult执行之前执行此方法  
-        public override void OnResultExecuting(ResultExecutingContext filterContext)
-        {
-            base.OnResultExecuting(filterContext);
-            HttpContext.Current.Response.Write("<br />OnResultExecuting:" + Name);
-
-        }
-
-        //actionresult执行之后执行此方法  
-        public override void OnResultExecuted(ResultExecutedContext filterContext)
-        {
-            base.OnResultExecuted(filterContext);
-            HttpContext.Current.Response.Write("<br />OnResultExecuted:" + Name);
-
+            bool f = true;
+            
+            string requestMethodString = filterContext.HttpContext.Request.HttpMethod.ToUpper();
+            ContentResult contentResult = new ContentResult();
+            contentResult.Content = "{\"result\":\"0\"}";
+            /* 验证失败后的跳转页面 */
+            RedirectResult loginRedirectResult = new RedirectResult("/Common/ErrorLogin");
+            string uid = filterContext.HttpContext.Session["uid"]?.ToString();
+            if (uid==null||string.IsNullOrWhiteSpace(uid)) {
+                if (requestMethodString.Equals("POST"))
+                {
+                    filterContext.Result = contentResult;
+                }
+                else
+                {
+                    filterContext.Result = loginRedirectResult;
+                }
+                return;
+            }
+            
         }
     }
 }

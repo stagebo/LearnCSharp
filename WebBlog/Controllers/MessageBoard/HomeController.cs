@@ -15,7 +15,7 @@ namespace WebBlog.Controllers.MessageBoard
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        // GET: /Home/Index
         public ActionResult Index()
         {
             return View("Page_Login");
@@ -90,7 +90,7 @@ namespace WebBlog.Controllers.MessageBoard
             {
                 if (Convert.ToInt32(com.ExecuteScalar()) > 0)
                 {
-                    Session.Add("uid",uid);
+                    Session.Add("uid", uid);
                     DBUtils.DisposeConnection(conn);
                     return Content(successString);
                 }
@@ -99,6 +99,15 @@ namespace WebBlog.Controllers.MessageBoard
             DBUtils.DisposeConnection(conn);
 
             return Content(errorString);
+        }
+        /// <summary>
+        /// /Home/UnLogin
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult UnLogin()
+        {
+            Session["uid"] = "";
+            return View("Page_Login");
         }
     }
 }
