@@ -35,9 +35,8 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            
-            "123".print();
-            new DatabaseSpeedTest().Run();
+            var f = FileCompressAndCopy.CopyFile("C:\\Users\\WANYONGBO\\Desktop\\s.sql", "C:\\Users\\WANYONGBO\\Desktop\\s1.sql");
+            Console.WriteLine(f);
             Console.ReadKey();
         }
     }
