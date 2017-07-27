@@ -35,8 +35,14 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            var f = FileCompressAndCopy.CopyFile("C:\\Users\\WANYONGBO\\Desktop\\s.sql", "C:\\Users\\WANYONGBO\\Desktop\\s1.sql");
-            Console.WriteLine(f);
+            try
+            {
+                var f = FileCompressAndCopy.CopyFile(
+                    "C:\\Users\\WANYONGBO\\Desktop\\WholeNetFeederDecorator.cs",
+                    "\\\\wyb\\ServicesTemp\\ssss1.cs");//"\\\\wyb\\ServicesTemp\\s1.sql");
+                Console.WriteLine(f);
+            }
+            catch (Exception e) { }
             Console.ReadKey();
         }
     }

@@ -81,6 +81,7 @@
     <Compile Include="PartyClass\DatabaseWithMultiThread.cs" />
     <Compile Include="PartyClass\ExtendMethod.cs" />
     <Compile Include="PartyClass\FileCompressAndCopy.cs" />
+    <Compile Include="PartyClass\FtpUtils.cs" />
     <Compile Include="PartyClass\LinqTest.cs" />
     <Compile Include="PartyClass\NewCSharp.cs" />
     <Compile Include="Utils\DBUtils.cs" />
