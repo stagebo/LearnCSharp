@@ -149,36 +149,40 @@ namespace WebBlog.Controllers.MessageBoard
 //)WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]
 //) ON[PRIMARY] TEXTIMAGE_ON[PRIMARY]
 
-//GO
-//CREATE TABLE[dbo].[t_user](
-//	[f_id]
-//[varchar](50) NOT NULL,
+////GO
+////CREATE TABLE[dbo].[t_user](
+////	[f_id]
+////[varchar](50) NOT NULL,
 
-//[f_uid] [varchar](50) NOT NULL,
 
-//[f_pwd] [varchar](50) NOT NULL,
+////[f_uid] [varchar](50) NOT NULL,
 
-//[f_reg_date] [datetime]
-//NOT NULL,
 
-//[f_email] [varchar](50) NULL,
-//	[f_phone]
-//[varchar](50) NULL,
-//	[f_age]
-//[int]
-//NULL,
-//	[f_gender]
-//[int]
-//NULL,
-//	[f_address]
-//[varchar](128) NULL,
-//	[f_exist]
-//[int]
-//NOT NULL,
-// CONSTRAINT[PK_t_user] PRIMARY KEY CLUSTERED
-//(
-//   [f_id] ASC
-//)WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]
-//) ON[PRIMARY]
+////[f_pwd] [varchar](50) NOT NULL,
 
-//GO
+
+////[f_reg_date] [datetime]
+////NOT NULL,
+
+
+////[f_email] [varchar](50) NULL,
+////	[f_phone]
+////[varchar](50) NULL,
+////	[f_age]
+////[int]
+////NULL,
+////	[f_gender]
+////[int]
+////NULL,
+////	[f_address]
+////[varchar](128) NULL,
+////	[f_exist]
+////[int]
+////NOT NULL,
+//// CONSTRAINT[PK_t_user] PRIMARY KEY CLUSTERED
+////(
+////   [f_id] ASC
+////)WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]
+////) ON[PRIMARY]
+
+////GO
