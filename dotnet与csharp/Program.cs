@@ -35,14 +35,7 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            try
-            {
-                var f = FileCompressAndCopy.CopyFile(
-                    "C:\\Users\\WANYONGBO\\Desktop\\WholeNetFeederDecorator.cs",
-                    "\\\\wyb\\ServicesTemp\\ssss1.cs");//"\\\\wyb\\ServicesTemp\\s1.sql");
-                Console.WriteLine(f);
-            }
-            catch (Exception e) { }
+            new 泛型方法Test().Run();
             Console.ReadKey();
         }
     }
