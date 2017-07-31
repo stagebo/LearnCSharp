@@ -35,7 +35,8 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            new 泛型方法Test().Run();
+            new ZipTest().Run();
+            Console.WriteLine(CommonFunction.Utils.StringUtils.GetRandomString());
             Console.ReadKey();
         }
     }

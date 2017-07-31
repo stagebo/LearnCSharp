@@ -49,6 +49,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI">
       <HintPath>..\Lib\NPOILib\NPOI.dll</HintPath>
     </Reference>
@@ -84,6 +87,7 @@
     <Compile Include="PartyClass\FtpUtils.cs" />
     <Compile Include="PartyClass\LinqTest.cs" />
     <Compile Include="PartyClass\NewCSharp.cs" />
+    <Compile Include="PartyClass\ZipTest.cs" />
     <Compile Include="PartyClass\泛型方法Test.cs" />
     <Compile Include="Utils\DBUtils.cs" />
     <Compile Include="PartyClass\ExcelExport.cs" />
