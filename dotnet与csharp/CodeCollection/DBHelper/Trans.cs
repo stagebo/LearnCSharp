@@ -15,10 +15,9 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TDQS.Contracts;
 using System.Data.Common;
 
-namespace TDQS.DBHelper
+namespace BaseCSharp.CodeCollection
 {
     /// <summary>
     /// 事务 类
@@ -26,8 +25,7 @@ namespace TDQS.DBHelper
     /// <summary>
     /// 名称: 事务 类
     /// 功能: 实现事务操作
-    /// </summary>   
-    [CLSCompliant(false)]
+    /// </summary> 
     public class Trans : ITrans
     {
 
@@ -48,7 +46,7 @@ namespace TDQS.DBHelper
             }
             catch
             {
-                XSystem.LogHandler.Error("数据库连接打开失败");
+               
                 Debug.Assert(false, "数据库连接打开失败");
             }
         }
@@ -78,7 +76,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error( "回滚事务失败！" + ex.Message);
+               
             }
         }
 
@@ -111,7 +109,7 @@ namespace TDQS.DBHelper
         /// <summary>
         /// 数据库对象
         /// </summary>
-        [CLSCompliant(false)]
+        
         public IDatabase Database
         {
             get

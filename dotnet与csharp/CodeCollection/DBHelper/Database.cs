@@ -1,32 +1,19 @@
-﻿// Database 类
-// 时间: 2010-05-01 11:04:20
-// 名称：Database 
-// 大纲：数据库对象 基类
-//
-// 创建人：刘东亮
-// 版权：2011 天津天大求实电力新技术股份有限公司 版权所有
-// 备注：
-// ========================================================
-//  日期		修改人		描述
-//  2012.11.19  聂桂春      修改连接方式为实时释放，支持事务查询。
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Text;
-using System.Text.RegularExpressions;
-using TDQS.Contracts;
 
-namespace TDQS.DBHelper
+namespace BaseCSharp.CodeCollection
 {
     /// <summary>
     /// DataBase 基类
     /// 名称: 数据库对象 基类
     /// 功能: 实现数据操作
     /// </summary>
-    [CLSCompliant(false)] 
+     
     public abstract class Database : IDatabase
     {
         #region 构造和析构
@@ -182,7 +169,7 @@ namespace TDQS.DBHelper
                     connect.Open();
                 }
             }
-            catch 
+            catch (Exception e)
             {
                 throw new Exception("创建或打开数据库连接失败！") ;
             }
@@ -220,7 +207,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+                
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -272,7 +259,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+               
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -317,7 +304,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+               
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -366,7 +353,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+                
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -395,7 +382,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+               
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -422,7 +409,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+               
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -457,7 +444,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+              
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -504,7 +491,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+               
                 Debug.Assert(false, ex.Message);
                 return -1;
             }
@@ -552,7 +539,7 @@ namespace TDQS.DBHelper
             catch (Exception ex)
             {
                 dbTrans.Rollback();
-                XSystem.LogHandler.Error(ex.Message);
+               
                 Debug.Assert(false, ex.Message);
                 return -1;
             }
@@ -611,7 +598,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+               
                 Debug.Assert(false, ex.Message);
                 return -1;
             }
@@ -658,7 +645,7 @@ namespace TDQS.DBHelper
             }
             catch (Exception ex)
             {
-                XSystem.LogHandler.Error(ex.Message);
+               
                 Debug.Assert(false, ex.Message);
                 return -1;
             }

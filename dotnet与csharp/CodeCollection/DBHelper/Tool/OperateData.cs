@@ -5,12 +5,12 @@ using System.Data.OleDb;
 using System;
 using System.Diagnostics;
 
-namespace TDQS.DBHelper
+namespace BaseCSharp.CodeCollection
 {
     /// <summary>
     /// 基本数据增删改操作
     /// </summary>
-    [CLSCompliant(false)] 
+     
     public  class OperateData
     {
         /// <summary>
@@ -48,7 +48,7 @@ namespace TDQS.DBHelper
             }
 
             sqlString.Append(ValuesList.Substring(0, ValuesList.Length - 1) + " where " + WhereList.Substring(0, WhereList.Length - 5));
-            return DBHelper.DbHelperACE.ExecuteSql(sqlString.ToString(), prams);
+            return DbHelperACE.ExecuteSql(sqlString.ToString(), prams);
         }
 
         /// <summary>
@@ -81,11 +81,11 @@ namespace TDQS.DBHelper
                 {
                     case OperateType.Delete:
                         sqlString.Append("delete from " + TableName + " where " + ValuesList.Substring(0, ValuesList.Length - 5));
-                        DBHelper.DbHelperACE.ExecuteSql(sqlString.ToString(), prams);
+                        DbHelperACE.ExecuteSql(sqlString.ToString(), prams);
                         break;
                     case OperateType.Select:
                         sqlString.Append("select * from " + TableName + " where " + ValuesList.Substring(0, ValuesList.Length - 5) + (Orderby == "" ? "" : " order by " + Orderby));
-                        dt = DBHelper.DbHelperACE.Query(sqlString.ToString(), prams).Tables[0];
+                        dt = DbHelperACE.Query(sqlString.ToString(), prams).Tables[0];
                         break;
                     default:
                         break;
@@ -104,7 +104,7 @@ namespace TDQS.DBHelper
         {
             Debug.Assert(!string.IsNullOrEmpty(SQLString), "要执行的SQL为空！");
             Debug.Assert(cmd != null, "DbCommand为空！");
-            return DBHelper.DbHelperACE.ExecuteSql(SQLString, cmd);
+            return DbHelperACE.ExecuteSql(SQLString, cmd);
         }
         /// <summary>
         /// 得到通用的主键
@@ -119,7 +119,7 @@ namespace TDQS.DBHelper
             Debug.Assert(!string.IsNullOrEmpty(KeyFileid), "主键ID为空！");
             Debug.Assert(cmd != null, "DbCommand为空！");
             string sql = string.Format("select max({0})  FROM {1}", KeyFileid, TableName);
-            string ID = DBHelper.DbHelperACE.GetSingle(sql, cmd).ToString();
+            string ID = DbHelperACE.GetSingle(sql, cmd).ToString();
             return ID == "" ? 1 : int.Parse(ID) + 1;
         }
 
@@ -168,7 +168,7 @@ namespace TDQS.DBHelper
             Debug.Assert(!string.IsNullOrEmpty(where), "Where语句为空！");
             Debug.Assert(cmd != null, "DbCommand为空！");
             string sql = string.Format("select * from {0} where 1=1 {1}", TableName, where);
-            return DBHelper.DbHelperACE.Query(sql, cmd).Tables[0];
+            return DbHelperACE.Query(sql, cmd).Tables[0];
         }
 
     }

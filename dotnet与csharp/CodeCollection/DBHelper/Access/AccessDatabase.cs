@@ -18,12 +18,12 @@ using System.Data.OleDb;
 using System.IO;
 using System.Diagnostics;
 
-namespace TDQS.DBHelper
+namespace BaseCSharp.CodeCollection
 {
     /// <summary>
     /// Access数据库对象
     /// </summary>
-    [CLSCompliant(false)]
+    
     public class AccessDatabase : Database
     {
         /// <summary>

@@ -1,15 +1,3 @@
-#region CLR版本 4.0.30319.269
-// Excel 类
-// 时间：6/29/2012 1:30:12 PM
-// 名称：Excel数据库对象
-// 大纲：
-//
-// 创建人：王东云
-// 版权：2012 天津天大求实电力新技术股份有限公司 版权所有
-// 备注：
-// ========================================================
-//  日期		修改人		描述
-#endregion
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
@@ -18,12 +6,12 @@ using System.Text;
 using System.Data.OleDb;
 using System.Data;
 
-namespace TDQS.DBHelper
+namespace BaseCSharp.CodeCollection
 {
     /// <summary>
     /// Excel数据库对象
     /// </summary>
-    [CLSCompliant(false)]
+    
     public class ExcelDatabase : Database
     {
         #region 构造和析构

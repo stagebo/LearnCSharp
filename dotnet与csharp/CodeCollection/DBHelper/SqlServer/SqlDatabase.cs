@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
 
-namespace TDQS.DBHelper.SqlServer
+namespace BaseCSharp.CodeCollection.SqlServer
 {
     /// <summary>
     /// SqlDatabase 类
     /// </summary>
-   [CLSCompliant(false)] 
+    
     public class SqlDatabase : Database
     {
         #region 构造和析构

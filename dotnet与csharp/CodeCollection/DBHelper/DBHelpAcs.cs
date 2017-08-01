@@ -1,14 +1,4 @@
-﻿// DbHelperACE 类
-// 时间: 2010-05-01 11:04:20
-// 名称：DbHelperACE 
-// 大纲：操作Access数据库基类
-//
-// 创建人：刘东亮
-// 版权：2011 天津天大求实电力新技术股份有限公司 版权所有
-// 备注：
-// ========================================================
-//  日期		修改人		描述
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data.OleDb;
@@ -20,7 +10,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 
-namespace TDQS.DBHelper
+namespace BaseCSharp.CodeCollection
 {
     /// <summary>
     /// 操作Access数据库基类
@@ -911,9 +901,10 @@ namespace TDQS.DBHelper
         /// <summary>
         /// 数据库连接字符串(config来配置)   
         /// </summary> 
-        public static string connectionstring = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString()
-            + Application.StartupPath + "\\"
-            + ConfigurationManager.AppSettings["Access"].ToString();
+        public static string connectionstring = "";
+            //ConfigurationManager.ConnectionStrings["ConnectionString"].ToString()
+            //+ Application.StartupPath + "\\"
+            //+ ConfigurationManager.AppSettings["Access"].ToString();
 
         #endregion
     }

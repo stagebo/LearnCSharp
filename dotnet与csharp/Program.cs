@@ -35,7 +35,7 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            new ZipTest().Run();
+            new DatabaseHelperTest().Run();
             Console.WriteLine(CommonFunction.Utils.StringUtils.GetRandomString());
             Console.ReadKey();
         }
