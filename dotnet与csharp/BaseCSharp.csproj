@@ -75,6 +75,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeCollection\DBHelper\Access\AccessDatabase.cs" />
+    <Compile Include="CodeCollection\DBHelper\Database.cs" />
+    <Compile Include="CodeCollection\DBHelper\DBHelpAcs.cs" />
+    <Compile Include="CodeCollection\DBHelper\Excel\ExcelDatabase.cs" />
+    <Compile Include="CodeCollection\DBHelper\PostgreSql\ObjectOperable.cs" />
+    <Compile Include="CodeCollection\DBHelper\PostgreSql\PostgreSqlDatabase.cs" />
+    <Compile Include="CodeCollection\DBHelper\SqlServer\SqlDatabase.cs" />
+    <Compile Include="CodeCollection\DBHelper\Tool\OperateData.cs" />
+    <Compile Include="CodeCollection\DBHelper\Tool\OperateType.cs" />
+    <Compile Include="CodeCollection\DBHelper\Trans.cs" />
+    <Compile Include="CodeCollection\Implement\Database.cs" />
+    <Compile Include="CodeCollection\Implement\Trans.cs" />
+    <Compile Include="CodeCollection\Interface\IDatabase.cs" />
+    <Compile Include="CodeCollection\Interface\ITrans.cs" />
     <Compile Include="Entity\Person1.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
