@@ -14,6 +14,7 @@ using dotnet与csharp;
 using dotnet与csharp.PartyClass;
 using System.Configuration;
 using System.Collections;
+using System.Web.Script.Serialization;
 /*
 * dotnet一般指.Net Framework 框架，是一种平台，一种框架
 * c#是一种编程语言，可以开发基于.net平台的应用程序
@@ -33,11 +34,28 @@ using System.Collections;
 */
 namespace BaseCSharp
 {
+    class Book
+    {
+        public Guid id;
+        public  string name;
+        public Book(Guid id, string name) {
+            this.id = id;
+            this.name = name;
+            publishTime = DateTime.Now;
+        }
+        public DateTime publishTime { get; set; }
+        public string toJsonString() {
+            return "12313";
+        }
+    }
     partial class Program
     {
         static void Main(string[] args)
         {
             //  new DatabaseHelperTest().Run();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+            string serializeResult = serializer.Serialize(new Book(Guid.NewGuid(),"钢铁是怎样炼成的"));
             ConfigurationManager.OpenExeConfiguration("");
             string localVersion = ConfigurationManager.AppSettings["configuration/connectionStrings/add"];//获取本地版本号，TODO
             var v = ConfigurationManager.AppSettings;
