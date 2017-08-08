@@ -33,5 +33,6 @@ namespace BaseCSharp.PartyClass
         {
             Console.WriteLine("content:【"+str+"】");
         }
+       
     }
 }

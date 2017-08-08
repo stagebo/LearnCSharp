@@ -92,6 +92,7 @@
     <Compile Include="Entity\Person1.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Interface\ITest.cs" />
     <Compile Include="PartyClass\AttributeTest.cs" />
     <Compile Include="PartyClass\DatabaseConn.cs" />
     <Compile Include="PartyClass\DatabaseHelperTest.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="PartyClass\FtpUtils.cs" />
     <Compile Include="PartyClass\LinqTest.cs" />
     <Compile Include="PartyClass\NewCSharp.cs" />
+    <Compile Include="PartyClass\XmlTest.cs" />
     <Compile Include="PartyClass\ZipTest.cs" />
     <Compile Include="PartyClass\泛型方法Test.cs" />
     <Compile Include="Utils\DBUtils.cs" />
@@ -138,7 +140,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="File\停电计划.xlsx" />
     <None Include="File\复杂Excel解析.xlsx" />
   </ItemGroup>
@@ -181,9 +185,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

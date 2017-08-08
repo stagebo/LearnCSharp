@@ -52,14 +52,10 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            //  new DatabaseHelperTest().Run();
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-
-            string serializeResult = serializer.Serialize(new Book(Guid.NewGuid(),"钢铁是怎样炼成的"));
-            ConfigurationManager.OpenExeConfiguration("");
-            string localVersion = ConfigurationManager.AppSettings["configuration/connectionStrings/add"];//获取本地版本号，TODO
-            var v = ConfigurationManager.AppSettings;
-            DisplayConnectionStrings();
+            XmlDocument doc = new XmlDocument();
+            doc.Load("App.config");
+            var elem = doc.GetElementsByTagName("configuration")[0]
+                ;
             Console.ReadKey();
         }
         // Show how to use ConnectionStrings.
