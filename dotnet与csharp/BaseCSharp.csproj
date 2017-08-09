@@ -106,6 +106,7 @@
     <Compile Include="PartyClass\XmlTest.cs" />
     <Compile Include="PartyClass\ZipTest.cs" />
     <Compile Include="PartyClass\泛型方法Test.cs" />
+    <Compile Include="Utils\CommonFileOperation.cs" />
     <Compile Include="Utils\DBUtils.cs" />
     <Compile Include="PartyClass\ExcelExport.cs" />
     <Compile Include="PartyClass\Lambda表达式.cs" />
