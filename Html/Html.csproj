@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <NuGetPackageImportStamp>4d15c915</NuGetPackageImportStamp>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -5897,6 +5898,7 @@
     <Content Include="URMyOne\data.js" />
     <Content Include="URMyOne\Index.html" />
     <Content Include="YouRemainLife.html" />
+    <Content Include="右键菜单.html" />
     <Content Include="画三角形.html" />
     <Content Include="相对位置和绝对位置.html" />
     <Content Include="Plugins\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
