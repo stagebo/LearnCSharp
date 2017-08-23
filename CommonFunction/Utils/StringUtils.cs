@@ -5,10 +5,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommonFunction.Utils
+namespace CommonFunction
 {
     public class StringUtils
     {
+        public int add(int a, int b)
+        {
+            return a + b;
+        }
         public static void Test()
         {
             Console.WriteLine("this is dll test!");
