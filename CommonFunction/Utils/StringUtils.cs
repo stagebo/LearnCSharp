@@ -21,14 +21,13 @@ namespace CommonFunction.Utils
             return System.Text.Encoding.Default.GetString(result);
         }
 
-        public static string GetRandomString(int length)
+        public static string GetRandomString(int l)
         {
-            int l = length;
             char[] str = "abcdefghijklmnopqrstuvwxyz0123456789".ToArray<char>();
             Random r = new Random();
             StringBuilder sb = new StringBuilder();
             while (l-- > 0) {
-                sb.Append(str[r.Next(length)]);
+                sb.Append(str[r.Next(str.Length)]);
             }
             return sb.ToString() ;
         }

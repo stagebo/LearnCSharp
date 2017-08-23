@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>demo</title>
+    <style type="text/css">
+        li.item {
+            border: solid 1px;
+            border-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="right_click" style="background-color:#888;border:solid 1px; width:100px;height:30px;">右键点我</div>
+
+    <ul id="ctxMenu" style="width:50px;position:absolute;">
+        <li onclick="move('1')" class="item">新建</li>
+        <li onclick="move('2')" class="item">删除</li>
+        <li onclick="move('3')" class="item">修改</li>
+        <li onclick="move('4')" class="item">取消</li>
+    </ul>
+    <script type="text/javascript">
+       /* 获取右键菜单列表*/
+      var ctx = document.getElementById("ctxMenu");
+      ctx.style.visibility = "hidden";
+      /*注册右键*/
+      document.getElementById("right_click").oncontextmenu = function (event) {
+        event.preventDefault();
+        var x=event.pageX;
+        var y=event.pageY;
+        ctx.style.left=x+"px";
+        ctx.style.top=y+"px";
+        ctx.style.visibility="visible";
+      }
+      /*注册点击其他地方隐藏右键菜单*/
+      document.body.onclick=function(){
+        ctx.style.visibility="hidden";
+      }
+
+      function move(e) {
+          switch (e) {
+              case '1': ctx.style.visibility = "hidden"; alert("新建"); break;
+              case '2': ctx.style.visibility = "hidden"; alert("删除"); break;
+              case '3': ctx.style.visibility = "hidden"; alert("修改"); break;
+              case '4': ctx.style.visibility = "hidden"; alert("取消"); break;
+          }
+      }
+    </script>
+</body>
+</html>
