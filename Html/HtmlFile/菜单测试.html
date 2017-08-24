@@ -1,0 +1,167 @@
+<html>
+<head>
+    <title>菜单测试</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style type="text/css">
+        /*一级菜单菜单css*/
+        div.menu-item-parent {
+            width: 198px;
+            height: 50px;
+            background-color: #2369a6;
+            font-size: 30px;
+            padding-top: 15px;
+            text-align: left;
+            font: bold;
+        }
+        /*二级菜单项样式*/
+        div[itype='menu-item'] {
+            width: 160px;
+            height: 30px;
+            font-size: 25px;
+            padding-top: 5px;
+            padding-left:40px;
+            text-align: left;
+        }
+        /*子菜单激活*/
+        div.menu-item-active {
+            background-color: #5cb85c;
+        }
+        /*子菜单未激活样式*/
+        div.menu-item-not-active {
+            background-color: #337ab7;
+        }
+        /*一级菜单项边框样式*/
+        div[itype='menu-item-p'] {
+            border: solid 1px black;
+            margin-top: 1px;
+        }
+
+            /*菜单项鼠标掠过样式*/
+            div[itype="menu-item"]:hover, div[itype="menu-item-p"]:hover {
+                background-color: #286090;
+            }
+            /*菜单项鼠标按下样式*/
+            div[itype="menu-item"]:active, div[itype="menu-item-p"]:active {
+                background-color: #6dc96d;
+            }
+    </style>
+    <script type="text/javascript">
+        /*初始化*/
+        $(function () {
+           // foldAllSecondMenu();
+        });
+
+        $(function () {
+            /*一级菜单点击事件*/
+            $("div[itype='menu-item-p']").click(function () {
+                var pid = $(this).attr("id");
+                var item = $("div[parentid='" + pid + "']");
+                if (item.attr("hide") == "true") {
+                    item.show();
+                    item.attr("hide", "false");
+                } else {
+                    item.hide();
+                    item.attr("hide","true");
+                }
+
+            });
+
+            /*二级菜单点击事件*/
+            $("div[itype='menu-item']").click(function () {
+                var brothers = $(this).parent().children();
+                for (var i = 0; i < brothers.length; i++) {
+                    $(brothers[i]).removeClass("menu-item-active").addClass("menu-item-not-active").attr("active", "false");
+                }
+                $(this).addClass("menu-item-active").removeClass("menu-item-not-active").attr("active", "true");
+                console.log($(this).html());
+            });
+        });
+
+        /*全部折叠*/
+        function foldAllSecondMenu() {
+            var sm = $("div[itype='menu-item-container']");
+            if ($.isArray(sm)) {
+                for (var i = 0; i < sm.length; i++) {
+                    $(sm[i]).hide();
+                    $(sm[i]).attr("hide","true");
+                }
+            } else {
+                sm.hide();
+            }
+        }
+        /*全部展开*/
+        function showAllSecondMenu() {
+            var sm = $("div[itype='menu-item-container']");
+            if ($.isArray(sm)) {
+                for (var i = 0; i < sm.length; i++) {
+                    $(sm[i]).show();
+                    $(sm[i]).attr("hide", "false");
+                }
+            } else {
+                sm.show();
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <!--一级-->
+        <div id="menu_item_p_1" itype="menu-item-p" class="menu-item-parent">一级菜单1</div>
+        <!--二级-->
+        <div itype="menu-item-container" parentid="menu_item_p_1" hide="false">
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项1</div>
+            <div itype="menu-item" class="menu-item-active" active="true">菜单项2</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项3</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项4</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项5</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项6</div>
+        </div>
+        <!--一级-->
+        <div id="menu_item_p_2" itype="menu-item-p" class="menu-item-parent">一级菜单2</div>
+        <!--二级-->
+        <div itype="menu-item-container" parentid="menu_item_p_2" hide="false">
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项1</div>
+            <div itype="menu-item" class="menu-item-active" active="true">菜单项2</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项3</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项4</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项5</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项6</div>
+        </div>
+        <!--一级-->
+        <div id="menu_item_p_3" itype="menu-item-p" class="menu-item-parent">一级菜单3</div>
+        <!--二级-->
+        <div itype="menu-item-container" parentid="menu_item_p_3" hide="false">
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项1</div>
+            <div itype="menu-item" class="menu-item-active" active="true">菜单项2</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项3</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项4</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项5</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项6</div>
+        </div>
+        <!--一级-->
+        <div id="menu_item_p_4" itype="menu-item-p" class="menu-item-parent">一级菜单4</div>
+        <!--二级-->
+        <div itype="menu-item-container" parentid="menu_item_p_4" hide="false">
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项1</div>
+            <div itype="menu-item" class="menu-item-active" active="true">菜单项2</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项3</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项4</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项5</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项6</div>
+        </div>
+        <!--一级-->
+        <div id="menu_item_p_5" itype="menu-item-p" class="menu-item-parent">一级菜单5</div>
+        <!--二级-->
+        <div itype="menu-item-container" parentid="menu_item_p_5" hide="false">
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项1</div>
+            <div itype="menu-item" class="menu-item-active" active="true">菜单项2</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项3</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项4</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项5</div>
+            <div itype="menu-item" class="menu-item-not-active" active="false">菜单项6</div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -59,8 +59,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="clickme.html" />
-    <Content Include="clock.html" />
+    <Content Include="HtmlFile\clickme.html" />
+    <Content Include="HtmlFile\clock.html" />
     <Content Include="GitHub\public\2017\05\19\stagebo\index.html" />
     <Content Include="GitHub\public\2017\05\19\welcome-to-my-blog\index.html" />
     <Content Include="GitHub\public\2017\05\21\我的人生\index.html" />
@@ -88,12 +88,13 @@
     <Content Include="GitHub\public\index.html" />
     <Content Include="GitHub\public\js\script.js" />
     <Content Include="GitHub\public\Plugins\JQuery\jquery-1.8.2.min.js" />
-    <Content Include="heart.html" />
-    <Content Include="json检测.html" />
+    <Content Include="HtmlFile\heart.html" />
+    <Content Include="HtmlFile\json检测.html" />
+    <Content Include="HtmlFile\菜单测试.html" />
     <Content Include="JS\Function.js" />
     <Content Include="JS\PaintingWidget.css" />
     <Content Include="JS\PaintingWidget.js" />
-    <Content Include="Phone.html" />
+    <Content Include="HtmlFile\Phone.html" />
     <Content Include="Plugins\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="Plugins\Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Plugins\Bootstrap\css\bootstrap.css" />
@@ -5892,15 +5893,15 @@
     <Content Include="Plugins\zTree\js\jquery.ztree.exedit.js" />
     <Content Include="Plugins\zTree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Plugins\zTree\js\jquery.ztree.exhide-3.5.min.js" />
-    <Content Include="Razor.cshtml" />
+    <Content Include="HtmlFile\Razor.cshtml" />
     <Content Include="style\Phone.css" />
-    <Content Include="taplap.html" />
+    <Content Include="HtmlFile\taplap.html" />
     <Content Include="URMyOne\data.js" />
     <Content Include="URMyOne\Index.html" />
-    <Content Include="YouRemainLife.html" />
-    <Content Include="右键菜单.html" />
-    <Content Include="画三角形.html" />
-    <Content Include="相对位置和绝对位置.html" />
+    <Content Include="HtmlFile\YouRemainLife.html" />
+    <Content Include="HtmlFile\右键菜单.html" />
+    <Content Include="HtmlFile\画三角形.html" />
+    <Content Include="HtmlFile\相对位置和绝对位置.html" />
     <Content Include="Plugins\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Plugins\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Plugins\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
@@ -5943,7 +5944,7 @@
     <Content Include="Plugins\umeditor\third-party\mathquill\font\Symbola.woff" />
     <Content Include="Plugins\zTree\css\awesomeStyle\awesome.less" />
     <Content Include="Plugins\zTree\css\awesomeStyle\fa.less" />
-    <Content Include="评价示例.html" />
+    <Content Include="HtmlFile\评价示例.html" />
     <Content Include="Plugins\raty-2.5.2\demo\font\fontawesome-webfont.ttf" />
     <Content Include="GitHub\public\css\fonts\fontawesome-webfont.eot" />
     <Content Include="GitHub\public\css\fonts\fontawesome-webfont.ttf" />
@@ -5958,31 +5959,31 @@
     <Content Include="Plugins\MiniUI\themes\blue2010\images\treegrid\Thumbs.db" />
     <Content Include="Plugins\MiniUI\themes\olive2003\images\buttonedit\Thumbs.db" />
     <Content Include="Plugins\MiniUI\themes\olive2003\images\tree\Thumbs.db" />
-    <None Include="Web.Debug.config">
+    <None Include="HtmlFile\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <None Include="Web.Release.config">
+    <None Include="HtmlFile\Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ajax.html" />
-    <Content Include="css选择器1.html" />
-    <Content Include="Frame.html" />
-    <Content Include="Head.html" />
-    <Content Include="HeadOfLogin.html" />
-    <Content Include="HtmlPage1.html" />
-    <Content Include="HtmlPage2.html" />
-    <Content Include="HtmlPage3.html" />
-    <Content Include="HtmlPage4.html" />
-    <Content Include="Html汇总.html" />
+    <Content Include="HtmlFile\Ajax.html" />
+    <Content Include="HtmlFile\css选择器1.html" />
+    <Content Include="HtmlFile\Frame.html" />
+    <Content Include="HtmlFile\Head.html" />
+    <Content Include="HtmlFile\HeadOfLogin.html" />
+    <Content Include="HtmlFile\HtmlPage1.html" />
+    <Content Include="HtmlFile\HtmlPage2.html" />
+    <Content Include="HtmlFile\HtmlPage3.html" />
+    <Content Include="HtmlFile\HtmlPage4.html" />
+    <Content Include="HtmlFile\Html汇总.html" />
     <Content Include="image\1.jpg" />
     <Content Include="image\2.jpg" />
     <Content Include="image\3.jpg" />
     <Content Include="image\4.jpg" />
     <Content Include="image\5.jpg" />
     <Content Include="image\register.jpg" />
-    <Content Include="Index.html" />
+    <Content Include="HtmlFile\Index.html" />
     <None Include="JQuery\jquery-1.8.2.intellisense.js" />
     <Content Include="JQuery\jquery-1.8.2.js" />
     <Content Include="JQuery\jquery-1.8.2.min.js" />
@@ -5999,19 +6000,19 @@
     <Content Include="JQuery\knockout-2.2.0.js" />
     <Content Include="JQuery\modernizr-2.6.2.js" />
     <None Include="JQuery\_references.js" />
-    <Content Include="JQuery方法.html" />
-    <Content Include="JQuery遍历.html" />
-    <Content Include="JSON.html" />
-    <Content Include="LoginPage.html" />
-    <Content Include="Main.html" />
-    <Content Include="PhotoGraph.html" />
-    <Content Include="Register.html" />
-    <Content Include="Snack.html" />
-    <Content Include="SnackMySelf.html" />
-    <Content Include="Test.html" />
-    <Content Include="Text1.txt" />
-    <Content Include="Web.config" />
-    <Content Include="外部样式表.css" />
+    <Content Include="HtmlFile\JQuery方法.html" />
+    <Content Include="HtmlFile\JQuery遍历.html" />
+    <Content Include="HtmlFile\JSON.html" />
+    <Content Include="HtmlFile\LoginPage.html" />
+    <Content Include="HtmlFile\Main.html" />
+    <Content Include="HtmlFile\PhotoGraph.html" />
+    <Content Include="HtmlFile\Register.html" />
+    <Content Include="HtmlFile\Snack.html" />
+    <Content Include="HtmlFile\SnackMySelf.html" />
+    <Content Include="HtmlFile\Test.html" />
+    <Content Include="HtmlFile\Text1.txt" />
+    <Content Include="HtmlFile\Web.config" />
+    <Content Include="HtmlFile\外部样式表.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Plugins\umeditor\net\Uploader.cs" />
