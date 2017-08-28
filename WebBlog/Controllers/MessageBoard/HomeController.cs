@@ -8,7 +8,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using CommonFunction.Utils;
+using CommonFunction;
 using DatabaseUtils.Database;
 
 namespace WebBlog.Controllers.MessageBoard
