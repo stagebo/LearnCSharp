@@ -91,6 +91,10 @@
     <Content Include="HtmlFile\heart.html" />
     <Content Include="HtmlFile\json检测.html" />
     <Content Include="HtmlFile\菜单测试.html" />
+    <Content Include="HtmlFile\轮播\1.jpg" />
+    <Content Include="HtmlFile\轮播\2.jpg" />
+    <Content Include="HtmlFile\轮播\3.jpg" />
+    <Content Include="HtmlFile\轮播\lunbo.html" />
     <Content Include="JS\Function.js" />
     <Content Include="JS\PaintingWidget.css" />
     <Content Include="JS\PaintingWidget.js" />
@@ -5964,6 +5968,13 @@
     </None>
     <None Include="HtmlFile\Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
