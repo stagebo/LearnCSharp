@@ -133,6 +133,7 @@
     <Compile Include="PartyClass\阶乘结果后面的零.cs" />
     <Compile Include="PartyClass\静态方法和静态变量的引用.cs" />
     <Compile Include="PartyClass\验证码图片请求.cs" />
+    <Compile Include="Utils\XMLUtils.cs" />
     <Compile Include="View\ShowUser.cs">
       <SubType>Form</SubType>
     </Compile>
