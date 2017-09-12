@@ -52,10 +52,10 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("App.config");
-            var elem = doc.GetElementsByTagName("configuration")[0]
-                ;
+            int[] re = "1,2,3,4,5,6,7,8,9".Split(',').StringListToIntList();
+
+            re = "1,2,3,4,5,6,7,8,9".Split(',').Cast<string>().Select(x => { return int.Parse(x); }).ToArray();
+
             Console.ReadKey();
         }
         // Show how to use ConnectionStrings.
