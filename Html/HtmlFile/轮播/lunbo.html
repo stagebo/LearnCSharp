@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>this is canvas demo.</title>
+    <script src="../../JQuery/jquery-1.8.2.min.js"></script>
+    <script>
+        $(function () {
+            //init
+            (function ($) {
+                $.items = $("#list").children();
+                $.items.w = $('img.img-item').css('width');;
+                $.items.tw = parseInt($.items.w) * $.items.length;
+                $("#list").css("width", $.items.tw);
+                $.items.left = 0;
+                //set auto play animation started.
+                $.autoPlay=setInterval("movePic('1')", 2000);
+
+                $("#container").mouseenter(function () {
+                    //the auto play animation should be paused when mouse enter.
+                    clearInterval($.autoPlay);
+                }).mouseleave(function () {
+                    //the auto play animation should be restarted when mouse leave.
+                    $.autoPlay=setInterval("movePic('1')", 2000);
+                });
+
+            }(jQuery));
+        });      
+        //slide picture event.
+        function movePic(flag) {
+            //image width
+            var width = $('img.img-item').css('width');
+            //total canvas width should be width * imageList.length
+            var listWidth = $("#list").css("width");
+            //next one
+            if (flag == "1") {
+                $.items.left = parseInt($.items.left) - parseInt(width);
+                if ($.items.left < -(parseInt(listWidth) - parseInt(width))) {
+                    $.items.left = 0;
+                    $("#list").css('left', $.items.left + "px");
+                    $.items.left = parseInt($.items.left) - parseInt(width);
+                }                
+            } else { //pre one
+                $.items.left = parseInt($.items.left) + parseInt(width);
+                if ($.items.left >0 ) {
+                    $.items.left = -(parseInt(listWidth) - parseInt(width));
+                    $("#list").css('left', $.items.left + "px");
+                    $.items.left = parseInt($.items.left) + parseInt(width);
+                }
+                
+            }
+            //animate to slide image
+            //show detail:http://www.w3school.com.cn/jquery/jquery_animate.asp
+            $("#list").animate({ left: $.items.left + 'px' });            
+        }
+
+
+    </script>
+   
+</head>
+<body>   
+    <style>
+        
+        #container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            border: 3px solid #333;
+            overflow: hidden;
+        }
+        
+        #list {
+            position: absolute;
+            /*z-index: 1;*/
+            /*width: 4200px;*/
+            height: 400px;
+        }
+        
+        #list img {
+            float: left;
+            width: 600px;
+            height: 400px;
+        }
+        .arrow {
+            position: absolute;
+            top: 180px;
+            z-index: 2;
+            display: none;
+            width: 40px;
+            height: 40px;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 39px;
+            text-align: center;
+            color: #fff;
+            background-color: RGBA(0, 0, 0, .3);
+            cursor: pointer;
+        }
+        
+        .arrow:hover {
+            background-color: RGBA(0, 0, 0, .7);
+        }
+        
+        #container:hover .arrow {
+            display: block;
+        }
+        
+        #prev {
+            left: 20px;
+        }
+        
+        #next {
+            right: 20px;
+        }
+    </style>
+    <div id="container">
+        <!--image container-->
+        <div id="list" style="left: 0px;background-color:red;">            
+            <img src="1.jpg" alt="1" class="img-item" />
+            <img src="2.jpg" alt="2" class="img-item"/>
+            <img src="3.jpg" alt="3" class="img-item"/>    
+            <!--repeat the firt image to make slide smoothly-->        
+            <img src="1.jpg" alt="1" class="img-item"/>
+        </div>
+        <!--click to pre pic-->
+        <a onclick="movePic('0')" id="prev" class="arrow" >&lt;</a>
+        <!--click to next pic.-->
+        <a onclick="movePic('1')" id="next" class="arrow">&gt;</a>
+    </div>
+</body>
+</html>
