@@ -1,0 +1,48 @@
+﻿/**
+*2017-9-13 11:48:51
+*stagebo
+*按月分类按天计算的累积量
+*
+*/
+use blogsystem
+go
+declare @m varchar,@d varchar,@mo varchar,@n varchar,@sum varchar
+
+declare auth_cur cursor for
+
+SELECT
+	  f_month,f_day,f_money
+	  ,ROW_NUMBER() OVER(PARTITION BY f_month ORDER BY f_day asc) as Num
+
+  FROM [BlogSystem].[dbo].[t_running_account]
+  where f_day <5
+  and f_type =1
+  and f_year = 2016
+  and f_month <3
+  order by f_month asc,f_day asc
+
+
+open auth_cur
+
+fetch next from auth_cur into @m,@d,@mo, @n
+
+while (@@fetch_status=0)
+
+  begin
+    if (@d = 1)
+	  begin
+	    set @sum = cast(@mo as float)
+	  end
+    else 
+	  begin
+	    set @sum=cast(@mo as float)+@sum
+	  end
+    print '月份: '+@d+'，日期: '+@mo+'，数量: '+@n+',sum:'+@sum
+	
+    fetch next from auth_cur into @m,@d,@mo, @n
+
+  end
+
+close auth_cur
+
+deallocate auth_cur
