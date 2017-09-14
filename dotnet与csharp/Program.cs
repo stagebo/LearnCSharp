@@ -56,8 +56,22 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            string url="";
-            string reget = HttpWebReuqestGet("http://stagebo.55555.io", null);
+            try
+            {
+                string postString = "uid=test&pwd=test";//这里即为传递的参数，可以用工具抓包分析，也可以自己分析，主要是form里面每一个name都要加进来  
+                byte[] postData = Encoding.UTF8.GetBytes(postString);//编码，尤其是汉字，事先要看下抓取网页的编码方式  
+                string url = "http://stagebo.55555.io/Managerinterface/ExcuteSql?r=stagebo&sql=select * from t_users";//地址  
+                WebClient webClient = new WebClient();
+                webClient.Headers.Add("Content-Type", "application/x-www-form-urlencoded");//采取POST方式必须加的header，如果改为GET方式的话就去掉这句话即可  
+                byte[] responseData = webClient.UploadData(url, "POST", postData);//得到返回字符流  
+                string srcString = Encoding.UTF8.GetString(responseData);//解码  
+                string resulst = HttpWebReuqestGet(url,new CookieContainer());
+            }
+            catch(Exception ex)
+            {
+            }
+            //string url="";
+            //string reget = HttpWebReuqestGet("Http://stagebo.55555.io", null);
             string result = HttpWebReuqestPost("http://stagebo.55555.io/Login/Validate",
                 new Dictionary<string, string>()
                 {
@@ -78,14 +92,24 @@ namespace BaseCSharp
         {
             try
             {
-                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
+                Uri uri = new Uri(url);
+                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
                 httpWebRequest.Accept = "*/*";
                 httpWebRequest.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko";
                 httpWebRequest.KeepAlive = true;
                 httpWebRequest.Method = "GET";
-                httpWebRequest.Timeout = 5000 * 2;
+                httpWebRequest.Timeout = 5000;
                 httpWebRequest.CookieContainer = cookieContainer;
                 HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+
+
+                Stream respStream = httpWebResponse.GetResponseStream();
+                ///返回的内容是Stream形式的，所以可以利用StreamReader类获取GetResponseStream的内容，并以   
+                //StreamReader类的Read方法依次读取网页源程序代码每一行的内容，直至行尾（读取的编码格式：UTF8）   
+                StreamReader respStreamReader = new StreamReader(respStream, Encoding.UTF8);
+                string res = httpWebResponse.ContentLength + "";
+                string strBuff = respStreamReader.ReadLine();// ReadToEnd();
+
                 Stream responseStream = httpWebResponse.GetResponseStream();
                 StreamReader streamReader = new StreamReader(responseStream, Encoding.UTF8);
                 string webString = streamReader.ReadToEnd();
