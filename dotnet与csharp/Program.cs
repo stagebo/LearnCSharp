@@ -52,7 +52,7 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            int[] re = "1,2,3,4,5,6,7,8,9".Split(',').StringListToIntList();
+            int[] //re = "1,2,3,4,5,6,7,8,9".Split(',').StringListToIntList();
 
             re = "1,2,3,4,5,6,7,8,9".Split(',').Cast<string>().Select(x => { return int.Parse(x); }).ToArray();
 
