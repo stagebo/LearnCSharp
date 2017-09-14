@@ -106,6 +106,7 @@
     <Compile Include="PartyClass\XmlTest.cs" />
     <Compile Include="PartyClass\ZipTest.cs" />
     <Compile Include="PartyClass\泛型方法Test.cs" />
+    <Compile Include="Utils\Common.cs" />
     <Compile Include="Utils\CommonFileOperation.cs" />
     <Compile Include="Utils\DBUtils.cs" />
     <Compile Include="PartyClass\ExcelExport.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="PartyClass\阶乘结果后面的零.cs" />
     <Compile Include="PartyClass\静态方法和静态变量的引用.cs" />
     <Compile Include="PartyClass\验证码图片请求.cs" />
+    <Compile Include="Utils\ICollectionMethod.cs" />
     <Compile Include="Utils\XMLUtils.cs" />
     <Compile Include="View\ShowUser.cs">
       <SubType>Form</SubType>
@@ -187,7 +189,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SqlTest\Sql游标的使用.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
