@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../Plugins/jQuery/jquery-1.12.2.js"></script>
+    <script>
+        function c(e) {
+            if(e==1)
+                $("#myFrame").attr("src","画三角形.html");
+            else
+                $("#myFrame").attr("src", "SnackMySelf.html");
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div style="width:30%;float:left;border:solid 1px;">
+            <input type="button" onclick="c(1)" value="画三角形.html">
+            <input type="button" onclick="c(2)" value="SnackMySelf.html">
+        </div>
+        <div style="width:69%;float:left;">
+            <iframe id="myFrame"style="width:100%;"height=550 src="画三角形.html"  ></iframe>
+        </div>
+    </div>
+</body>
+</html>
