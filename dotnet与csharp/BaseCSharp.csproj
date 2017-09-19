@@ -98,6 +98,7 @@
     <Compile Include="PartyClass\DatabaseHelperTest.cs" />
     <Compile Include="PartyClass\DatabaseSpeedTest.cs" />
     <Compile Include="PartyClass\DatabaseWithMultiThread.cs" />
+    <Compile Include="PartyClass\ExcelUtils.cs" />
     <Compile Include="PartyClass\ExtendMethod.cs" />
     <Compile Include="PartyClass\FileCompressAndCopy.cs" />
     <Compile Include="PartyClass\FtpUtils.cs" />
