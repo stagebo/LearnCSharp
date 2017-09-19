@@ -59,6 +59,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HtmlFile\404Page\css\htmleaf-demo.css" />
+    <Content Include="HtmlFile\404Page\css\normalize.css" />
+    <Content Include="HtmlFile\404Page\css\style.css" />
+    <Content Include="HtmlFile\404Page\fonts\icomoon.svg" />
+    <Content Include="HtmlFile\404Page\index.html" />
+    <Content Include="HtmlFile\background\css\img\in_top_bj.jpg" />
+    <Content Include="HtmlFile\background\css\img\nav_gv.png" />
+    <Content Include="HtmlFile\background\css\img\top_logo.png" />
+    <Content Include="HtmlFile\background\css\index_style.css" />
+    <Content Include="HtmlFile\background\css\Music.mp3" />
+    <Content Include="HtmlFile\background\index.html" />
+    <Content Include="HtmlFile\background\js\jquery.min.js" />
     <Content Include="HtmlFile\clickme.html" />
     <Content Include="HtmlFile\clock.html" />
     <Content Include="GitHub\public\2017\05\19\stagebo\index.html" />
@@ -91,6 +103,19 @@
     <Content Include="HtmlFile\heart.html" />
     <Content Include="HtmlFile\IFrameTest.html" />
     <Content Include="HtmlFile\json检测.html" />
+    <Content Include="HtmlFile\LeftMenu\css\style.css" />
+    <Content Include="HtmlFile\LeftMenu\index.html" />
+    <Content Include="HtmlFile\LeftMenu\js\index.js" />
+    <Content Include="HtmlFile\Menu\index.html" />
+    <Content Include="HtmlFile\Movie\css\404.css" />
+    <Content Include="HtmlFile\Movie\images\bird.png" />
+    <Content Include="HtmlFile\Movie\images\san.png" />
+    <Content Include="HtmlFile\Movie\images\yun0.png" />
+    <Content Include="HtmlFile\Movie\images\yun1.png" />
+    <Content Include="HtmlFile\Movie\images\yun2.png" />
+    <Content Include="HtmlFile\Movie\index.html" />
+    <Content Include="HtmlFile\Movie\js\jquery-1.7.2.min.js" />
+    <Content Include="HtmlFile\Snow\index.html" />
     <Content Include="HtmlFile\菜单测试.html" />
     <Content Include="HtmlFile\轮播\1.jpg" />
     <Content Include="HtmlFile\轮播\2.jpg" />
@@ -5964,6 +5989,9 @@
     <Content Include="Plugins\MiniUI\themes\blue2010\images\treegrid\Thumbs.db" />
     <Content Include="Plugins\MiniUI\themes\olive2003\images\buttonedit\Thumbs.db" />
     <Content Include="Plugins\MiniUI\themes\olive2003\images\tree\Thumbs.db" />
+    <Content Include="HtmlFile\404Page\fonts\icomoon.eot" />
+    <Content Include="HtmlFile\404Page\fonts\icomoon.ttf" />
+    <Content Include="HtmlFile\404Page\fonts\icomoon.woff" />
     <None Include="HtmlFile\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -6040,6 +6068,11 @@
     <Folder Include="GitHub\public\Plugins\MiniUI\themes\metro-orange\images\button\" />
     <Folder Include="GitHub\public\Plugins\MiniUI\themes\metro\images\button\" />
     <Folder Include="GitHub\public\Plugins\MiniUI\themes\pure\images\button\" />
+    <Folder Include="HtmlFile\Movie\images\404\" />
+    <Folder Include="HtmlFile\NewFolder1\" />
+    <Folder Include="HtmlFile\Snow\css\" />
+    <Folder Include="HtmlFile\Snow\img\" />
+    <Folder Include="HtmlFile\Snow\js\" />
     <Folder Include="Plugins\MiniUI\themes\gray\images\layout\" />
     <Folder Include="Plugins\MiniUI\themes\gray\images\panel\" />
     <Folder Include="Plugins\MiniUI\themes\gray\images\splitter\" />

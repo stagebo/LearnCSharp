@@ -1,51 +1,5 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <script src="JQuery/jquery-1.8.2.js"></script>
-    <!--绘图插件-->
-    <link href="JS/PaintingWidget.css" rel="stylesheet" />
-    <script src="JS/PaintingWidget.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            var s = {
-                "ox": 150,
-                "oy": 50,
-                "radius": 50,
-                "lineColor": '#0f0',
-                "fullColor": '#000',
-            }
-            $("#draw").click(function () {
-                $("#tt").drawCircle(s);
-            });
-        })(jQuery);
-    </script>
-    <style>
-        #d {
-            position: absolute;
-        }
+﻿<div>
+    <div style="background-image">
 
-        .div1 {
-            position: absolute;
-            left: 120px;
-            background-color: blue;
-            width:20px;
-            height:20px;
-            border-radius:10px;
-            border:solid;border-color:;
-        }
-        body {
-            background-color:blue;
-        }
-    </style>
-</head>
-<body >
-    <div id="tt" style="width:200px;height:100px;border-color:black;background-color:blue;border:solid;">
-        <!--<div style="width:190px;height:90px;margin-left:5px;margin-top:5px;
-        transform:rotate(-45deg);background-color:red;">
-        </div>-->
     </div>
-    <div class="div1" id="draw">123</div>
-
-</body>
-</html>
+</div>
