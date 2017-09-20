@@ -56,6 +56,7 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(string.Format("{0:N0}", 123.456));
             try
             {
                 string postString = "uid=test&pwd=test";//这里即为传递的参数，可以用工具抓包分析，也可以自己分析，主要是form里面每一个name都要加进来  
