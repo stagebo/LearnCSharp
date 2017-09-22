@@ -56,29 +56,47 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(string.Format("{0:N0}", 123.456));
-            try
+            string uid = ConfigurationManager.AppSettings["EmailAcount"];
+            string pwd = ConfigurationManager.AppSettings["EmailPassword"];
+            string server = EmailServer.QQEmail;
+            EmailHelper emailHelper = new EmailHelper(uid,pwd,server);
+            bool flag = emailHelper.Send(new List<string>() { "1254117589@qq.com" }, 
+                "测试邮件标题",
+                "测试邮件内容",
+                new List<string>() { "1254117589@qq.com" },
+                new List<string> { "D:\\360极速浏览器下载\\解忧杂货店.txt" }
+                );
+            if (flag)
             {
-                string postString = "uid=test&pwd=test";//这里即为传递的参数，可以用工具抓包分析，也可以自己分析，主要是form里面每一个name都要加进来  
-                byte[] postData = Encoding.UTF8.GetBytes(postString);//编码，尤其是汉字，事先要看下抓取网页的编码方式  
-                string url = "http://stagebo.55555.io/Managerinterface/ExcuteSql?r=stagebo&sql=select*from[t_users]";//地址  
-                WebClient webClient = new WebClient();
-                webClient.Headers.Add("Content-Type", "application/x-www-form-urlencoded");//采取POST方式必须加的header，如果改为GET方式的话就去掉这句话即可  
-                byte[] responseData = webClient.UploadData(url, "POST", postData);//得到返回字符流  
-                string srcString = Encoding.UTF8.GetString(responseData);//解码  
-                string resulst = HttpWebReuqestGet(url,new CookieContainer());
+                Console.WriteLine("send success!");
             }
-            catch(Exception ex)
+            else
             {
+                Console.WriteLine("send error!");
             }
-            //string url="";
-            //string reget = HttpWebReuqestGet("Http://stagebo.55555.io", null);
-            string result = HttpWebReuqestPost("http://stagebo.55555.io/Login/Validate",
-                new Dictionary<string, string>()
-                {
-                    { "uid","c"},
-                    { "pwd","c"}
-                }, null);
+            //Console.WriteLine(string.Format("{0:N0}", 123.456));
+            //try
+            //{
+            //    string postString = "uid=test&pwd=test";//这里即为传递的参数，可以用工具抓包分析，也可以自己分析，主要是form里面每一个name都要加进来  
+            //    byte[] postData = Encoding.UTF8.GetBytes(postString);//编码，尤其是汉字，事先要看下抓取网页的编码方式  
+            //    string url = "http://stagebo.55555.io/Managerinterface/ExcuteSql?r=stagebo&sql=select*from[t_users]";//地址  
+            //    WebClient webClient = new WebClient();
+            //    webClient.Headers.Add("Content-Type", "application/x-www-form-urlencoded");//采取POST方式必须加的header，如果改为GET方式的话就去掉这句话即可  
+            //    byte[] responseData = webClient.UploadData(url, "POST", postData);//得到返回字符流  
+            //    string srcString = Encoding.UTF8.GetString(responseData);//解码  
+            //    string resulst = HttpWebReuqestGet(url,new CookieContainer());
+            //}
+            //catch(Exception ex)
+            //{
+            //}
+            ////string url="";
+            ////string reget = HttpWebReuqestGet("Http://stagebo.55555.io", null);
+            //string result = HttpWebReuqestPost("http://stagebo.55555.io/Login/Validate",
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "uid","c"},
+            //        { "pwd","c"}
+            //    }, null);
             Console.ReadKey();
         }
         #region HttpWebReuqest访问
