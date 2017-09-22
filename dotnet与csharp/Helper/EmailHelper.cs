@@ -39,7 +39,8 @@ namespace BaseCSharp
         /// <param name="copyToList">抄送List</param>
         /// <param name="attachFilePathList">附件路径List</param>
         /// <returns>是否发送成功</returns>    
-        public bool Send(List<string> receiverList, string title, string content = null, List<string> copyToList = null, List<string> attachFilePathList = null)
+        public bool Send(List<string> receiverList, string title, string content = null, List<string> copyToList = null,
+            List<string> attachFilePathList = null, string footer = null)
         {
             if (receiverList == null || title == null)
             {
