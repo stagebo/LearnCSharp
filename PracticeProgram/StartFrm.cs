@@ -17,6 +17,7 @@ namespace PracticeProgram
             XSystem.Shell = this;
             this.Database = new SqliteDatabase(dataFileName);
             this.Http = new HttpHelper();
+            this.Student = null;
             InitializeComponent();
         }
 
@@ -30,5 +31,6 @@ namespace PracticeProgram
         public static string dataFileName = AppDomain.CurrentDomain.BaseDirectory + "/../../DatabaseFile/project.Data";
         public SqliteDatabase Database { get; set; }
         public HttpHelper Http { get; set; }
+        public StudentInfo Student {get;set;}
     }
 }

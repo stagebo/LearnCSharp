@@ -50,7 +50,8 @@ namespace PracticeProgram
         /// <returns></returns>
         public string SendPost(string url, Dictionary<string, string> paramList = null)
         {
-            HttpResponseMessage response = _httpClient.PostAsync(new Uri(url), new FormUrlEncodedContent(paramList)).Result;
+            var v = _httpClient.PostAsync(new Uri(url), new FormUrlEncodedContent(paramList));
+            HttpResponseMessage response = v?.Result;
             string result = response.Content.ReadAsStringAsync().Result;
             return result;
         }
