@@ -4,13 +4,114 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Net.Http;
+using System.IO;
+using System.Text.RegularExpressions;
+
 namespace Test
 {
 
     class ListNode
     {
+        private static String dir = @"F:\HttpTest\";
+
+        /// <summary>
+        /// 写文件到本地
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="html"></param>
+        public static void Write(string fileName, string html)
+        {
+            try
+            {
+                FileStream fs = new FileStream(dir + fileName, FileMode.Create);
+                StreamWriter sw = new StreamWriter(fs, Encoding.Default);
+                sw.Write(html);
+                sw.Close();
+                fs.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
+
+        }
+
+        /// <summary>
+        /// 写文件到本地
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="html"></param>
+        public static void Write(string fileName, byte[] html)
+        {
+            try
+            {
+                File.WriteAllBytes(dir + fileName, html);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
+
+        }
+        /// <summary>
+        /// 登录博客园
+        /// </summary>
+        public static void LoginCnblogs()
+        {
+            HttpClient httpClient = new HttpClient();
+            httpClient.MaxResponseContentBufferSize = 256000;
+            httpClient.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36");
+            String url = "http://passport.cnblogs.com/login.aspx";
+            HttpResponseMessage response = httpClient.GetAsync(new Uri(url)).Result;
+            String result = response.Content.ReadAsStringAsync().Result;
+
+            String username = "stagebo";
+            String password = "0.123456789dyi";
+
+            do
+            {
+                String __EVENTVALIDATION = new Regex("id=\"__EVENTVALIDATION\" value=\"(.*?)\"").Match(result).Groups[1].Value;
+                String __VIEWSTATE = new Regex("id=\"__VIEWSTATE\" value=\"(.*?)\"").Match(result).Groups[1].Value;
+                String LBD_VCID_c_login_logincaptcha = new Regex("id=\"LBD_VCID_c_login_logincaptcha\" value=\"(.*?)\"").Match(result).Groups[1].Value;
+
+                //图片验证码
+                url = "http://passport.cnblogs.com" + new Regex("id=\"c_login_logincaptcha_CaptchaImage\" src=\"(.*?)\"").Match(result).Groups[1].Value;
+                response = httpClient.GetAsync(new Uri(url)).Result;
+                Write("amosli.png", response.Content.ReadAsByteArrayAsync().Result);
+
+                Console.WriteLine("输入图片验证码：");
+                String imgCode = "wupve";//验证码写到本地了，需要手动填写
+                imgCode = Console.ReadLine();
+
+                //开始登录
+                url = "http://passport.cnblogs.com/login.aspx";
+                List<KeyValuePair<String, String>> paramList = new List<KeyValuePair<String, String>>();
+                paramList.Add(new KeyValuePair<string, string>("__EVENTTARGET", ""));
+                paramList.Add(new KeyValuePair<string, string>("__EVENTARGUMENT", ""));
+                paramList.Add(new KeyValuePair<string, string>("__VIEWSTATE", __VIEWSTATE));
+                paramList.Add(new KeyValuePair<string, string>("__EVENTVALIDATION", __EVENTVALIDATION));
+                paramList.Add(new KeyValuePair<string, string>("tbUserName", username));
+                paramList.Add(new KeyValuePair<string, string>("tbPassword", password));
+                paramList.Add(new KeyValuePair<string, string>("LBD_VCID_c_login_logincaptcha", LBD_VCID_c_login_logincaptcha));
+                paramList.Add(new KeyValuePair<string, string>("LBD_BackWorkaround_c_login_logincaptcha", "1"));
+                paramList.Add(new KeyValuePair<string, string>("CaptchaCodeTextBox", imgCode));
+                paramList.Add(new KeyValuePair<string, string>("btnLogin", "登  录"));
+                paramList.Add(new KeyValuePair<string, string>("txtReturnUrl", "http://home.cnblogs.com/"));
+                response = httpClient.PostAsync(new Uri(url), new FormUrlEncodedContent(paramList)).Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                Write("myCnblogs.html", result);
+            } while (result.Contains("验证码错误，麻烦您重新输入"));
+
+            Console.WriteLine("登录成功！");
+
+            //用完要记得释放
+            httpClient.Dispose();
+        }
         static void Main(string[] args) {
-            Love.Run();
+            LoginCnblogs();
+           // Love.Run();
             Console.ReadKey();
         }
     //    public int val;

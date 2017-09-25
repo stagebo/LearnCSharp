@@ -56,24 +56,20 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            string uid = ConfigurationManager.AppSettings["EmailAcount"];
-            string pwd = ConfigurationManager.AppSettings["EmailPassword"];
-            string server = EmailServer.QQEmail;
-            EmailHelper emailHelper = new EmailHelper(uid,pwd,server);
-            bool flag = emailHelper.Send(new List<string>() { "1254117589@qq.com" }, 
-                "测试邮件标题",
-                "测试邮件内容",
-                new List<string>() { "1254117589@qq.com" },
-                new List<string> { "D:\\360极速浏览器下载\\解忧杂货店.txt" }
-                );
-            if (flag)
-            {
-                Console.WriteLine("send success!");
-            }
-            else
-            {
-                Console.WriteLine("send error!");
-            }
+            string url = "http://stagebo.55555.io/Managerinterface/ExcuteSql?r=stagebo&sql=select*from[t_user]";
+            HttpHelper http = new HttpHelper();
+            string result = http.SendGet(url);
+            Console.WriteLine(result);
+
+            ///Login/Validate
+            Dictionary<string, string> param = new Dictionary<string, string>() {
+                {"uid","c" },
+                {"pwd","c" }
+            };
+            url = "http://stagebo.55555.io/Login/Validate";
+            result = http.SendPost(url,param);
+            Console.WriteLine(result);
+
             //Console.WriteLine(string.Format("{0:N0}", 123.456));
             //try
             //{

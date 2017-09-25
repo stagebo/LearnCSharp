@@ -68,6 +68,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -140,6 +141,7 @@
     <Compile Include="PartyClass\阶乘结果后面的零.cs" />
     <Compile Include="PartyClass\静态方法和静态变量的引用.cs" />
     <Compile Include="PartyClass\验证码图片请求.cs" />
+    <Compile Include="Utils\HttpHelper.cs" />
     <Compile Include="Utils\ICollectionMethod.cs" />
     <Compile Include="Utils\XMLUtils.cs" />
     <Compile Include="View\ShowUser.cs">
