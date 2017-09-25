@@ -25,6 +25,21 @@ namespace PracticeProgram
         {
 
         }
+
+        private string getAllTraining(string userid)
+        {
+            string url = "http://api.yiboshi.com/api/study/student/listStudentTraining";
+            //userId =84201&excludeExpire=true&trainingWay=1";
+            Dictionary<string, string> paraList = new Dictionary<string, string>()
+            {
+                {"userId",userid },
+                {"excludeExpire","true" },//是否排除过期项目
+                {"trainingWay","2" }
+            };
+            string result = XSystem.Shell.Http.SendGet(url, paraList);
+            return result;
+        }
+
         /// <summary>
         /// 查询全部考试
         /// </summary>
@@ -34,12 +49,38 @@ namespace PracticeProgram
         {
             if (XSystem.Shell.Student == null)
             {
-                MessageBox.Show("请先登录", "开始刷题");
+                MessageBox.Show("请先登录", "一键通过");
                 logStatus("请先登录！");
                 return;
             }
+            if (XSystem.Shell.ExamInfos.NotPassNum == 0)
+            {
+                MessageBox.Show("已全部通过考试，无需刷题！", "一键通过");
+                logStatus("已全部通过考试，无需刷题！");
+                return;
+            }
+
+            string userid = XSystem.Shell.Student.id;
+            passAllTrain(userid);
+
+
+        }
+        public void passAllTrain(string userid)
+        {
+            var trainResult = JSONHelper.JsonToDictionary(getAllTraining(userid));
+            var data = trainResult["data"] as Dictionary<string, object>;
+            var list = data["list"] as ArrayList;
+            foreach (var item in list)
+            {
+                var train = item as Dictionary<string, object>;
+                string trainID = train["id"].ToString();
+                passAllExam(userid, trainID);
+            }
+        }
+        public void passAllExam(string userid, string trainID)
+        {
             string url = "http://api.yiboshi.com/api/study/student/listStudentProjCourseInfoAndStatus?userId" +
-                "=51424&trainingId=363&courseState=&compulsory=&keyword=";//获取课程列表
+                "=userid" + userid + "&trainingId=" + trainID + "&courseState=&compulsory=&keyword=";//获取课程列表
             try
             {
                 string result = XSystem.Shell.Http.SendGet(url);
@@ -59,7 +100,7 @@ namespace PracticeProgram
                         string coureseID = couDic["id"].ToString();
                         string coureseName = couDic["name"].ToString();
                         string courseFieldID = couDic["courseFieldID"].ToString();
-                        string userid = XSystem.Shell.Student.id;
+
                         string trainingID = "363";
 
                         var courseState = couDic["ybsCourseState"] as Dictionary<string, object>;
@@ -84,7 +125,6 @@ namespace PracticeProgram
             {
                 logStatus(ex.Message);
             }
-
         }
         private bool submitScore(string trainingId, string projectId, string userId, string courseId, int score = 100, string versionId = "3.1")
         {
@@ -114,6 +154,7 @@ namespace PracticeProgram
 
 
         }
+
         private void btn_login_Click(object sender, EventArgs e)
         {
             string uid = text_uid.Text;
@@ -130,13 +171,16 @@ namespace PracticeProgram
                 text_uid.Enabled = false;
                 btn_login.Enabled = false;
                 btn_logout.Enabled = true;
-                SearchData();
+                logStatus("正在查询培训内容，大约需要一分钟...");
+                SearchAllData(XSystem.Shell.Student.id);
+                logStatus("查询所有培训内容完毕！");
             }
             else
             {
                 logStatus("登录失败！");
             }
         }
+
         private void btn_logout_Click(object sender, EventArgs e)
         {
             XSystem.Shell.Student = null;
@@ -148,8 +192,10 @@ namespace PracticeProgram
             logStatus("登出成功！");
         }
 
-        private void SearchData()
+        private void SearchAllData(string userID)
         {
+            XSystem.Shell.ExamInfos.NotPassNum = 0;
+            XSystem.Shell.ExamInfos.HasPassNum = 0;
             DataTable dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[] {
                 new DataColumn("课程名称"),
@@ -157,8 +203,25 @@ namespace PracticeProgram
                 new DataColumn("课程状态"),
                 new DataColumn("最高分数")
             });
+            var trainResult = JSONHelper.JsonToDictionary(getAllTraining(userID));
+            var data = trainResult["data"] as Dictionary<string, object>;
+            var list = data["list"] as ArrayList;
+            foreach (var item in list)
+            {
+                var train = item as Dictionary<string, object>;
+                string trainID = train["id"].ToString();
+                string trainName = train["name"].ToString();
+                logStatus(string.Format("正在查询{0}培训下课程...", trainName));
+                SearchData(userID, trainID, dt);
+            }
+            this.gv.DataSource = dt;
+        }
+        private void SearchData(string userid, string trainid, DataTable dt)
+        {
+
+
             string url = "http://api.yiboshi.com/api/study/student/listStudentProjCourseInfoAndStatus?userId" +
-               "=51424&trainingId=363&courseState=&compulsory=&keyword=";//获取课程列表
+               "=" + userid + "&trainingId=" + trainid + "&courseState=&compulsory=&keyword=";//获取课程列表
             try
             {
                 string result = XSystem.Shell.Http.SendGet(url);
@@ -174,7 +237,6 @@ namespace PracticeProgram
                     var courseList = pro["courseList"] as ArrayList;
                     foreach (var course in courseList)
                     {
-                        string trainingID = "363";
                         var couDic = course as Dictionary<string, object>;
                         string coureseID = couDic["id"].ToString();
                         string coureseName = couDic["name"].ToString();
@@ -182,12 +244,23 @@ namespace PracticeProgram
 
                         var teacherInfo = couDic["ybsRbacUser"] as Dictionary<string, object>;
                         string teacherName = teacherInfo["nickName"].ToString();
-                        string userid = XSystem.Shell.Student.id;
 
-                        var courseState = couDic["ybsCourseState"] as Dictionary<string, object>;
-                        string state = courseState["courseState"].ToString();
-                        string practiseScore = courseState["practiseScore"].ToString();
-
+                        string state = "";
+                        string practiseScore = "未学习";
+                        if (couDic.ContainsKey("ybsCourseState"))
+                        {
+                            var courseState = couDic["ybsCourseState"] as Dictionary<string, object>;
+                             state = courseState["courseState"].ToString();
+                            practiseScore = courseState["practiseScore"].ToString();
+                            if (!"100".Equals(practiseScore))
+                            {
+                                XSystem.Shell.ExamInfos.NotPassNum++;
+                            }
+                            else
+                            {
+                                XSystem.Shell.ExamInfos.HasPassNum++;
+                            }
+                        }
                         dt.Rows.Add(coureseName, teacherName, state, practiseScore);
 
 
@@ -201,7 +274,10 @@ namespace PracticeProgram
             {
                 logStatus(ex.Message);
             }
-            this.gv.DataSource = dt;
+            logStatus(string.Format("当前一共{0}道题目，其中{1}道已通过，{2}道未通过",
+                XSystem.Shell.ExamInfos.HasPassNum + XSystem.Shell.ExamInfos.NotPassNum,
+                XSystem.Shell.ExamInfos.HasPassNum, XSystem.Shell.ExamInfos.NotPassNum));
+
         }
 
         private bool Login(string pwd, string uid)
@@ -256,6 +332,9 @@ namespace PracticeProgram
 
         public bool IsLogined { get; set; }
 
+
+
+
         private void btn_clear_Click(object sender, EventArgs e)
         {
 
@@ -272,6 +351,19 @@ namespace PracticeProgram
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (XSystem.Shell.Student != null)
+            {
+                string result = getAllTraining(XSystem.Shell.Student.id);
+                logStatus(result);
+            }
+            else
+            {
+                logStatus("请登录！");
+            }
         }
 
 

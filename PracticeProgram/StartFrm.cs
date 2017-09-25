@@ -18,6 +18,8 @@ namespace PracticeProgram
             this.Database = new SqliteDatabase(dataFileName);
             this.Http = new HttpHelper();
             this.Student = null;
+            this.ExamInfos = new ExamInfo();
+            this.ExamInfos.NotPassNum = 0;
             InitializeComponent();
         }
 
@@ -32,5 +34,11 @@ namespace PracticeProgram
         public SqliteDatabase Database { get; set; }
         public HttpHelper Http { get; set; }
         public StudentInfo Student {get;set;}
+        public ExamInfo ExamInfos { get; set; }
+    }
+    public class ExamInfo
+    {
+        public int NotPassNum { get; set; }
+        public int HasPassNum { get; set; }
     }
 }
