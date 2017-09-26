@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PracticeProgram
@@ -50,8 +51,10 @@ namespace PracticeProgram
         /// <returns></returns>
         public string SendPost(string url, Dictionary<string, string> paramList = null)
         {
-            var v = _httpClient.PostAsync(new Uri(url), new FormUrlEncodedContent(paramList));
-            HttpResponseMessage response = v?.Result;
+            var httpContent = new FormUrlEncodedContent(paramList);
+            var token = new CancellationToken(false);
+            var resp = _httpClient.PostAsync(new Uri(url), httpContent, token);
+            HttpResponseMessage response = resp?.Result;
             string result = response.Content.ReadAsStringAsync().Result;
             return result;
         }

@@ -1,0 +1,203 @@
+﻿
+@{
+    ViewBag.Title = "DoctorExam";
+    Layout = null;
+}
+<link href="~/Scripts/MiniUI/themes/icons.css" rel="stylesheet" />
+<link href="~/Scripts/MiniUI/themes/default/miniui.css" rel="stylesheet" />
+<link href="~/Scripts/MiniUI/themes/olive2003/skin.css" rel="stylesheet" />
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/MiniUI/miniui.js"></script>
+<script>
+    $(function () {
+        mini.parse();
+        $("#login").click(function () {
+            var uid = $("#uid").val();
+            var pwd = $("#pwd").val();
+            $.ajax({
+                url: '/Doctor/Login',
+                type: 'post',
+                data: { 'uid': uid, 'pwd': pwd },
+                dataType: 'json',
+                success: function (jsonData) {
+                    $("#msg").html(jsonData);
+                    if (jsonData["status"] == "200" && jsonData["msg"] == "") {
+                        var userInfo = jsonData["data"]["studentInfo"];
+                        $("#data").data("userInfo", userInfo);
+                        var userid = userInfo["id"];
+                        searchAllTrain(userid);
+                    } else {
+                        alert("登录失败.！");
+                    }
+
+                },
+                error: function (jsonData) {
+                    $("#msg").html(jsonData);
+                    alert("登录失败！");
+                }
+            });
+        });
+    });
+    function searchAllTrain(userid) {
+        $.ajax({
+            url: '/Doctor/SearchAllTraining',
+            type: 'post',
+            data: { userid: userid },
+            dataType: 'json',
+            success: function (jsonData) {
+                var data = jsonData["data"]["list"];
+                $("#data").data("trainList", data);
+                var trainGrid = mini.get("datagrid1");
+                trainGrid.setData(data);
+                console.log(data);
+                if (jsonData["status"] == "200") {
+                } else {
+                    alert("查询培训科目失败！");
+                }
+            },
+            error: function () {
+                alert("查询培训信息失败");
+            }
+        });
+
+    }
+    function selectionChanged(e) {
+        var userInfo = $("#data").data("userInfo");
+        var userid = userInfo['id'];
+        console.log(userInfo);
+        var trainGrid = mini.get("datagrid1");
+        var row = trainGrid.getSelected();
+        var trainid = row.id;
+        $.ajax({
+            url: '/Doctor/GetAllCourse',
+            type: 'post',
+            data: { userid: userid, tid: trainid },
+            dataType: 'json',
+            success: function (jsonData) {
+                var data = jsonData["data"]["list"];
+                var parsedCourseData = parseCourseData(data);
+                console.log(parsedCourseData);
+                $("#data").data("courseList", data);
+                $("#data").data("parsedCourseData", parsedCourseData);
+                mini.get("datagrid2").setData(parsedCourseData);
+            },
+            error: function () { }
+        });
+    }
+    /*解析课程列表*/
+    function parseCourseData(totalData) {
+        var result = new Array();
+        for (var i = 0; i < totalData.length; i++) {
+            var pro = totalData[i];
+            var proID = pro["id"];
+            var proName = pro["projectName"];
+            for (var j = 0; j < pro["courseList"].length; j++) {
+                var cou = pro["courseList"][j];
+                var couid = cou["id"];
+                var couName = cou["name"];
+                var courseState = "未学习";
+                var practiseScore = "0";
+                var nickName = "无";
+                try {
+                    nickName = cou["ybsRbacUser"]["nickName"];
+                    courseState = cou["ybsCourseState"]["courseState"];
+                    courseState = courseState == "2" ? "已学完" : courseState;
+                    courseState = courseState == "1" ? "学习中" : courseState;
+                    practiseScore = cou["ybsCourseState"]["practiseScore"];
+                } catch (e) {
+                    console.log(e);
+                }
+                var obj = {
+                    "projectName": proName,
+                    "projectID": proID,
+                    "name": couName,
+                    "id": couid,
+                    "nickName": nickName,
+                    "courseState": courseState,
+                    "practiseScore": practiseScore
+                };
+                result.push(obj);
+            }
+        }
+        return result;
+    }
+
+    function passAllItem() {
+        var courseList = $("#data").data("parsedCourseData");
+        var option = {};
+        var trainGrid = mini.get("datagrid1");
+        var row = trainGrid.getSelected();
+        var tid = row.id;
+        var user = $("#data").data("userInfo");
+        var uid = user["id"];
+        option["tid"] = tid;
+        option["uid"] = uid;
+        option["count"] = courseList.length;
+        for (var i = 0; i < courseList.length; i++) {
+            var cou = courseList[i];
+            var pid = cou["projectID"];
+            var cid = cou["id"];
+            option["pid" + i] = pid;
+            option["cid" + i] = cid;
+        }
+        $.ajax({
+            url: '/Doctor/PassExam',
+            type: 'post',
+            data: option,
+            dtaType: 'json',
+            success: function (jsonData) {
+                if (jsonData["result"] == "1") {
+                    alert("提交成功！");
+                }
+
+            },
+            error: function () {
+                alert("分数提交失败！");
+            }
+        });
+    }
+</script>
+<br /><br />
+<div id="data"></div>
+<div style="border:solid 1px;height:40px;border-radius:5px;padding-left:5px;padding-top:5px;">
+    <div style="float:left">用户名:</div>
+    <input type="text" id="uid" div style="float:left" value="522121199002200068" />
+    <div div style="float:left">密　码:</div>
+    <input type="password" id="pwd" div style="float:left" value="584520" />
+    <input type="button" value="登录" id="login" div style="float:left" />
+    <div id="msg">
+
+    </div>
+</div>
+<div id="datagrid1" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
+     idField="id" onselectionchanged="selectionChanged()">
+    <div property="columns">
+        <div type="indexcolumn"></div>
+        <div field="name" width="120">科目名称</div>
+        <div field="year" width="120">年份</div>
+        <div field="year" width="120">科目起始日期</div>
+        <div field="year" width="120">科目结束日期</div>
+    </div>
+</div>
+<div class="mini-toolbar">
+    <div class="mini-button" onclick="passAllItem()">一键通过</div>
+</div>
+<div id="datagrid2" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
+     idField="id">
+    <div property="columns">
+        <div type="indexcolumn"></div>
+        <div field="projectName" width="120">项目名称</div>
+        <div field="projectID" width="120">项目id</div>
+        <div field="name" width="120">课程名称</div>
+        <div field="id" width="120">课程id</div>
+        <div field="nickName" width="120">讲解人</div>
+        <div field="courseState" width="120">课程状态</div>
+        <div field="practiseScore" width="120">最高分数</div>
+    </div>
+</div>
+
+<br /><br />
+
+<br />

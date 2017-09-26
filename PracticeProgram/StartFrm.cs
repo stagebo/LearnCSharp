@@ -29,12 +29,29 @@ namespace PracticeProgram
             this.panel1.Controls.Clear();
             this.panel1.Controls.Add(doc);
         }
+        private void btn_signup_Click(object sender, EventArgs e)
+        {
+            string url = "https://www.wish.com/api/email-signup";
+            Dictionary<string, string> paramList = new Dictionary<string, string>() {
+                {"first_name", "aaa" },
+                {"last_name", "bbb" },
+                { "email", "165201521@qq.com"},
+                {"password", "123456" },
+                { "_buckets",""},
+                { "_experiments",""},
+                { "X-XSRFToken","2|20db4224|0b4287ed122eefcefacb8fa9befc26b2|1506390801"},
+                { "_xsrf","false"}
+            };
+            string result = this.Http.SendPost(url,paramList);
+            this.textBox1.Text = result;
+        }
 
         public static string dataFileName = AppDomain.CurrentDomain.BaseDirectory + "/../../DatabaseFile/project.Data";
         public SqliteDatabase Database { get; set; }
         public HttpHelper Http { get; set; }
         public StudentInfo Student {get;set;}
         public ExamInfo ExamInfos { get; set; }
+
     }
     public class ExamInfo
     {

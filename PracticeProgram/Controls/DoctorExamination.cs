@@ -72,15 +72,22 @@ namespace PracticeProgram
             var list = data["list"] as ArrayList;
             foreach (var item in list)
             {
-                var train = item as Dictionary<string, object>;
-                string trainID = train["id"].ToString();
-                passAllExam(userid, trainID);
+                try
+                {
+                    var train = item as Dictionary<string, object>;
+                    string trainID = train["id"].ToString();
+                    passAllExam(userid, trainID);
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
             }
         }
         public void passAllExam(string userid, string trainID)
         {
-            string url = "http://api.yiboshi.com/api/study/student/listStudentProjCourseInfoAndStatus?userId" +
-                "=userid" + userid + "&trainingId=" + trainID + "&courseState=&compulsory=&keyword=";//获取课程列表
+            string url = "http://api.yiboshi.com/api/study/student/listStudentProjCourseInfoAndStatus?userId=" +
+                 userid + "&trainingId=" + trainID + "&courseState=&compulsory=&keyword=";//获取课程列表
             try
             {
                 string result = XSystem.Shell.Http.SendGet(url);
@@ -105,10 +112,13 @@ namespace PracticeProgram
 
                         var courseState = couDic["ybsCourseState"] as Dictionary<string, object>;
                         string state = courseState["courseState"].ToString();
-                        string practiseScore = courseState["practiseScore"].ToString();
+                        string practiseScore = "0";
+                        if (courseState.ContainsKey("practiseScore")) {
+                            practiseScore = courseState["practiseScore"].ToString();
+                        }
+                            bool flag = submitScore(trainingID, proID, userid, coureseID);
                         if (!"100".Equals(practiseScore))
                         {
-                            bool flag = submitScore(trainingID, proID, userid, coureseID);
                             if (flag)
                             {
                                 logStatus(string.Format("【{0}】课程练习成功！成绩：【100】！", coureseName));
@@ -141,6 +151,7 @@ namespace PracticeProgram
             try
             {
                 var reDic = JSONHelper.JsonToDictionary(result);
+                string ret = reDic["result"].ToString();
                 if (reDic["result"].ToString().Equals("1"))
                 {
                     return true;
@@ -284,11 +295,14 @@ namespace PracticeProgram
         {
             string loginUrl = "http://api.yiboshi.com/api/study/student/login";
             pwd = EncriptHelper.MD5Encrypt32(pwd);
+            pwd = "a008aa83f9f52700237f9ecb93159a5b";
             Dictionary<string, string> paramList = new Dictionary<string, string>() {
                 { "username",uid},
                 { "password",pwd}
             };
-
+            //522121199002200068
+            //a008aa83f9f52700237f9ecb93159a5b
+            //a08aa83f9f5270237f9ecb93159a5b
             string result = XSystem.Shell.Http.SendPost(loginUrl, paramList);
             Dictionary<string, object> reDic = JSONHelper.JsonToDictionary(result);
             if (reDic.ContainsKey("status") && int.Parse(reDic["status"].ToString()) == 200)
@@ -343,6 +357,8 @@ namespace PracticeProgram
             url = "http://api.yiboshi.com/api/study/student/existAssignOrg";//不清楚
             url = "http://api.yiboshi.com/api/study/student/listStudentProjCourseInfoAndStatus?userId" +
                 "=51424&trainingId=363&courseState=&compulsory=&keyword=";//获取课程列表
+            string uid = XSystem.Shell.Student.id;
+            passAllExam(uid, "363");
 
 
             text_status.Clear();
