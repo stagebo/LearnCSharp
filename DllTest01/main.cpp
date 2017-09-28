@@ -6,14 +6,14 @@ main.cpp文件
 变量类型对应关系访问：http://blog.csdn.net/lovesomnus/article/details/45073343
 **********************************************/
 #include "stdio.h"    
-using namespace Common;
+//using namespace Common;
 
 #define MYLIBAPI  extern   "C"     __declspec( dllexport )      
 
 #include "main.h"  
-
-int add(int a,int b) {
-	CommonFunction ^common = gcnew CommonFunction();	
-	int result = common->Add(a,b);
-	return result;
-}
+//
+//int add(int a,int b) {
+//	/*CommonFunction ^common = gcnew CommonFunction();	
+//	int result = common->Add(a,b);
+//	return result;*/
+//}

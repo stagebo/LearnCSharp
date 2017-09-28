@@ -83,6 +83,7 @@
                 $("#data").data("courseList", data);
                 $("#data").data("parsedCourseData", parsedCourseData);
                 mini.get("datagrid2").setData(parsedCourseData);
+                mini.get("datagrid2").mergeColumns(1);
             },
             error: function () { }
         });
@@ -189,7 +190,7 @@
     <div class="mini-toolbar">
         <div class="mini-button" onclick="passAllItem()">一键通过</div>
     </div>
-    <div id="datagrid2" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
+    <div id="datagrid2" class="mini-datagrid"  allowRowSelect="true"
          idField="id">
         <div property="columns">
             <div type="indexcolumn"></div>
