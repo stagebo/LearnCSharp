@@ -27,6 +27,7 @@
                         var userInfo = jsonData["data"]["studentInfo"];
                         $("#data").data("userInfo", userInfo);
                         var userid = userInfo["id"];
+                        mini.get("userName").setValue('当前用户：'+userInfo["realName"]);
                         searchAllTrain(userid);
                     } else {
                         alert("登录失败.！");
@@ -161,43 +162,48 @@
 </script>
 <br /><br />
 <div id="data"></div>
-<div style="border:solid 1px;height:40px;border-radius:5px;padding-left:5px;padding-top:5px;">
-    <div style="float:left">用户名:</div>
-    <input type="text" id="uid" div style="float:left" value="522121199002200068" />
-    <div div style="float:left">密　码:</div>
-    <input type="password" id="pwd" div style="float:left" value="584520" />
-    <input type="button" value="登录" id="login" div style="float:left" />
-    <div id="msg">
+<div style="width:80%;margin-left:10%;">
+    <div style="border:solid 1px;height:40px;border-radius:5px;padding-left:5px;padding-top:5px;">
+        <div style="float:left">用户名:</div>
+        <input type="text" id="uid" div style="float:left" value="522121199002200068" />
+        <div div style="float:left">密　码:</div>
+        <input type="password" id="pwd" div style="float:left" value="584520" />
+        <input type="button" value="登录" id="login" div style="float:left" />
+        <div id="msg">
 
+        </div>
+        <div style="float:right;" id="userName" class="mini-textbox" allowInput="false"></div>
     </div>
-</div>
-<div id="datagrid1" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
-     idField="id" onselectionchanged="selectionChanged()">
-    <div property="columns">
-        <div type="indexcolumn"></div>
-        <div field="name" width="120">科目名称</div>
-        <div field="year" width="120">年份</div>
-        <div field="year" width="120">科目起始日期</div>
-        <div field="year" width="120">科目结束日期</div>
+    <h1>学习项目列表</h1>
+    <div id="datagrid1" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
+         idField="id" onselectionchanged="selectionChanged()">
+        <div property="columns">
+            <div type="indexcolumn"></div>
+            <div field="name" width="120">科目名称</div>
+            <div field="year" width="120">年份</div>
+            <div field="year" width="120">科目起始日期</div>
+            <div field="year" width="120">科目结束日期</div>
+        </div>
     </div>
-</div>
-<div class="mini-toolbar">
-    <div class="mini-button" onclick="passAllItem()">一键通过</div>
-</div>
-<div id="datagrid2" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
-     idField="id">
-    <div property="columns">
-        <div type="indexcolumn"></div>
-        <div field="projectName" width="120">项目名称</div>
-        <div field="projectID" width="120">项目id</div>
-        <div field="name" width="120">课程名称</div>
-        <div field="id" width="120">课程id</div>
-        <div field="nickName" width="120">讲解人</div>
-        <div field="courseState" width="120">课程状态</div>
-        <div field="practiseScore" width="120">最高分数</div>
+    <h1>项目课程列表</h1>
+    <div class="mini-toolbar">
+        <div class="mini-button" onclick="passAllItem()">一键通过</div>
     </div>
-</div>
+    <div id="datagrid2" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
+         idField="id">
+        <div property="columns">
+            <div type="indexcolumn"></div>
+            <div field="projectName" width="120">项目名称</div>
+            <div field="projectID" width="120">项目id</div>
+            <div field="name" width="120">课程名称</div>
+            <div field="id" width="120">课程id</div>
+            <div field="nickName" width="120">讲解人</div>
+            <div field="courseState" width="120">课程状态</div>
+            <div field="practiseScore" width="120">最高分数</div>
+        </div>
+    </div>
 
-<br /><br />
+    <br /><br />
 
-<br />
+    <br />
+</div>
