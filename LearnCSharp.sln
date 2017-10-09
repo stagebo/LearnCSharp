@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeProgram", "Practice
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeWeb", "PracticeWeb\PracticeWeb.csproj", "{61FEB470-6B05-4821-A9A2-213F09530C48}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CConsoleApp", "CConsoleApp\CConsoleApp.vcxproj", "{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -213,6 +215,20 @@ Global
 		{61FEB470-6B05-4821-A9A2-213F09530C48}.Release|Win32.Build.0 = Release|Any CPU
 		{61FEB470-6B05-4821-A9A2-213F09530C48}.Release|x64.ActiveCfg = Release|Any CPU
 		{61FEB470-6B05-4821-A9A2-213F09530C48}.Release|x64.Build.0 = Release|Any CPU
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Debug|Win32.Build.0 = Debug|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Debug|x64.ActiveCfg = Debug|x64
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Debug|x64.Build.0 = Debug|x64
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Release|Any CPU.ActiveCfg = Release|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Release|Win32.ActiveCfg = Release|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Release|Win32.Build.0 = Release|Win32
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Release|x64.ActiveCfg = Release|x64
+		{B781BA59-F68C-48BE-B7F7-8F4EF36A9739}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
