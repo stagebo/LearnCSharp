@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -2832,6 +2833,21 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Blog\index.html" />
+    <Content Include="Views\Blog\static\css\app.b40bdc59b4c4c557d6b7d89671dca067.css" />
+    <Content Include="Views\Blog\static\img\favicon.ico" />
+    <Content Include="Views\Blog\static\img\git.png" />
+    <Content Include="Views\Blog\static\img\github.png" />
+    <Content Include="Views\Blog\static\img\icomoon.a3ad375.svg" />
+    <Content Include="Views\Blog\static\img\qq-group.jpg" />
+    <Content Include="Views\Blog\static\img\weibo.png" />
+    <Content Include="Views\Blog\static\js\0.9716943e773cac29c4b8.js" />
+    <Content Include="Views\Blog\static\js\1.9ad2cc6469ad86404f09.js" />
+    <Content Include="Views\Blog\static\js\2.0250117fe65cf4e701ce.js" />
+    <Content Include="Views\Blog\static\js\3.b625505ecc033f8ad334.js" />
+    <Content Include="Views\Blog\static\js\app.86ac397ecac1270955de.js" />
+    <Content Include="Views\Blog\static\js\manifest.3b0c6383191309195b69.js" />
+    <Content Include="Views\Blog\static\js\vendor.9f503f2ef09aa8c7393d.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
