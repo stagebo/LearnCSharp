@@ -40,6 +40,25 @@
                 }
             });
         });
+
+        $("#ext").click(function () {
+            console.log("ext");
+            var user = $("#data").data("userInfo");
+            var uid = user["id"];
+            $.ajax({
+                url: '/Examination/TestExam',
+                type: 'post',
+                data: { 'uid': uid},
+                dataType: 'json',
+                success: function (jsonData) {
+                    console.log(jsonData);
+
+                },
+                error: function (jsonData) {
+                    
+                }
+            });
+        });
     });
     function searchAllTrain(userid) {
         $.ajax({
@@ -79,7 +98,7 @@
             success: function (jsonData) {
                 var data = jsonData["data"]["list"];
                 var parsedCourseData = parseCourseData(data);
-                console.log(parsedCourseData);
+                console.log(data);
                 $("#data").data("courseList", data);
                 $("#data").data("parsedCourseData", parsedCourseData);
                 mini.get("datagrid2").setData(parsedCourseData);
@@ -102,6 +121,7 @@
                 var courseState = "未学习";
                 var practiseScore = "0";
                 var nickName = "无";
+                var courseFieldID = cou["courseFieldID"];
                 try {
                     nickName = cou["ybsRbacUser"]["nickName"];
                     courseState = cou["ybsCourseState"]["courseState"];
@@ -118,7 +138,8 @@
                     "id": couid,
                     "nickName": nickName,
                     "courseState": courseState,
-                    "practiseScore": practiseScore
+                    "practiseScore": practiseScore,
+                    "courseFieldID": courseFieldID
                 };
                 result.push(obj);
             }
@@ -141,8 +162,10 @@
             var cou = courseList[i];
             var pid = cou["projectID"];
             var cid = cou["id"];
+            var courseFieldId = cou["courseFieldID"];
             option["pid" + i] = pid;
             option["cid" + i] = cid;
+            option["courseFieldId" + i] = courseFieldId;
         }
         $.ajax({
             url: '/Doctor/PassExam',
@@ -168,8 +191,9 @@
         <div style="float:left">用户名:</div>
         <input type="text" id="uid" div style="float:left" value="522121199002200068" />
         <div div style="float:left">密　码:</div>
-        <input type="password" id="pwd" div style="float:left" value="584520" />
-        <input type="button" value="登录" id="login" div style="float:left" />
+        <input type="password" id="pwd"  style="float:left" value="584520" />
+        <input type="button" value="登录" id="login"  style="float:left" />
+        <input type="button" value="提取答案" id="ext"  style="float:left" />
         <div id="msg">
 
         </div>
@@ -201,6 +225,8 @@
             <div field="nickName" width="120">讲解人</div>
             <div field="courseState" width="120">课程状态</div>
             <div field="practiseScore" width="120">最高分数</div>
+            <div field="courseFieldID" width="120">courseFieldID</div>
+            
         </div>
     </div>
 

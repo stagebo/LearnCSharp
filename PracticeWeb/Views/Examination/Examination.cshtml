@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Examination";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function(){
+
+    });
+
+    function testExam(){
+        $.ajax({
+            url: '/Examination/TestExam',
+            type: 'post',
+            dataType:'json',
+            success: function (jsonData) {
+                console.log(jsonData);
+            },
+            error: function () { }
+        });
+    }
+</script>
+
+<input type="button" value="测试考试" onclick="testExam()"/>
+

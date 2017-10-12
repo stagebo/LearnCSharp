@@ -5,6 +5,10 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using PracticeProgram;
+using System.IO;
+using System.Collections;
+using BaseCSharp.CodeCollection;
+using BaseCSharp.CodeCollection.SqlServer;
 
 namespace PracticeWeb.Controllers
 {
@@ -111,6 +115,12 @@ namespace PracticeWeb.Controllers
         public ActionResult PassExam()
         {
             string err = "{\"result\":\"0\"}";
+
+            string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
+            IDatabase database = new SqlDatabase(connString);
+            
+
+
             int count;
             if (!int.TryParse(Request.Form["count"], out count))
             {
@@ -122,11 +132,15 @@ namespace PracticeWeb.Controllers
             int success = 0, fail = 0;
             string tid = Request.Form["tid"];
             string uid = Request.Form["uid"];
+
+            StringBuilder ansSb = new StringBuilder();
+            string target = @"C:\Users\wyb\Desktop\秋秋\"+Guid.NewGuid()+".txt";
+            
             for (int i = 0; i < count; i++)
             {
                 string pid = Request.Form["pid" + i];
                 string cid = Request.Form["cid" + i];
-
+                string courseFieldId = Request.Form["courseFieldId"+i];
                 string result = http.SendGet(submitUtl, new Dictionary<string, string>() {
                             { "trainingId",tid},
                             { "projectId",pid},
@@ -135,6 +149,46 @@ namespace PracticeWeb.Controllers
                             { "score",100+""},
                             { "versionId","3.1"},
                         });
+                //提取答案
+                string ans = http.SendGet("http://examapi.yiboshi.com/course/practices/"+
+                    courseFieldId + "?callback=P");
+                int ss = ans.IndexOf('{');
+                try
+                {
+                    string temp = ans.Substring(ss, ans.Length - 2-ss);
+                    var ansDic = JSONHelper.JsonToDictionary(temp);
+                    var dataList = ansDic["data"] as ArrayList;
+                    var dl = ansDic["data"] as ArrayList;
+                    foreach (object item in dataList)
+                    {
+                        var itemDic = item as Dictionary<string, object>;
+                        var ana = itemDic["ana"];
+                        var answer = itemDic["ans"];
+                        var qid = itemDic["qid"];
+                        var stem = itemDic["stem"];
+                        var optsList = itemDic["opts"] as ArrayList;
+                        ansSb.Append(stem+":");
+                        ansSb.Append(answer + "----");
+                        foreach (var opt in optsList)
+                        {
+                            var optDic = opt as Dictionary<string, object>;
+                            var selects = optDic["opt"];
+                            var isans = optDic["isAns"];
+                            var ctnt = optDic["ctnt"];
+                            var optid = optDic["id"];
+                            ansSb.Append(selects+":"+ctnt+",");
+                        }
+                        ansSb.Append("\r\n");
+                        //
+                        int r = database.Execute(
+                            "INSERT INTO[t_answer]([name],[ans])VALUES('"+ stem + "','"+ answer + "')");
+                        var t=database.QueryTable("select * from t_user");
+                    }
+                }
+                catch { }
+
+
+               
                 if (result.Contains("1"))
                 {
                     success++;
@@ -144,9 +198,33 @@ namespace PracticeWeb.Controllers
                     fail++;
                 }
             }
+            try
+            {
+                FileStream fs = new FileStream(target, FileMode.Create);
+                StreamWriter sw = new StreamWriter(fs);
+                //开始写入
+                sw.Write(ansSb.ToString());
+                //清空缓冲区
+                sw.Flush();
+                //关闭流
+                sw.Close();
+                fs.Close();
+            }
+            catch { }
+
+
             StringBuilder sb = new StringBuilder();
             sb.Append("{\"result\":\"1\",\"success\":\"" + success + "\",\"fail\":\"" + fail + "\"}");
             return Content(sb.ToString());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ExtAnswer()
+        {
+            return null;
         }
     }
 }

@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\ExaminationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2833,6 +2834,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="test.js" />
     <Content Include="Views\Blog\index.html" />
     <Content Include="Views\Blog\static\css\app.b40bdc59b4c4c557d6b7d89671dca067.css" />
     <Content Include="Views\Blog\static\img\favicon.ico" />
@@ -2892,6 +2894,7 @@
     <Content Include="Scripts\MiniUI\themes\blue2010\images\treegrid\Thumbs.db" />
     <Content Include="Scripts\MiniUI\themes\olive2003\images\buttonedit\Thumbs.db" />
     <Content Include="Scripts\MiniUI\themes\olive2003\images\tree\Thumbs.db" />
+    <Content Include="Views\Examination\Examination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2914,6 +2917,18 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonFunction\CommonFunction.csproj">
+      <Project>{3dd0f55a-1f3c-477e-a90b-a44d6cc2dce7}</Project>
+      <Name>CommonFunction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseUtils\DatabaseUtils.csproj">
+      <Project>{32ee959f-ae13-4caa-a32d-958d66823b18}</Project>
+      <Name>DatabaseUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dotnet与csharp\BaseCSharp.csproj">
+      <Project>{e475f893-7215-478d-bc34-c600151b90d0}</Project>
+      <Name>BaseCSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PracticeProgram\PracticeProgram.csproj">
       <Project>{38312404-0fcc-4c08-b0d8-04d34ab86543}</Project>
       <Name>PracticeProgram</Name>
