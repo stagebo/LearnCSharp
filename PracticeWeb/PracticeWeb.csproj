@@ -77,6 +77,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1" />
+    <Reference Include="NPOI.OOXML, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOILib\NPOI.OOXML.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -2895,6 +2900,7 @@
     <Content Include="Scripts\MiniUI\themes\olive2003\images\buttonedit\Thumbs.db" />
     <Content Include="Scripts\MiniUI\themes\olive2003\images\tree\Thumbs.db" />
     <Content Include="Views\Examination\Examination.cshtml" />
+    <Content Include="Views\Examination\AutoExam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

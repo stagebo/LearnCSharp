@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "AutoExam";
+}
+<link href="~/Scripts/MiniUI/themes/icons.css" rel="stylesheet" />
+<link href="~/Scripts/MiniUI/themes/default/miniui.css" rel="stylesheet" />
+<link href="~/Scripts/MiniUI/themes/olive2003/skin.css" rel="stylesheet" />
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/MiniUI/miniui.js"></script>
+
+<script>
+    $(function () {
+        mini.parse();
+        $("#login").click(function () {
+            var uid = $("#uid").val();
+            var pwd = $("#pwd").val();
+            $.ajax({
+                url: '/Doctor/Login',
+                type: 'post',
+                data: { 'uid': uid, 'pwd': pwd },
+                dataType: 'json',
+                success: function (jsonData) {
+                    $("#msg").html(jsonData);
+                    if (jsonData["status"] == "200" && jsonData["msg"] == "") {
+                        var userInfo = jsonData["data"]["studentInfo"];
+                        $("#data").data("userInfo", userInfo);
+                        var userid = userInfo["id"];
+                        mini.get("userName").setValue('当前用户：' + userInfo["realName"]);
+                        searchAllExam(userid);
+                    } else {
+                        alert("登录失败.！");
+                    }
+
+                },
+                error: function (jsonData) {
+                    $("#msg").html(jsonData);
+                    alert("登录失败！");
+                }
+            });
+        });
+
+        $("#passSelectedExam").click(function () {
+
+            var userinfo = $("#data").data("userInfo");
+            var trainGrid = mini.get("grid_exam");
+            var row = trainGrid.getSelected();
+            var examid = row.id;
+            var userid = userinfo["id"];
+            var trainingStatus = row["trainingStatus"];
+            var pwd = $("#pwd").val();
+            var option = {
+                'examid': examid,
+                'trainingStatus': '',
+                'userid': userid,
+            };
+            console.log(row);
+            console.log(option);
+            $.ajax({
+                url: '/Examination/PassExamById',
+                type: 'post',
+                data: option,
+                dataType: 'json',
+                success: function (jsonData) {
+                    if (jsonData["message"] == "交卷成功") {
+                        var score = jsonData["meta"]['score'];
+                        alert("提交成功！提交分数\r\n" + score);
+                        var user = $("#data").data("userInfo");
+                        console.log(user);
+                        searchAllExam(user["id"]);
+                    }
+                },
+                error:function(){}
+            });
+
+        });
+    });
+
+    function searchAllExam(userid) {
+        $.ajax({
+            url: '/Examination/SearchAllExam',
+            type: 'post',
+            data: { userid: userid },
+            dataType: 'json',
+            success: function (jsonData) {
+                var examList = jsonData["data"]["list"];
+                $("#data").data("examListInfo", jsonData);
+                var grid = mini.get("grid_exam");
+                grid.setData(examList);
+            },
+            error: function () {
+                alert("查询考试考试信息失败");
+            }
+        });
+
+    }
+</script>
+<div id="data"></div>
+<div style="border:solid 1px;height:40px;border-radius:5px;padding-left:5px;padding-top:5px;">
+    <div style="float:left">用户名:</div>
+    <input type="text" id="uid" div style="float:left" value="15085927614" />
+    <div div style="float:left">密　码:</div>
+    <input type="password" id="pwd" style="float:left" value="123456" />
+    <input type="button" value="登录" id="login" style="float:left" />
+ 
+    <div style="float:right;" id="userName" class="mini-textbox" allowInput="false"></div>
+</div>
+<h1>考试列表</h1>
+<div class="mini-toolbar">
+    <div class="mini-button" id="passSelectedExam">通过选中考试</div>
+    
+</div>
+<div id="grid_exam" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
+     idField="id" onselectionchanged="selectionChanged()">
+    <div property="columns">
+        <div type="indexcolumn"></div>
+        <div field="name" width="120">考试名称</div>
+        <div field="trainingStatus" width="120">考试状态码</div>
+        <div field="paperScore" width="120">总分</div>
+        <div field="id" width="120">id</div>
+        <div field="startTime" width="120">startTime</div>
+        <div field="endTime" width="120">endTime</div>
+        <div field="examMinutes" width="120">examMinutes</div>
+        <div field="repeatTimes" width="120">考试次数</div>
+        <div field="examScore" width="120">成绩</div>
+        
+    </div>
+    
+</div>
+
+<div class="mini-textarea" style="width:400px;height:300px;float:left;background-color:aquamarine"
+     id="ansInput"></div>
+<div id="grid_ans" class="mini-datagrid" style="height:250px;" allowRowSelect="true" 
+     >
+    <div property="columns">
+        <div type="indexcolumn">序号</div>
+        <div field="name" width="120">题目</div>
+        <div field="ans" width="120">答案</div>
+        
+    </div>
+
+</div>
+<div class="mini-button" onclick="testAns()">提取答案
+    <script>
+            function testAns() {
+                var option = mini.get("ansInput").getValue();
+                
+                option = JSON.parse(option);
+                var qlist = option["data"]["examQuestionVOList"];
+                var nameList = "";
+                var isStart = 1;
+                for (var i = 0; i < qlist.length; i++) {
+                    var item = qlist[i];
+                    var name = item["htmlContent"];
+                    if (isStart == 0) {
+                        nameList += ",";
+                    }
+                    isStart = 0;
+                    nameList += name;
+                }
+                console.log("start");
+                $.ajax({
+                    url: '/Examination/GetAnsByQuestionList',
+                    type: 'post',
+                    data: { "nameList": nameList },
+                    dataType: 'json',
+                    success: function (jsonData) {
+                        mini.get("grid_ans").setData(jsonData);
+                    },
+                    error: function () { }
+                });
+
+            }
+    </script>
+</div>
+

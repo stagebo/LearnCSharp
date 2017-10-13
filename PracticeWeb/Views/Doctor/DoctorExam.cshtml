@@ -59,6 +59,10 @@
                 }
             });
         });
+
+        $("#exportAnswer").click(function () {
+            $.get("/Doctor/DownAnswer");
+        });
     });
     function searchAllTrain(userid) {
         $.ajax({
@@ -193,7 +197,7 @@
         <div div style="float:left">密　码:</div>
         <input type="password" id="pwd"  style="float:left" value="584520" />
         <input type="button" value="登录" id="login"  style="float:left" />
-        <input type="button" value="提取答案" id="ext"  style="float:left" />
+        <input type="button" value="下载答案" id="exportAnswer" style="float:left;"/>
         <div id="msg">
 
         </div>

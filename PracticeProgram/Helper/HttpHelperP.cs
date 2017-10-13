@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace PracticeProgram
 {
-    public class HttpHelper
+    public class HttpHelperP
     {
         HttpClient _httpClient;
 
-        public HttpHelper()
+        public HttpHelperP()
         {
             this._httpClient = new HttpClient();
             _httpClient.MaxResponseContentBufferSize = 256000;

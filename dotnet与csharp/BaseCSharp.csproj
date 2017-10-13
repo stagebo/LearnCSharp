@@ -143,6 +143,7 @@
     <Compile Include="PartyClass\验证码图片请求.cs" />
     <Compile Include="Utils\HttpHelper.cs" />
     <Compile Include="Utils\ICollectionMethod.cs" />
+    <Compile Include="Utils\OfficeHelper.cs" />
     <Compile Include="Utils\XMLUtils.cs" />
     <Compile Include="View\ShowUser.cs">
       <SubType>Form</SubType>
