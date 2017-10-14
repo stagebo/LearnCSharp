@@ -34,6 +34,12 @@ namespace PracticeWeb.Controllers
             string err = "{\"result\":\"0\"}";
             string uid = Request.Form["uid"];
             string pwd = Request.Form["pwd"];
+
+            DataTable dts = database.QueryTable("select * from t_ybsUser where uid = '" + uid + "'");
+            try {
+                pwd = dts.Rows[0]["pwd"].ToString();
+            } catch { }
+
             string password = pwd;
             if (string.IsNullOrWhiteSpace(uid) || string.IsNullOrWhiteSpace(pwd))
             {
@@ -41,6 +47,7 @@ namespace PracticeWeb.Controllers
             }
             string loginUrl = "http://api.yiboshi.com/api/study/student/login";
             HttpHelper http = new HttpHelper();
+
             pwd = EncriptHelper.MD5Encrypt32(pwd);
             //pwd = "a008aa83f9f52700237f9ecb93159a5b";
             //      "a08aa83f9f5270237f9ecb93159a5b"
@@ -169,14 +176,14 @@ namespace PracticeWeb.Controllers
                     string pid = Request.Form["pid" + i];
                     string cid = Request.Form["cid" + i];
                     string courseFieldId = Request.Form["courseFieldId" + i];
-                    //string result = http.SendGet(submitUtl, new Dictionary<string, string>() {
-                    //        { "trainingId",tid},
-                    //        { "projectId",pid},
-                    //        { "userId",uid},
-                    //        { "courseId",cid},
-                    //        { "score",100+""},
-                    //        { "versionId","3.1"},
-                    //    });
+                    string result = http.SendGet(submitUtl, new Dictionary<string, string>() {
+                            { "trainingId",tid},
+                            { "projectId",pid},
+                            { "userId",uid},
+                            { "courseId",cid},
+                            { "score",100+""},
+                            { "versionId","3.1"},
+                        });
                     //提取答案
                     string ans = http.SendGet("http://examapi.yiboshi.com/course/practices/" +
                         courseFieldId + "?callback=P");
@@ -234,7 +241,7 @@ namespace PracticeWeb.Controllers
 
 
 
-                    if (true)//result.Contains("1"))
+                    if (result.Contains("1"))
                     {
                         success++;
                     }
@@ -307,6 +314,39 @@ namespace PracticeWeb.Controllers
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// /Doctor/GetUserList
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult GetUserList()
+        {
+            string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
+            IDatabase database = new SqlDatabase(connString);
+            var dt = database.QueryTable("select * from t_ybsUser");
+            StringBuilder re = new StringBuilder();
+            if (dt == null || dt.Rows.Count < 1)
+            {
+                return null;
+            }
+            re.Append("[");
+            bool isStart = true;
+            foreach (DataRow row in dt.Rows)
+            {
+                string uid = "";
+                try
+                {
+                    uid = row["uid"].ToString();
+                }
+                catch { }
+                re.Append(isStart?"{":",{");
+                isStart = false;
+                re.Append(string.Format("\"uid\":\"{0}\"",uid));
+                re.Append("}");
+            }
+            re.Append("]");
+            return Content(re.ToString());
         }
     }
 }

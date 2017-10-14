@@ -99,20 +99,57 @@
 <div id="data"></div>
 <div style="border:solid 1px;height:40px;border-radius:5px;padding-left:5px;padding-top:5px;">
     <div style="float:left">用户名:</div>
-    <input type="text" id="uid" div style="float:left" value="15085927614" />
+    <input type="text" id="uid" div style="float:left" width="150" value="15085927614" />
     <div div style="float:left">密　码:</div>
     <input type="password" id="pwd" style="float:left" value="123456" />
     <input type="button" value="登录" id="login" style="float:left" />
  
     <div style="float:right;" id="userName" class="mini-textbox" allowInput="false"></div>
 </div>
+
+<div id="Part_ChoseUseruid_select_div" style="display:none;">
+    <div id="Part_ChoseUseruser_grid_div" class="mini-datagrid" allowRowSelect="true" 
+         style="width:200px;height:300px;"
+         onrowclick="selectUserGuidOnrowclick">
+        <div property="columns">
+            <div field="uid" width="120">用户名列表</div>
+        </div>
+    </div>
+    <script>
+        mini.parse();
+        $(function () {
+            $.ajax({
+                url: '/Doctor/GetUserList',
+                type: 'post',
+                dataType: 'json',
+                success: function (jsonData) {
+                    var userGrid = mini.get("Part_ChoseUseruser_grid_div");
+                    userGrid.setData(jsonData);
+                }
+            });
+            $("#uid").click(function () {
+                $("#Part_ChoseUseruid_select_div").show();
+            });
+        });
+        function selectUserGuidOnrowclick(e) {
+            $("#Part_ChoseUseruid_select_div").hide();
+            var row = e.record;
+            var uid = row["uid"];
+            $("#uid").val(uid);
+            $("#login").click();
+        }
+    </script>
+</div>
+
+
+
 <h1>考试列表</h1>
 <div class="mini-toolbar">
     <div class="mini-button" id="passSelectedExam">通过选中考试</div>
     
 </div>
 <div id="grid_exam" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
-     idField="id" onselectionchanged="selectionChanged()">
+     idField="id">
     <div property="columns">
         <div type="indexcolumn"></div>
         <div field="name" width="120">考试名称</div>

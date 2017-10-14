@@ -1,0 +1,34 @@
+﻿
+<div id="Part_ChoseUseruid_select_div" style="display:none;">
+    <div id="Part_ChoseUseruser_grid_div" class="mini-datagrid" allowRowSelect="true" style="width:200px;height:500px;"
+         onrowclick="selectUserGuidOnrowclick">
+        <div property="columns">
+            <div field="uid" width="120">用户名列表</div>
+        </div>
+    </div>
+    <script>
+        mini.parse();
+        $(function () {
+            $.ajax({
+                url: '/Doctor/GetUserList',
+                type: 'post',
+                dataType: 'json',
+                success: function (jsonData) {
+                    var userGrid = mini.get("Part_ChoseUseruser_grid_div");
+                    userGrid.setData(jsonData);
+                }
+            });
+            $("#uid").click(function () {
+                $("#Part_ChoseUseruid_select_div").show();
+            });
+        });
+        function selectUserGuidOnrowclick(e) {
+            $("#Part_ChoseUseruid_select_div").hide();
+            var row = e.record;
+            var uid = row["uid"];
+            $("#uid").val(uid);
+        }
+    </script>
+</div>
+
+
