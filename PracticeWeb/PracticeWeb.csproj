@@ -2930,10 +2930,6 @@
       <Project>{3dd0f55a-1f3c-477e-a90b-a44d6cc2dce7}</Project>
       <Name>CommonFunction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DatabaseUtils\DatabaseUtils.csproj">
-      <Project>{32ee959f-ae13-4caa-a32d-958d66823b18}</Project>
-      <Name>DatabaseUtils</Name>
-    </ProjectReference>
     <ProjectReference Include="..\dotnet与csharp\BaseCSharp.csproj">
       <Project>{e475f893-7215-478d-bc34-c600151b90d0}</Project>
       <Name>BaseCSharp</Name>
