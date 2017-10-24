@@ -56,19 +56,21 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            string url = "http://stagebo.55555.io/Managerinterface/ExcuteSql?r=stagebo&sql=select*from[t_user]";
-            HttpHelper http = new HttpHelper();
-            string result = http.SendGet(url);
-            Console.WriteLine(result);
+            CreateMd5PwdLib md5 = new CreateMd5PwdLib();
+            md5.Run();
+            //string url = "http://stagebo.55555.io/Managerinterface/ExcuteSql?r=stagebo&sql=select*from[t_user]";
+            //HttpHelper http = new HttpHelper();
+            //string result = http.SendGet(url);
+            //Console.WriteLine(result);
 
-            ///Login/Validate
-            Dictionary<string, string> param = new Dictionary<string, string>() {
-                {"uid","c" },
-                {"pwd","c" }
-            };
-            url = "http://stagebo.55555.io/Login/Validate";
-            result = http.SendPost(url,param);
-            Console.WriteLine(result);
+            /////Login/Validate
+            //Dictionary<string, string> param = new Dictionary<string, string>() {
+            //    {"uid","c" },
+            //    {"pwd","c" }
+            //};
+            //url = "http://stagebo.55555.io/Login/Validate";
+            //result = http.SendPost(url,param);
+           // Console.WriteLine(result);
 
             //Console.WriteLine(string.Format("{0:N0}", 123.456));
             //try
