@@ -3,8 +3,9 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
+using BaseCSharp.CodeCollection;
 
-namespace BaseCSharp.CodeCollection.SqlServer
+namespace BaseCSharp
 {
     /// <summary>
     /// SqlDatabase ¿‡

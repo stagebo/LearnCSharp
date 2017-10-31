@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BaseCSharp.CodeCollection;
-using BaseCSharp.CodeCollection.SqlServer;
+
 
 namespace BaseCSharp.PartyClass
 {

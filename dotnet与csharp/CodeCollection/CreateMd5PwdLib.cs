@@ -1,5 +1,4 @@
 ﻿using BaseCSharp.CodeCollection;
-using BaseCSharp.CodeCollection.SqlServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
