@@ -42,7 +42,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeCollection\CreateMd5PwdLib.cs" />
     <Compile Include="CodeCollection\DBHelper\Access\AccessDatabase.cs" />
     <Compile Include="CodeCollection\DBHelper\Database.cs" />
     <Compile Include="CodeCollection\DBHelper\DBHelpAcs.cs" />
@@ -143,6 +144,8 @@
     <Compile Include="PartyClass\验证码图片请求.cs" />
     <Compile Include="Utils\HttpHelper.cs" />
     <Compile Include="Utils\ICollectionMethod.cs" />
+    <Compile Include="Utils\MD5Utils.cs" />
+    <Compile Include="Utils\OfficeHelper.cs" />
     <Compile Include="Utils\XMLUtils.cs" />
     <Compile Include="View\ShowUser.cs">
       <SubType>Form</SubType>

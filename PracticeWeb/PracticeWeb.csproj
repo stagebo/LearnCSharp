@@ -77,6 +77,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1" />
+    <Reference Include="NPOI.OOXML, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NPOILib\NPOI.OOXML.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -196,7 +201,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\ExaminationController.cs" />
+    <Compile Include="Controllers\GetInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2832,6 +2840,22 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="test.js" />
+    <Content Include="Views\Blog\index.html" />
+    <Content Include="Views\Blog\static\css\app.b40bdc59b4c4c557d6b7d89671dca067.css" />
+    <Content Include="Views\Blog\static\img\favicon.ico" />
+    <Content Include="Views\Blog\static\img\git.png" />
+    <Content Include="Views\Blog\static\img\github.png" />
+    <Content Include="Views\Blog\static\img\icomoon.a3ad375.svg" />
+    <Content Include="Views\Blog\static\img\qq-group.jpg" />
+    <Content Include="Views\Blog\static\img\weibo.png" />
+    <Content Include="Views\Blog\static\js\0.9716943e773cac29c4b8.js" />
+    <Content Include="Views\Blog\static\js\1.9ad2cc6469ad86404f09.js" />
+    <Content Include="Views\Blog\static\js\2.0250117fe65cf4e701ce.js" />
+    <Content Include="Views\Blog\static\js\3.b625505ecc033f8ad334.js" />
+    <Content Include="Views\Blog\static\js\app.86ac397ecac1270955de.js" />
+    <Content Include="Views\Blog\static\js\manifest.3b0c6383191309195b69.js" />
+    <Content Include="Views\Blog\static\js\vendor.9f503f2ef09aa8c7393d.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2876,6 +2900,10 @@
     <Content Include="Scripts\MiniUI\themes\blue2010\images\treegrid\Thumbs.db" />
     <Content Include="Scripts\MiniUI\themes\olive2003\images\buttonedit\Thumbs.db" />
     <Content Include="Scripts\MiniUI\themes\olive2003\images\tree\Thumbs.db" />
+    <Content Include="Views\Examination\Examination.cshtml" />
+    <Content Include="Views\Examination\AutoExam.cshtml" />
+    <Content Include="Views\Shared\Part_ChoseUser.cshtml" />
+    <Content Include="Views\GetInfo\CrackPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2898,6 +2926,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonFunction\CommonFunction.csproj">
+      <Project>{3dd0f55a-1f3c-477e-a90b-a44d6cc2dce7}</Project>
+      <Name>CommonFunction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dotnet与csharp\BaseCSharp.csproj">
+      <Project>{e475f893-7215-478d-bc34-c600151b90d0}</Project>
+      <Name>BaseCSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PracticeProgram\PracticeProgram.csproj">
       <Project>{38312404-0fcc-4c08-b0d8-04d34ab86543}</Project>
       <Name>PracticeProgram</Name>

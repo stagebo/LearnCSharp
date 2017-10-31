@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeProgram
+namespace BaseCSharp
 {
-    public class EncriptHelper
+   public class MD5Utils
     {
         /// <summary>
         /// 16位MD5加密

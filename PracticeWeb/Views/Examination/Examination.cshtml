@@ -1,0 +1,80 @@
+﻿<link href="~/Scripts/MiniUI/themes/icons.css" rel="stylesheet" />
+<link href="~/Scripts/MiniUI/themes/default/miniui.css" rel="stylesheet" />
+<link href="~/Scripts/MiniUI/themes/olive2003/skin.css" rel="stylesheet" />
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/MiniUI/miniui.js"></script>
+
+<script>
+    $(function () {
+        mini.parse();
+        $("#login").click(function () {
+            var uid = $("#uid").val();
+            var pwd = $("#pwd").val();
+            $.ajax({
+                url: '/Doctor/Login',
+                type: 'post',
+                data: { 'uid': uid, 'pwd': pwd },
+                dataType: 'json',
+                success: function (jsonData) {
+                    $("#msg").html(jsonData);
+                    if (jsonData["status"] == "200" && jsonData["msg"] == "") {
+                        var userInfo = jsonData["data"]["studentInfo"];
+                        $("#data").data("userInfo", userInfo);
+                        var userid = userInfo["id"];
+                        mini.get("userName").setValue('当前用户：' + userInfo["realName"]);
+                        searchAllExam(userid);
+                    } else {
+                        alert("登录失败.！");
+                    }
+
+                },
+                error: function (jsonData) {
+                    $("#msg").html(jsonData);
+                    alert("登录失败！");
+                }
+            });
+        });
+    });
+
+    function searchAllTrain(userid) {
+        $.ajax({
+            url: '/Examination/SearchAllExam',
+            type: 'post',
+            data: { userid: userid },
+            dataType: 'json',
+            success: function (jsonData) {
+                
+            },
+            error: function () {
+                alert("查询培训信息失败");
+            }
+        });
+
+    }
+</script>
+
+<div style="border:solid 1px;height:40px;border-radius:5px;padding-left:5px;padding-top:5px;">
+    <div style="float:left">用户名:</div>
+    <input type="text" id="uid" div style="float:left" value="15085927614" />
+    <div div style="float:left">密　码:</div>
+    <input type="password" id="pwd" style="float:left" value="123456" />
+    <input type="button" value="登录" id="login" style="float:left" />
+    <div id="msg">
+
+    </div>
+    <div style="float:right;" id="userName" class="mini-textbox" allowInput="false"></div>
+</div>
+<h1>考试列表</h1>
+<div id="grid_exam" class="mini-datagrid" style="height:250px;" allowRowSelect="true"
+     idField="id" onselectionchanged="selectionChanged()">
+    <div property="columns">
+        <div type="indexcolumn"></div>
+        <div field="name" width="120">科目名称</div>
+        <div field="year" width="120">年份</div>
+        <div field="year" width="120">科目起始日期</div>
+        <div field="year" width="120">科目结束日期</div>
+    </div>
+</div>
+
