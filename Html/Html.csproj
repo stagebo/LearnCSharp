@@ -71,6 +71,7 @@
     <Content Include="HtmlFile\background\css\Music.mp3" />
     <Content Include="HtmlFile\background\index.html" />
     <Content Include="HtmlFile\background\js\jquery.min.js" />
+    <Content Include="HtmlFile\bt.html" />
     <Content Include="HtmlFile\clickme.html" />
     <Content Include="HtmlFile\clock.html" />
     <Content Include="GitHub\public\2017\05\19\stagebo\index.html" />
