@@ -102,6 +102,7 @@
     <Content Include="GitHub\public\js\script.js" />
     <Content Include="GitHub\public\Plugins\JQuery\jquery-1.8.2.min.js" />
     <Content Include="HtmlFile\heart.html" />
+    <Content Include="HtmlFile\htmlDemo.html" />
     <Content Include="HtmlFile\IFrameTest.html" />
     <Content Include="HtmlFile\ImageFilter.html" />
     <Content Include="HtmlFile\json检测.html" />
