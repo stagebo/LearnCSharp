@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseCSharp", "dotnet与csharp\BaseCSharp.csproj", "{E475F893-7215-478D-BC34-C600151B90D0}"
 EndProject
@@ -32,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.HttpHelper", "Lib.HttpHelper\Lib.HttpHelper.csproj", "{D03070B6-47B0-4017-B23B-6CB5C775C056}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageDeal", "ImageDeal\ImageDeal.csproj", "{6E3CF9CE-E947-44E7-8412-E625E6BE1778}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonTestSpace", "PythonTestSpace\PythonTestSpace.pyproj", "{B33EF6D2-0A83-4016-9702-485E1C390915}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -251,6 +253,14 @@ Global
 		{6E3CF9CE-E947-44E7-8412-E625E6BE1778}.Release|Win32.Build.0 = Release|Any CPU
 		{6E3CF9CE-E947-44E7-8412-E625E6BE1778}.Release|x64.ActiveCfg = Release|Any CPU
 		{6E3CF9CE-E947-44E7-8412-E625E6BE1778}.Release|x64.Build.0 = Release|Any CPU
+		{B33EF6D2-0A83-4016-9702-485E1C390915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33EF6D2-0A83-4016-9702-485E1C390915}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B33EF6D2-0A83-4016-9702-485E1C390915}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{B33EF6D2-0A83-4016-9702-485E1C390915}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B33EF6D2-0A83-4016-9702-485E1C390915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33EF6D2-0A83-4016-9702-485E1C390915}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B33EF6D2-0A83-4016-9702-485E1C390915}.Release|Win32.ActiveCfg = Release|Any CPU
+		{B33EF6D2-0A83-4016-9702-485E1C390915}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -258,5 +268,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{500C9AD1-37B1-439B-A8AD-C9A306564241} = {BE661ECA-C919-4B5B-BC99-E75D55B096DD}
 		{D03070B6-47B0-4017-B23B-6CB5C775C056} = {BE661ECA-C919-4B5B-BC99-E75D55B096DD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E1998E9-2A6A-420C-AA70-BAE2E1A9A5CD}
 	EndGlobalSection
 EndGlobal
