@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>PythonTestSpace</Name>
     <RootNamespace>PythonTestSpace</RootNamespace>
-    <InterpreterId>Global|PythonCore|3.5</InterpreterId>
+    <InterpreterId>Global|PythonCore|2.7</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +25,9 @@
     <Compile Include="imageDeal.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="linearProgramming.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PythonTestSpace.py" />
     <Compile Include="qptest.py">
       <SubType>Code</SubType>
@@ -34,6 +37,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda36-64" />
+    <InterpreterReference Include="Global|PythonCore|2.7" />
     <InterpreterReference Include="Global|PythonCore|3.5" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
