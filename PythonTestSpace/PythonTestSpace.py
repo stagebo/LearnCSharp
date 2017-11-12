@@ -1,3 +1,5 @@
-import math
-s=math.pi * 4 * 4
-print("this sq is :%s"% s)
+
+from qptest import qp
+from worm import wm
+wm.run()
+

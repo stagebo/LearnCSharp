@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../Plugins/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Plugins/Bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../Plugins/slimScroll/prettify.css" rel="stylesheet" />
+    <script src="../Plugins/slimScroll/prettify.js"></script>
+    <script src="../Plugins/jQuery/jquery-1.12.2.min.js"></script>
+    <script src="../Plugins/Bootstrap/js/bootstrap.js"></script>
+    <script src="../Plugins/slimScroll/jquery.slimscroll.js"></script>
+    <script>
+        window.onload = function () {
+            //BootstrapDialog
+            //BootstrapDialog.alert('I want banana!');
+        }
+        $(function () {
+            
+            for (var i = 0; i < 10; i++) {
+                var html = '<input type="button" value="点击删除' + i + '" onclick="fun(' + i + ')"/>'
+                $("#test").append(html);
+            }
+        });
+
+
+        function fun(i) {
+            alert(i);
+        }
+    </script>
+</head>
+<body style="">
+    
+   <div id="test" style="width:500px;height:500px;background-color:#aaa;">
+       <input type="button" value="点击删除1" onclick="fun()" />
+       <input type="button" value="点击删除2" onclick="fun()" />
+       <input type="button" value="点击删除3" onclick="fun()" />
+       <input type="button" value="点击删除4" onclick="fun()" />
+       <input type="button" value="点击删除5" onclick="fun()" />
+       <input type="button" value="点击删除6" onclick="fun()" />
+       <input type="button" value="点击删除7" onclick="fun()" />
+       <input type="button" value="点击删除8" onclick="fun()" />
+       <input type="button" value="点击删除9" onclick="fun()" />
+       <input type="button" value="点击删除00" onclick="fun()" />
+   </div>
+</body>
+</html>

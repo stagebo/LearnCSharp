@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>PythonTestSpace</Name>
     <RootNamespace>PythonTestSpace</RootNamespace>
+    <InterpreterId>Global|PythonCore|3.5</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +22,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="imageDeal.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PythonTestSpace.py" />
+    <Compile Include="qptest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="worm.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.5" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

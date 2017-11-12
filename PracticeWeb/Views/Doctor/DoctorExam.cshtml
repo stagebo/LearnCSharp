@@ -207,7 +207,7 @@
 
     <div id="Part_ChoseUseruid_select_div" style="display:none;">
         <div id="Part_ChoseUseruser_grid_div" class="mini-datagrid" allowRowSelect="true" 
-             style="width:200px;height:200px;"
+             style="width:200px;height:200px;"showPager="false"
              onrowclick="selectUserGuidOnrowclick">
             <div property="columns">
                 <div field="uid" width="120">用户名列表</div>
@@ -226,6 +226,14 @@
                     }
                 });
                 $("#uid").click(function () {
+                    var e = event || window.event;
+                    var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+                    var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+                    var x = e.pageX || e.clientX + scrollX;
+                    var y = e.pageY || e.clientY + scrollY;
+                    //alert('x: ' + x + '\ny: ' + y);
+                    var point = { 'x': x, 'y': y };
+                    $("#Part_ChoseUseruid_select_div").attr("style", 'top:' + point.x + ';left:' + point.y + ';position:absolute;z-Index:99999');
                     $("#Part_ChoseUseruid_select_div").show();
                 });
             });
