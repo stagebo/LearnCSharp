@@ -13,7 +13,7 @@ namespace BaseCSharp.PartyClass
         public void Run()
         {
             string connString = "Data Source=127.0.0.1;Initial Catalog=stagebo;Persist Security Info=True;User ID=sa;PWD=st";
-            IDatabase database = new SqlDatabase(connString);
+            IDatabase database = new SqlDatabase(connString);// CommonController.database;;
             int r = database.Execute(@"
                                 INSERT INTO[dbo].[t_test]([id],[content])
                                      VALUES(1, 'dfsdfjkdfldfsdfkd;lf')");

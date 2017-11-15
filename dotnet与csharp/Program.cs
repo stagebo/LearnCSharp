@@ -56,8 +56,31 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            CreateMd5PwdLib md5 = new CreateMd5PwdLib();
-            md5.Run();
+            string dbName = @"D:\vs workplace\LearnCCSharp\File\\ybsWeb.Data";
+            SqlliteHelp db = new SqlliteHelp(dbName);
+
+            var t = db.QueryTable("select * from t_result;");
+            var tt = db.QueryTable("select * from t_ybsUser");
+            var rows = tt.Rows;
+            string sql = @"create table t_ybsUser(uid nvarchar(64),pwd nvarchar(64));
+create table t_question(
+[name] nvarchar(512),
+[ans] nvarchar(512),
+[A] nvarchar(2),
+[B] nvarchar(2),
+[C] nvarchar(2),
+[D] nvarchar(2),
+[E] nvarchar(2),
+[qid] nvarchar(16),
+[ana] nvarchar(512));
+create table t_answer(
+name nvarchar(512),
+ans nvarchar(2)
+);";
+            //var r = db.Query(sql);
+           // int result = db.Execute(sql);
+            //CreateMd5PwdLib md5 = new CreateMd5PwdLib();
+            //md5.Run();
             //string url = "http://stagebo.55555.io/Managerinterface/ExcuteSql?r=stagebo&sql=select*from[t_user]";
             //HttpHelper http = new HttpHelper();
             //string result = http.SendGet(url);
@@ -70,7 +93,7 @@ namespace BaseCSharp
             //};
             //url = "http://stagebo.55555.io/Login/Validate";
             //result = http.SendPost(url,param);
-           // Console.WriteLine(result);
+            // Console.WriteLine(result);
 
             //Console.WriteLine(string.Format("{0:N0}", 123.456));
             //try

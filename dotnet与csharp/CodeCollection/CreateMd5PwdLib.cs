@@ -13,7 +13,7 @@ namespace BaseCSharp
         public CreateMd5PwdLib()
         {
             string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-            _database = new SqlDatabase(connString); ;
+            _database = new SqlDatabase(connString);//CommonController.database;; ;
         }
         public void Run()
         {

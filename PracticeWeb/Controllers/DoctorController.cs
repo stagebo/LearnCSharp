@@ -28,7 +28,7 @@ namespace PracticeWeb.Controllers
         public ActionResult Login()
         {
             string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-            IDatabase database = new SqlDatabase(connString);
+            IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
 
 
             string err = "{\"result\":\"0\"}";
@@ -152,7 +152,7 @@ namespace PracticeWeb.Controllers
             try
             {
                 string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-                IDatabase database = new SqlDatabase(connString);
+                IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
 
 
 
@@ -229,7 +229,8 @@ namespace PracticeWeb.Controllers
                                 qid, ana));
                             ansSb.Append("\r\n");
                             //
-                            DataTable dt = database.QueryTable("select * from t_answer where name = '" + stem + "'");
+                            DataTable dt = database.QueryTable
+                                ("select * from t_answer where name = '" + stem + "'");
                             if (dt.Rows.Count < 1)
                             {
                                 int r = database.Execute(
@@ -279,7 +280,7 @@ namespace PracticeWeb.Controllers
             try
             {
                 string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-                IDatabase database = new SqlDatabase(connString);
+                IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
                 DataTable dt = database.QueryTable("select * from t_question ");
                 if (dt == null || dt.Rows.Count < 1)
                 {
@@ -323,7 +324,7 @@ namespace PracticeWeb.Controllers
         public ActionResult GetUserList()
         {
             string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-            IDatabase database = new SqlDatabase(connString);
+            IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
             var dt = database.QueryTable("select * from t_ybsUser");
             StringBuilder re = new StringBuilder();
             if (dt == null || dt.Rows.Count < 1)
