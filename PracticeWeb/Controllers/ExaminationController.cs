@@ -31,7 +31,7 @@ namespace PracticeWeb.Controllers
         public ActionResult TestExam()
         {
             string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-            IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
+            SqlliteHelp database  = /*new SqlDatabase(connString)*/CommonController.database;;
             database = CommonController.database;
             HttpHelper http = Session["http"] as HttpHelper;
             string uid = Request.Form["uid"];
@@ -131,7 +131,7 @@ namespace PracticeWeb.Controllers
             try
             {
                 string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-                IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
+                SqlliteHelp database  = /*new SqlDatabase(connString)*/CommonController.database;;
                 HttpHelper http = Session["http"] as HttpHelper;
                 string examId = Request.Form["examid"];
                 string trainingStatus = Request.Form["trainingStatus"];
@@ -247,7 +247,7 @@ namespace PracticeWeb.Controllers
             try
             {
                 string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-                IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
+                SqlliteHelp database  = /*new SqlDatabase(connString)*/CommonController.database;;
                 HttpHelper http = Session["http"] as HttpHelper;
 
                 string nameList = Request.Form["nameList"];

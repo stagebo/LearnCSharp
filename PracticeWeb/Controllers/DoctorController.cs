@@ -28,17 +28,26 @@ namespace PracticeWeb.Controllers
         public ActionResult Login()
         {
             string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-            IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
-
-
+            SqlliteHelp database = CommonController.database; ;
+            /*new SqlDatabase(connString)*/
+           
             string err = "{\"result\":\"0\"}";
             string uid = Request.Form["uid"];
             string pwd = Request.Form["pwd"];
+            string str = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            DataTable dts = null;
+            try
+            {
 
-            DataTable dts = database.QueryTable("select * from t_ybsUser where uid = '" + uid + "'");
-            try {
+                dts = database.QueryTable("select * from t_ybsUser where uid = '" + uid + "'");
+            }
+            catch (Exception ex) {
+            }
+            try
+            {
                 pwd = dts.Rows[0]["pwd"].ToString();
-            } catch { }
+            }
+            catch (Exception ex) { }
 
             string password = pwd;
             if (string.IsNullOrWhiteSpace(uid) || string.IsNullOrWhiteSpace(pwd))
@@ -70,12 +79,12 @@ namespace PracticeWeb.Controllers
                     if (dt.Rows.Count > 0)
                     {
                         sql = "update t_ybsUser set pwd = '{0}' where uid = '{1}' ";
-                        int reInt = database.Execute(string.Format(sql, password, uid));
+                        int reInt = database.ExecuteSql(string.Format(sql, password, uid));
                     }
                     else
                     {
                         sql = "insert into t_ybsUser (uid,pwd) values('{0}','{1}')";
-                        int reInt = database.Execute(string.Format(sql, uid, password));
+                        int reInt = database.ExecuteSql(string.Format(sql, uid, password));
                     }
                 }
                 return Content(result);
@@ -152,7 +161,7 @@ namespace PracticeWeb.Controllers
             try
             {
                 string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-                IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
+                SqlliteHelp database = /*new SqlDatabase(connString)*/CommonController.database; 
 
 
 
@@ -223,7 +232,7 @@ namespace PracticeWeb.Controllers
                             insert into t_question 
                             ([name],[ans],[A],[B],[C],[D],[E],[qid],[ana]) values
                             ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}');";
-                            int reInt = database.Execute(string.Format(sql,
+                            int reInt = database.ExecuteSql(string.Format(sql,
                                 stem, answer, ansNameList[0], ansNameList[1],
                                 ansNameList[2], ansNameList[3], ansNameList[4],
                                 qid, ana));
@@ -280,7 +289,7 @@ namespace PracticeWeb.Controllers
             try
             {
                 string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-                IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
+                SqlliteHelp database = /*new SqlDatabase(connString)*/CommonController.database; ;
                 DataTable dt = database.QueryTable("select * from t_question ");
                 if (dt == null || dt.Rows.Count < 1)
                 {
@@ -288,8 +297,8 @@ namespace PracticeWeb.Controllers
                 }
                 IWorkbook wb = new XSSFWorkbook();
                 new OfficeHelper().ImportToWorkbook(dt, ref wb);
-                string target = System.AppDomain.CurrentDomain.BaseDirectory +"Files\\"
-                    +  Guid.NewGuid().ToString()+".xlsx";
+                string target = System.AppDomain.CurrentDomain.BaseDirectory + "Files\\"
+                    + Guid.NewGuid().ToString() + ".xlsx";
                 FileStream fs = null;
                 try
                 {
@@ -298,7 +307,7 @@ namespace PracticeWeb.Controllers
                         wb.Write(fs);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
 
                 }
@@ -324,7 +333,7 @@ namespace PracticeWeb.Controllers
         public ActionResult GetUserList()
         {
             string connString = "Data Source=127.0.0.1;Initial Catalog=BlogSystem;Persist Security Info=True;User ID=sa;PWD=st";
-            IDatabase database = /*new SqlDatabase(connString)*/CommonController.database;;
+            SqlliteHelp database = /*new SqlDatabase(connString)*/CommonController.database; ;
             var dt = database.QueryTable("select * from t_ybsUser");
             StringBuilder re = new StringBuilder();
             if (dt == null || dt.Rows.Count < 1)
@@ -341,9 +350,9 @@ namespace PracticeWeb.Controllers
                     uid = row["uid"].ToString();
                 }
                 catch { }
-                re.Append(isStart?"{":",{");
+                re.Append(isStart ? "{" : ",{");
                 isStart = false;
-                re.Append(string.Format("\"uid\":\"{0}\"",uid));
+                re.Append(string.Format("\"uid\":\"{0}\"", uid));
                 re.Append("}");
             }
             re.Append("]");

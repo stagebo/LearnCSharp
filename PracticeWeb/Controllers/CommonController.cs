@@ -13,7 +13,7 @@ namespace PracticeWeb.Controllers
         public static string dbName =
             @"D:\vs workplace\LearnCCSharp\File\\ybsWeb.Data";
         
-        public static IDatabase database = new SqlliteHelp(dbName);
+        public static SqlliteHelp database = new SqlliteHelp(dbName);
         // GET: Common
         public ActionResult Index()
         {

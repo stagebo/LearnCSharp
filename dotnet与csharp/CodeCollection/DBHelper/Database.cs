@@ -13,7 +13,7 @@ namespace BaseCSharp.CodeCollection
     /// 名称: 数据库对象 基类
     /// 功能: 实现数据操作
     /// </summary>
-     
+
     public abstract class Database : IDatabase
     {
         #region 构造和析构
@@ -148,7 +148,7 @@ namespace BaseCSharp.CodeCollection
         public DbConnection CreateConnection()
         {
             Debug.Assert(!string.IsNullOrEmpty(m_connString), "数据库连接字符串为空！");
-            DbConnection  conn = m_dbFactory.CreateConnection();
+            DbConnection conn = m_dbFactory.CreateConnection();
             conn.ConnectionString = m_connString;
             return conn;
         }
@@ -171,7 +171,7 @@ namespace BaseCSharp.CodeCollection
             }
             catch (Exception e)
             {
-                throw new Exception("创建或打开数据库连接失败！") ;
+                throw new Exception("创建或打开数据库连接失败！");
             }
             return connect;
         }
@@ -207,7 +207,7 @@ namespace BaseCSharp.CodeCollection
             }
             catch (Exception ex)
             {
-                
+
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -228,7 +228,7 @@ namespace BaseCSharp.CodeCollection
         /// <returns>数据集</returns>
         public System.Data.DataSet QueryDataSet(ICollection<string> sqls)
         {
-            Debug.Assert(sqls!=null, "SQL语句集合为空！");
+            Debug.Assert(sqls != null, "SQL语句集合为空！");
             DataSet ds = new DataSet();
             DbCommand command = null;
             try
@@ -259,7 +259,7 @@ namespace BaseCSharp.CodeCollection
             }
             catch (Exception ex)
             {
-               
+
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -299,12 +299,12 @@ namespace BaseCSharp.CodeCollection
                     adapter.Fill(dt);
 
                     return dt;
-                    
+
                 }
             }
             catch (Exception ex)
             {
-               
+
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -325,7 +325,7 @@ namespace BaseCSharp.CodeCollection
         /// <param name="trans">事务对象</param>
         /// <param name="sql">查询语句</param>
         /// <returns>数据表</returns>
-        public System.Data.DataTable QueryTable(ITrans trans,string sql)
+        public System.Data.DataTable QueryTable(ITrans trans, string sql)
         {
             AssertQuery(sql);
             DbCommand command = null;
@@ -353,7 +353,7 @@ namespace BaseCSharp.CodeCollection
             }
             catch (Exception ex)
             {
-                
+
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -382,7 +382,7 @@ namespace BaseCSharp.CodeCollection
             }
             catch (Exception ex)
             {
-               
+
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -409,7 +409,7 @@ namespace BaseCSharp.CodeCollection
             }
             catch (Exception ex)
             {
-               
+
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -437,14 +437,14 @@ namespace BaseCSharp.CodeCollection
                 using (command = m_dbFactory.CreateCommand())
                 {
                     // 命令对象
-                    command.Connection = CreateAndOpenConnection ();
+                    command.Connection = CreateAndOpenConnection();
                     command.CommandText = sql;
                     return command.ExecuteScalar();
                 }
             }
             catch (Exception ex)
             {
-              
+
                 Debug.Assert(false, ex.Message);
                 return null;
             }
@@ -481,7 +481,7 @@ namespace BaseCSharp.CodeCollection
                     command.CommandTimeout = 0;
                     command.Connection = CreateAndOpenConnection();
                     command.CommandText = sql;
-                    int result= command.ExecuteNonQuery();
+                    int result = command.ExecuteNonQuery();
                     if (result == -1)
                     {
                         return 0;
@@ -491,13 +491,13 @@ namespace BaseCSharp.CodeCollection
             }
             catch (Exception ex)
             {
-               
+
                 Debug.Assert(false, ex.Message);
                 return -1;
             }
             finally
             {
-                if (command != null && command.Connection!=null)
+                if (command != null && command.Connection != null)
                 {
                     command.Connection.Close();
                 }
@@ -539,7 +539,7 @@ namespace BaseCSharp.CodeCollection
             catch (Exception ex)
             {
                 dbTrans.Rollback();
-               
+
                 Debug.Assert(false, ex.Message);
                 return -1;
             }
@@ -575,7 +575,7 @@ namespace BaseCSharp.CodeCollection
         public int Execute(ITrans trans, String sql)
         {
             Debug.Assert(!string.IsNullOrEmpty(sql), "要执行的SQL为空！");
-            Debug.Assert(trans!=null, "事务对象为空！");
+            Debug.Assert(trans != null, "事务对象为空！");
             try
             {
                 using (DbCommand command = m_dbFactory.CreateCommand())
@@ -588,17 +588,17 @@ namespace BaseCSharp.CodeCollection
                     command.Connection = trans.DbConnection;
                     command.CommandText = sql;
 
-                    int result= command.ExecuteNonQuery();
+                    int result = command.ExecuteNonQuery();
                     if (result == -1)
                     {
-                        return  0;
+                        return 0;
                     }
                     return result;
                 }
             }
             catch (Exception ex)
             {
-               
+
                 Debug.Assert(false, ex.Message);
                 return -1;
             }
@@ -627,7 +627,7 @@ namespace BaseCSharp.CodeCollection
                     command.Connection = trans.DbConnection;
                     int exeCount = 0;
                     StringBuilder sb = new StringBuilder();
-                    
+
                     foreach (String sql in sqls)
                     {
                         sb.Append(sql);
@@ -645,7 +645,7 @@ namespace BaseCSharp.CodeCollection
             }
             catch (Exception ex)
             {
-               
+
                 Debug.Assert(false, ex.Message);
                 return -1;
             }
@@ -665,7 +665,7 @@ namespace BaseCSharp.CodeCollection
             Debug.Assert(!string.IsNullOrEmpty(value), "值为空！");
             return value.Replace("'", "''");
         }
-        
+
         #endregion
 
         /// <summary>
@@ -737,5 +737,5 @@ namespace BaseCSharp.CodeCollection
 
     }
 
-    
+
 }
