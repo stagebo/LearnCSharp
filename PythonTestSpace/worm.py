@@ -1,29 +1,16 @@
-import urllib
 import sys
+import urllib
+import urllib2
+from bs4 import BeautifulSoup
 import re
 from pymongo import MongoClient
-import scrapy
- 
-class DmozSpider(scrapy.Spider):
-    name = "dmoz"
-    allowed_domains = ["dmoz.org"]
-    start_urls = [
-        "http://www.dmoz.org/Computers/Programming/Languages/Python/Books/",
-        "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/"
-    ]
- 
-    def parse(self, response):
-        filename = response.url.split("/")[-2]
-        with open(filename, 'wb') as f:
-            f.write(response.body)
 
 class wm(object):
-    def run():
-        client = MongoClient('172.16.60.168',27017)
-        db_tms = client.amac
-        tag_cls = db_tms.amacs
+    def run(_self):
+        client = MongoClient('172.16.10.88',27017)
+        dtm = client.amac
+        tcl = dtm.amacs
 
-        url = 'http://www.baidu.com'
-        pager = urllib.request(url)
-
-        print(pager)
+        url = 'www.baidu.com'
+        hc = urllib.urlopen(url).read()
+        print(hc)
