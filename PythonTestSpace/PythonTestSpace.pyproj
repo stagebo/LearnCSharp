@@ -28,6 +28,9 @@
     <Compile Include="linearProgramming.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="multiThread.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PythonTestSpace.py" />
     <Compile Include="qptest.py">
       <SubType>Code</SubType>
