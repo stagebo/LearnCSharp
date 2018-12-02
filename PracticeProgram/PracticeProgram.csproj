@@ -118,6 +118,7 @@
       <DependentUpon>DoctorExamination.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\SqliteDatabase.cs" />
+    <Compile Include="Doctor.cs" />
     <Compile Include="Helper\EncriptHelper.cs" />
     <Compile Include="Helper\HttpHelperP.cs" />
     <Compile Include="Helper\JSONHelper.cs" />
